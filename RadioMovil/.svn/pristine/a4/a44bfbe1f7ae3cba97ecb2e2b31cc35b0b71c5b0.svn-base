@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--<style name="Theme.GlobalApp" parent="android:Theme.Material.Light.NoActionBar" />-->
+    <style name="Theme.GlobalApp" parent="Theme.AppCompat.Light.NoActionBar" >
+        <item name="colorPrimary">@color/set_primary3</item>
+        <item name="colorPrimaryDark">@color/set_tertiary</item>
+        <item name="colorAccent">@color/set_tertiary</item>
+    </style>
+</resources>

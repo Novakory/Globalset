@@ -1,0 +1,161 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.globalapp"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="35" />
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:4:5-66
+11-->D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:4:22-64
+12    <uses-permission android:name="android.permission.USE_BIOMETRIC" /> <!-- suppress DeprecatedClassUsageInspection -->
+12-->[androidx.biometric:biometric:1.1.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\df750b83a839a8d9bdf0ee92d22128d1\transformed\biometric-1.1.0\AndroidManifest.xml:24:5-72
+12-->[androidx.biometric:biometric:1.1.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\df750b83a839a8d9bdf0ee92d22128d1\transformed\biometric-1.1.0\AndroidManifest.xml:24:22-69
+13    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+13-->[androidx.biometric:biometric:1.1.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\df750b83a839a8d9bdf0ee92d22128d1\transformed\biometric-1.1.0\AndroidManifest.xml:27:5-74
+13-->[androidx.biometric:biometric:1.1.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\df750b83a839a8d9bdf0ee92d22128d1\transformed\biometric-1.1.0\AndroidManifest.xml:27:22-71
+14
+15    <permission
+15-->[androidx.core:core:1.15.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\7742085132d2511bc38ee35494231e4f\transformed\core-1.15.0\AndroidManifest.xml:22:5-24:47
+16        android:name="com.example.globalapp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+16-->[androidx.core:core:1.15.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\7742085132d2511bc38ee35494231e4f\transformed\core-1.15.0\AndroidManifest.xml:23:9-81
+17        android:protectionLevel="signature" />
+17-->[androidx.core:core:1.15.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\7742085132d2511bc38ee35494231e4f\transformed\core-1.15.0\AndroidManifest.xml:24:9-44
+18
+19    <uses-permission android:name="com.example.globalapp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+19-->[androidx.core:core:1.15.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\7742085132d2511bc38ee35494231e4f\transformed\core-1.15.0\AndroidManifest.xml:26:5-97
+19-->[androidx.core:core:1.15.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\7742085132d2511bc38ee35494231e4f\transformed\core-1.15.0\AndroidManifest.xml:26:22-94
+20
+21    <application
+21-->D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:5:5-29:19
+22        android:name="com.example.globalapp.GlobalApplication"
+22-->D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:6:9-42
+23        android:allowBackup="true"
+23-->D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:7:9-35
+24        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+24-->[androidx.core:core:1.15.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\7742085132d2511bc38ee35494231e4f\transformed\core-1.15.0\AndroidManifest.xml:28:18-86
+25        android:dataExtractionRules="@xml/data_extraction_rules"
+25-->D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:8:9-65
+26        android:debuggable="true"
+27        android:extractNativeLibs="false"
+28        android:fullBackupContent="@xml/backup_rules"
+28-->D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:9:9-54
+29        android:icon="@mipmap/ic_launcher"
+29-->D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:10:9-43
+30        android:label="@string/app_name"
+30-->D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:11:9-41
+31        android:networkSecurityConfig="@xml/network_security_config"
+31-->D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:16:9-69
+32        android:roundIcon="@mipmap/ic_launcher_round"
+32-->D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:12:9-54
+33        android:supportsRtl="true"
+33-->D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:13:9-35
+34        android:testOnly="true"
+35        android:theme="@style/Theme.GlobalApp" >
+35-->D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:14:9-47
+36        <activity
+36-->D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:18:9-28:20
+37            android:name="com.example.globalapp.MainActivity"
+37-->D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:19:13-41
+38            android:exported="true"
+38-->D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:20:13-36
+39            android:label="@string/app_name"
+39-->D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:21:13-45
+40            android:theme="@style/Theme.GlobalApp" >
+40-->D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:22:13-51
+41            <intent-filter>
+41-->D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:23:13-27:29
+42                <action android:name="android.intent.action.MAIN" />
+42-->D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:24:17-69
+42-->D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:24:25-66
+43
+44                <category android:name="android.intent.category.LAUNCHER" />
+44-->D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:26:17-77
+44-->D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:26:27-74
+45            </intent-filter>
+46        </activity>
+47
+48        <provider
+48-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\ac8c89205764dde8ad3037a904ddb0ba\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+49            android:name="androidx.startup.InitializationProvider"
+49-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\ac8c89205764dde8ad3037a904ddb0ba\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
+50            android:authorities="com.example.globalapp.androidx-startup"
+50-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\ac8c89205764dde8ad3037a904ddb0ba\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
+51            android:exported="false" >
+51-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\ac8c89205764dde8ad3037a904ddb0ba\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
+52            <meta-data
+52-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\ac8c89205764dde8ad3037a904ddb0ba\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+53                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+53-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\ac8c89205764dde8ad3037a904ddb0ba\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
+54                android:value="androidx.startup" />
+54-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\ac8c89205764dde8ad3037a904ddb0ba\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
+55            <meta-data
+55-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\98ec50c8e78484b2011fb4be36045703\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:29:13-31:52
+56                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+56-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\98ec50c8e78484b2011fb4be36045703\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:30:17-78
+57                android:value="androidx.startup" />
+57-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\98ec50c8e78484b2011fb4be36045703\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:31:17-49
+58            <meta-data
+58-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
+59                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+59-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
+60                android:value="androidx.startup" />
+60-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
+61        </provider>
+62
+63        <activity
+63-->[androidx.compose.ui:ui-test-manifest:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\27941441a25c14175619e8734cbab037\transformed\ui-test-manifest-1.7.3\AndroidManifest.xml:23:9-25:39
+64            android:name="androidx.activity.ComponentActivity"
+64-->[androidx.compose.ui:ui-test-manifest:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\27941441a25c14175619e8734cbab037\transformed\ui-test-manifest-1.7.3\AndroidManifest.xml:24:13-63
+65            android:exported="true" />
+65-->[androidx.compose.ui:ui-test-manifest:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\27941441a25c14175619e8734cbab037\transformed\ui-test-manifest-1.7.3\AndroidManifest.xml:25:13-36
+66        <activity
+66-->[androidx.compose.ui:ui-tooling-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\d095dd6d826d015043b50a3575329849\transformed\ui-tooling-release\AndroidManifest.xml:23:9-25:39
+67            android:name="androidx.compose.ui.tooling.PreviewActivity"
+67-->[androidx.compose.ui:ui-tooling-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\d095dd6d826d015043b50a3575329849\transformed\ui-tooling-release\AndroidManifest.xml:24:13-71
+68            android:exported="true" />
+68-->[androidx.compose.ui:ui-tooling-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\d095dd6d826d015043b50a3575329849\transformed\ui-tooling-release\AndroidManifest.xml:25:13-36
+69
+70        <receiver
+70-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
+71            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+71-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
+72            android:directBootAware="false"
+72-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+73            android:enabled="true"
+73-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
+74            android:exported="true"
+74-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+75            android:permission="android.permission.DUMP" >
+75-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+76            <intent-filter>
+76-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
+77                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+77-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+77-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
+78            </intent-filter>
+79            <intent-filter>
+79-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
+80                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+80-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+80-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
+81            </intent-filter>
+82            <intent-filter>
+82-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
+83                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+83-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+83-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
+84            </intent-filter>
+85            <intent-filter>
+85-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
+86                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+86-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+86-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
+87            </intent-filter>
+88        </receiver>
+89    </application>
+90
+91</manifest>

@@ -1,0 +1,166 @@
+package com.example.globalapp.viewModels;
+
+@kotlin.Metadata(mv = {1, 9, 0}, k = 1, xi = 48, d1 = {"\u0000Z\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u0007\n\u0002\u0010\b\n\u0002\b\f\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u000e\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0010\b\u0007\u0018\u00002\u00020\u0001B\u000f\b\u0007\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u00a2\u0006\u0002\u0010\u0004J\u0011\u00109\u001a\u00020:H\u0082@\u00f8\u0001\u0000\u00a2\u0006\u0002\u0010;J\u000e\u0010<\u001a\u00020:2\u0006\u0010=\u001a\u00020>J&\u0010?\u001a\u00020:2\u0006\u0010=\u001a\u00020>2\u0006\u00105\u001a\u00020(2\u0006\u0010)\u001a\u00020(2\u0006\u0010@\u001a\u00020AJ\u0016\u0010B\u001a\u00020:2\u0006\u0010=\u001a\u00020>2\u0006\u0010C\u001a\u00020(J#\u0010D\u001a\u0004\u0018\u00010!2\u0006\u00105\u001a\u00020(2\u0006\u0010)\u001a\u00020(H\u0086@\u00f8\u0001\u0000\u00a2\u0006\u0002\u0010EJ\u0016\u0010F\u001a\u00020:2\u0006\u0010G\u001a\u00020(2\u0006\u0010H\u001a\u00020(J\u000e\u0010I\u001a\u00020:2\u0006\u0010\r\u001a\u00020\fJ\u000e\u0010J\u001a\u00020:2\u0006\u0010\u001b\u001a\u00020\fJ\u000e\u0010K\u001a\u00020:2\u0006\u0010)\u001a\u00020(J\u000e\u0010L\u001a\u00020:2\u0006\u00105\u001a\u00020(J\u0006\u0010M\u001a\u00020:J!\u0010N\u001a\u00020\f2\u0006\u00105\u001a\u00020(2\u0006\u0010)\u001a\u00020(H\u0086@\u00f8\u0001\u0000\u00a2\u0006\u0002\u0010EJ\u0018\u0010O\u001a\u00020\f2\u0006\u00105\u001a\u00020(2\u0006\u0010)\u001a\u00020(H\u0002J\u0006\u0010P\u001a\u00020\fR\u001a\u0010\u0005\u001a\u00020\u0006X\u0086.\u00a2\u0006\u000e\n\u0000\u001a\u0004\b\u0007\u0010\b\"\u0004\b\t\u0010\nR+\u0010\r\u001a\u00020\f2\u0006\u0010\u000b\u001a\u00020\f8F@BX\u0086\u008e\u0002\u00a2\u0006\u0012\n\u0004\b\u0012\u0010\u0013\u001a\u0004\b\u000e\u0010\u000f\"\u0004\b\u0010\u0010\u0011R+\u0010\u0015\u001a\u00020\u00142\u0006\u0010\u000b\u001a\u00020\u00148F@BX\u0086\u008e\u0002\u00a2\u0006\u0012\n\u0004\b\u001a\u0010\u0013\u001a\u0004\b\u0016\u0010\u0017\"\u0004\b\u0018\u0010\u0019R+\u0010\u001b\u001a\u00020\f2\u0006\u0010\u000b\u001a\u00020\f8F@BX\u0086\u008e\u0002\u00a2\u0006\u0012\n\u0004\b\u001d\u0010\u0013\u001a\u0004\b\u001b\u0010\u000f\"\u0004\b\u001c\u0010\u0011R+\u0010\u001e\u001a\u00020\f2\u0006\u0010\u000b\u001a\u00020\f8F@FX\u0086\u008e\u0002\u00a2\u0006\u0012\n\u0004\b \u0010\u0013\u001a\u0004\b\u001e\u0010\u000f\"\u0004\b\u001f\u0010\u0011R+\u0010\"\u001a\u00020!2\u0006\u0010\u000b\u001a\u00020!8F@BX\u0086\u008e\u0002\u00a2\u0006\u0012\n\u0004\b\'\u0010\u0013\u001a\u0004\b#\u0010$\"\u0004\b%\u0010&R+\u0010)\u001a\u00020(2\u0006\u0010\u000b\u001a\u00020(8F@BX\u0086\u008e\u0002\u00a2\u0006\u0012\n\u0004\b.\u0010\u0013\u001a\u0004\b*\u0010+\"\u0004\b,\u0010-R\u001a\u0010/\u001a\u000200X\u0086.\u00a2\u0006\u000e\n\u0000\u001a\u0004\b1\u00102\"\u0004\b3\u00104R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004\u00a2\u0006\u0002\n\u0000R+\u00105\u001a\u00020(2\u0006\u0010\u000b\u001a\u00020(8F@BX\u0086\u008e\u0002\u00a2\u0006\u0012\n\u0004\b8\u0010\u0013\u001a\u0004\b6\u0010+\"\u0004\b7\u0010-\u0082\u0002\u0004\n\u0002\b\u0019\u00a8\u0006Q"}, d2 = {"Lcom/example/globalapp/viewModels/ControllerLogin;", "Landroidx/lifecycle/ViewModel;", "repository", "Lcom/example/globalapp/retrofit/LoginRepository;", "(Lcom/example/globalapp/retrofit/LoginRepository;)V", "biometricPrompt", "Landroidx/biometric/BiometricPrompt;", "getBiometricPrompt", "()Landroidx/biometric/BiometricPrompt;", "setBiometricPrompt", "(Landroidx/biometric/BiometricPrompt;)V", "<set-?>", "", "canAutenticate", "getCanAutenticate", "()Z", "setCanAutenticate", "(Z)V", "canAutenticate$delegate", "Landroidx/compose/runtime/MutableState;", "", "idUsuario", "getIdUsuario", "()I", "setIdUsuario", "(I)V", "idUsuario$delegate", "isAutenticate", "setAutenticate", "isAutenticate$delegate", "isLoading", "setLoading", "isLoading$delegate", "Lcom/example/globalapp/models/retrofit/LoginResponse;", "loginResponse", "getLoginResponse", "()Lcom/example/globalapp/models/retrofit/LoginResponse;", "setLoginResponse", "(Lcom/example/globalapp/models/retrofit/LoginResponse;)V", "loginResponse$delegate", "", "password", "getPassword", "()Ljava/lang/String;", "setPassword", "(Ljava/lang/String;)V", "password$delegate", "promptInfo", "Landroidx/biometric/BiometricPrompt$PromptInfo;", "getPromptInfo", "()Landroidx/biometric/BiometricPrompt$PromptInfo;", "setPromptInfo", "(Landroidx/biometric/BiometricPrompt$PromptInfo;)V", "user", "getUser", "setUser", "user$delegate", "clearValuesLogin", "", "(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "gotoMain", "navController", "Landroidx/navigation/NavController;", "handlerEntrar", "storeLogin", "Lcom/example/globalapp/util/StoreLogin;", "handlerFingerPrint", "userStore", "loginApi", "(Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "onValue", "value", "key", "setInCanAutenticate", "setInIsAutenticate", "setPasswordLogin", "setUserLogin", "showDialogAutenticate", "validateApiLogin", "validateDatos", "validateLogin", "app_debug"})
+@dagger.hilt.android.lifecycle.HiltViewModel
+public final class ControllerLogin extends androidx.lifecycle.ViewModel {
+    @org.jetbrains.annotations.NotNull
+    private final com.example.globalapp.retrofit.LoginRepository repository = null;
+    @org.jetbrains.annotations.NotNull
+    private final androidx.compose.runtime.MutableState idUsuario$delegate = null;
+    @org.jetbrains.annotations.NotNull
+    private final androidx.compose.runtime.MutableState user$delegate = null;
+    @org.jetbrains.annotations.NotNull
+    private final androidx.compose.runtime.MutableState password$delegate = null;
+    @org.jetbrains.annotations.NotNull
+    private final androidx.compose.runtime.MutableState isLoading$delegate = null;
+    @org.jetbrains.annotations.NotNull
+    private final androidx.compose.runtime.MutableState loginResponse$delegate = null;
+    @org.jetbrains.annotations.NotNull
+    private final androidx.compose.runtime.MutableState canAutenticate$delegate = null;
+    @org.jetbrains.annotations.NotNull
+    private final androidx.compose.runtime.MutableState isAutenticate$delegate = null;
+    public androidx.biometric.BiometricPrompt.PromptInfo promptInfo;
+    public androidx.biometric.BiometricPrompt biometricPrompt;
+    
+    @javax.inject.Inject
+    public ControllerLogin(@org.jetbrains.annotations.NotNull
+    com.example.globalapp.retrofit.LoginRepository repository) {
+        super();
+    }
+    
+    public final int getIdUsuario() {
+        return 0;
+    }
+    
+    private final void setIdUsuario(int p0) {
+    }
+    
+    @org.jetbrains.annotations.NotNull
+    public final java.lang.String getUser() {
+        return null;
+    }
+    
+    private final void setUser(java.lang.String p0) {
+    }
+    
+    @org.jetbrains.annotations.NotNull
+    public final java.lang.String getPassword() {
+        return null;
+    }
+    
+    private final void setPassword(java.lang.String p0) {
+    }
+    
+    public final void onValue(@org.jetbrains.annotations.NotNull
+    java.lang.String value, @org.jetbrains.annotations.NotNull
+    java.lang.String key) {
+    }
+    
+    public final boolean isLoading() {
+        return false;
+    }
+    
+    public final void setLoading(boolean p0) {
+    }
+    
+    @org.jetbrains.annotations.NotNull
+    public final com.example.globalapp.models.retrofit.LoginResponse getLoginResponse() {
+        return null;
+    }
+    
+    private final void setLoginResponse(com.example.globalapp.models.retrofit.LoginResponse p0) {
+    }
+    
+    public final boolean getCanAutenticate() {
+        return false;
+    }
+    
+    private final void setCanAutenticate(boolean p0) {
+    }
+    
+    public final void setInCanAutenticate(boolean canAutenticate) {
+    }
+    
+    public final boolean isAutenticate() {
+        return false;
+    }
+    
+    private final void setAutenticate(boolean p0) {
+    }
+    
+    public final void setInIsAutenticate(boolean isAutenticate) {
+    }
+    
+    @org.jetbrains.annotations.NotNull
+    public final androidx.biometric.BiometricPrompt.PromptInfo getPromptInfo() {
+        return null;
+    }
+    
+    public final void setPromptInfo(@org.jetbrains.annotations.NotNull
+    androidx.biometric.BiometricPrompt.PromptInfo p0) {
+    }
+    
+    @org.jetbrains.annotations.NotNull
+    public final androidx.biometric.BiometricPrompt getBiometricPrompt() {
+        return null;
+    }
+    
+    public final void setBiometricPrompt(@org.jetbrains.annotations.NotNull
+    androidx.biometric.BiometricPrompt p0) {
+    }
+    
+    public final void showDialogAutenticate() {
+    }
+    
+    public final boolean validateLogin() {
+        return false;
+    }
+    
+    private final boolean validateDatos(java.lang.String user, java.lang.String password) {
+        return false;
+    }
+    
+    @org.jetbrains.annotations.Nullable
+    public final java.lang.Object validateApiLogin(@org.jetbrains.annotations.NotNull
+    java.lang.String user, @org.jetbrains.annotations.NotNull
+    java.lang.String password, @org.jetbrains.annotations.NotNull
+    kotlin.coroutines.Continuation<? super java.lang.Boolean> $completion) {
+        return null;
+    }
+    
+    public final void handlerFingerPrint(@org.jetbrains.annotations.NotNull
+    androidx.navigation.NavController navController, @org.jetbrains.annotations.NotNull
+    java.lang.String userStore) {
+    }
+    
+    public final void handlerEntrar(@org.jetbrains.annotations.NotNull
+    androidx.navigation.NavController navController, @org.jetbrains.annotations.NotNull
+    java.lang.String user, @org.jetbrains.annotations.NotNull
+    java.lang.String password, @org.jetbrains.annotations.NotNull
+    com.example.globalapp.util.StoreLogin storeLogin) {
+    }
+    
+    public final void gotoMain(@org.jetbrains.annotations.NotNull
+    androidx.navigation.NavController navController) {
+    }
+    
+    @org.jetbrains.annotations.Nullable
+    public final java.lang.Object loginApi(@org.jetbrains.annotations.NotNull
+    java.lang.String user, @org.jetbrains.annotations.NotNull
+    java.lang.String password, @org.jetbrains.annotations.NotNull
+    kotlin.coroutines.Continuation<? super com.example.globalapp.models.retrofit.LoginResponse> $completion) {
+        return null;
+    }
+    
+    public final void setUserLogin(@org.jetbrains.annotations.NotNull
+    java.lang.String user) {
+    }
+    
+    public final void setPasswordLogin(@org.jetbrains.annotations.NotNull
+    java.lang.String password) {
+    }
+    
+    private final java.lang.Object clearValuesLogin(kotlin.coroutines.Continuation<? super kotlin.Unit> $completion) {
+        return null;
+    }
+}

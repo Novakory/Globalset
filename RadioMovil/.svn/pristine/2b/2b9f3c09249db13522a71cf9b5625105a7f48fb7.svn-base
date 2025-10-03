@@ -1,0 +1,47 @@
+package com.example.globalapp.components;
+
+@kotlin.Metadata(mv = {1, 9, 0}, k = 2, xi = 48, d1 = {"\u0000$\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\u001a@\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u00032\u0006\u0010\u0004\u001a\u00020\u00032\b\b\u0002\u0010\u0005\u001a\u00020\u00062\b\b\u0002\u0010\u0007\u001a\u00020\b2\u0012\u0010\t\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00010\nH\u0007\u001a@\u0010\u000b\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u00032\u0006\u0010\u0004\u001a\u00020\u00032\b\b\u0002\u0010\u0005\u001a\u00020\u00062\b\b\u0002\u0010\u0007\u001a\u00020\b2\u0012\u0010\t\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00010\nH\u0007\u001a@\u0010\f\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u00032\u0006\u0010\u0004\u001a\u00020\u00032\b\b\u0002\u0010\u0007\u001a\u00020\b2\b\b\u0002\u0010\u0005\u001a\u00020\u00062\u0012\u0010\t\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00010\nH\u0007\u001a6\u0010\r\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u00032\u0006\u0010\u0004\u001a\u00020\u00032\b\b\u0002\u0010\u0007\u001a\u00020\b2\u0012\u0010\t\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00010\nH\u0007\u001a\b\u0010\u000e\u001a\u00020\u0001H\u0007\u001a\b\u0010\u000f\u001a\u00020\u0001H\u0007\u00a8\u0006\u0010"}, d2 = {"OunTextField", "", "value", "", "label", "enabled", "", "modifier", "Landroidx/compose/ui/Modifier;", "onValueChange", "Lkotlin/Function1;", "OunTextFieldPassword", "SimpleTextField", "SimpleTextField2", "SimpleTextField2Preview", "SimpleTextFieldPreview", "app_debug"})
+public final class TextfieldKt {
+    
+    @androidx.compose.runtime.Composable
+    public static final void OunTextField(@org.jetbrains.annotations.NotNull
+    java.lang.String value, @org.jetbrains.annotations.NotNull
+    java.lang.String label, boolean enabled, @org.jetbrains.annotations.NotNull
+    androidx.compose.ui.Modifier modifier, @org.jetbrains.annotations.NotNull
+    kotlin.jvm.functions.Function1<? super java.lang.String, kotlin.Unit> onValueChange) {
+    }
+    
+    @androidx.compose.runtime.Composable
+    public static final void OunTextFieldPassword(@org.jetbrains.annotations.NotNull
+    java.lang.String value, @org.jetbrains.annotations.NotNull
+    java.lang.String label, boolean enabled, @org.jetbrains.annotations.NotNull
+    androidx.compose.ui.Modifier modifier, @org.jetbrains.annotations.NotNull
+    kotlin.jvm.functions.Function1<? super java.lang.String, kotlin.Unit> onValueChange) {
+    }
+    
+    @androidx.compose.runtime.Composable
+    public static final void SimpleTextField2(@org.jetbrains.annotations.NotNull
+    java.lang.String value, @org.jetbrains.annotations.NotNull
+    java.lang.String label, @org.jetbrains.annotations.NotNull
+    androidx.compose.ui.Modifier modifier, @org.jetbrains.annotations.NotNull
+    kotlin.jvm.functions.Function1<? super java.lang.String, kotlin.Unit> onValueChange) {
+    }
+    
+    @androidx.compose.runtime.Composable
+    public static final void SimpleTextField(@org.jetbrains.annotations.NotNull
+    java.lang.String value, @org.jetbrains.annotations.NotNull
+    java.lang.String label, @org.jetbrains.annotations.NotNull
+    androidx.compose.ui.Modifier modifier, boolean enabled, @org.jetbrains.annotations.NotNull
+    kotlin.jvm.functions.Function1<? super java.lang.String, kotlin.Unit> onValueChange) {
+    }
+    
+    @androidx.compose.ui.tooling.preview.Preview(showBackground = true)
+    @androidx.compose.runtime.Composable
+    public static final void SimpleTextFieldPreview() {
+    }
+    
+    @androidx.compose.ui.tooling.preview.Preview(showBackground = true)
+    @androidx.compose.runtime.Composable
+    public static final void SimpleTextField2Preview() {
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.example.globalapp-mergeDebugResources-60:/values-port/values-port.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Novakory\\.gradle\\caches\\8.11-rc-2\\transforms\\a7fc631fc12e126d7a92b88670eda6ca\\transformed\\appcompat-1.4.1\\res\\values-port\\values-port.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "55",
+                        "endOffsets": "106"
+                    }
+                }
+            ]
+        }
+    ]
+}

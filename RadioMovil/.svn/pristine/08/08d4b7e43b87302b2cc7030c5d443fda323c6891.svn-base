@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="ic_launcher_background">#FFFFFF</color>
+    <color name="opaque">#39FFFFFF</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="set_primary">#9AAE77</color>
+    <color name="set_primary2">#b3cb85</color>
+    <color name="set_primary3">#adc77b</color>
+    <color name="set_secundary">#96a678</color>
+    <color name="set_tertiary">#e9efd1</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="app_name">GlobalApp</string>
+    <style name="Theme.GlobalApp" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/set_primary3</item>
+        <item name="colorPrimaryDark">@color/set_tertiary</item>
+        <item name="colorAccent">@color/set_tertiary</item>
+    </style>
+</resources>

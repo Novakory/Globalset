@@ -1,0 +1,419 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:2:1-31:12
+MERGED from [com.google.accompanist:accompanist-swiperefresh:0.23.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\fdefd462bbd9930ef658c9e56f91acd7\transformed\accompanist-swiperefresh-0.23.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-compose:2.5.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\d1392aa982786301a3f8f2b49d00447e\transformed\navigation-compose-2.5.3\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.compose.material3:material3-android:1.3.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\d919f914fdc0eb5662e71969dcd8127c\transformed\material3-release\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.material:material-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\7eda34cdc81acebbffcfe26c31b2e0b3\transformed\material-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-ripple-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\1d7163cd3fcef2b3325f119a756a33b8\transformed\material-ripple-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\db91560d52a6a8a29e0b475390a29aa1\transformed\foundation-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\0a093909929cfcf10e42cd18b7749683\transformed\foundation-layout-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-core-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\834d832089efeda23165e40d3afc9c8a\transformed\animation-core-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\4b321629a302cb6ea113876de69e4ef1\transformed\animation-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\4c8175d2501df9d32be3526d3c2cea00\transformed\ui-tooling-data-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-unit-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\34afba05b4978c059683211900eec74a\transformed\ui-unit-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-geometry-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\43bc76638092c9167455521ffde6b867\transformed\ui-geometry-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-text-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\19ae8f3ff5c7132bdca2f002ccdcd7d4\transformed\ui-text-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-util-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\deb61dfa596d92ab59e7950069c28ccf\transformed\ui-util-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\3fc9063054a4e474279d224b02cd397b\transformed\ui-tooling-preview-release\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.ui:ui-graphics-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\6d31f74f2bc5b71f79c1f7b72498e19e\transformed\ui-graphics-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.biometric:biometric:1.1.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\df750b83a839a8d9bdf0ee92d22128d1\transformed\biometric-1.1.0\AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.dagger:hilt-android:2.46.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\1cea1b2d33bc9fc9ec2b4b274697dc0f\transformed\hilt-android-2.46.1\AndroidManifest.xml:16:1-19:12
+MERGED from [androidx.appcompat:appcompat:1.4.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\a7fc631fc12e126d7a92b88670eda6ca\transformed\appcompat-1.4.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment:1.5.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\9c8ac26fd7d657e070dbc983916470a0\transformed\fragment-1.5.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity:1.9.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\d6952451a675b9aad28107c1c6fc4851\transformed\activity-1.9.3\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.5.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\bba18d4584386025ba02411cf5b1bdb9\transformed\navigation-runtime-ktx-2.5.3\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-runtime:2.5.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\bf44a988b2e53c117229004b48f67c6c\transformed\navigation-runtime-2.5.3\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\56365293d289f54d070f233df15f268c\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:17:1-23:12
+MERGED from [androidx.navigation:navigation-common-ktx:2.5.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\f2981f531b9915ab234c10ef331078b0\transformed\navigation-common-ktx-2.5.3\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-common:2.5.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\fba4dbc94980641ec3322cd9d8aa83c5\transformed\navigation-common-2.5.3\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core-ktx:1.15.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\73d95d70d6e7d429a74b13c14c8b304a\transformed\core-ktx-1.15.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.appcompat:appcompat-resources:1.4.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\5ea4482a78992eb7b5efb53f70d44a18\transformed\appcompat-resources-1.4.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\6dd7bfd435ea648e3e94bf35f7595ec1\transformed\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\a4c759ac7c3744faf8ca66650bde9043\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\890da4839d3f682b0f3b665b274b3217\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\04d03e494b649336cd888b4df777604f\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\728ab89cf49fabff6ef4bd568e603813\transformed\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\d578c81c30f00f59401dd56b0eb9959e\transformed\customview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.autofill:autofill:1.0.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\828a81ae504dae14dee37897377deffa\transformed\autofill-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.graphics:graphics-path:1.0.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\3dc5532b5813b22453020350cc181a8e\transformed\graphics-path-1.0.1\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2-views-helper:1.3.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\0657b45a1f1406d2e82ac47554f45350\transformed\emoji2-views-helper-1.3.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\ac8c89205764dde8ad3037a904ddb0ba\transformed\emoji2-1.3.0\AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.core:core:1.15.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\7742085132d2511bc38ee35494231e4f\transformed\core-1.15.0\AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\98ec50c8e78484b2011fb4be36045703\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\21a37c85a455c5881bdbe51aa7693f9d\transformed\lifecycle-livedata-core-ktx-2.8.7\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\627a91f458df0e64f5892878f303e68a\transformed\lifecycle-runtime-compose-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\16930bba0c8dbff7d0bb811a68898214\transformed\lifecycle-livedata-2.8.7\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\5caa392c577eb811f52c13b45d96a2a3\transformed\lifecycle-viewmodel-2.8.7\AndroidManifest.xml:2:1-5:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\495695c7cb3d7ec43147c84d184f1f05\transformed\lifecycle-viewmodel-release\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\6f1b20038be3c46b9162224f95ded7dc\transformed\savedstate-ktx-1.2.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\82d22e12bac57e7c58c18a21cdb816b2\transformed\savedstate-1.2.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\67e6dc12e4017d369db0cc8be87e6339\transformed\lifecycle-runtime-release\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\d37d53d31dd55ce59ed45be63c4068ed\transformed\lifecycle-viewmodel-ktx-2.8.7\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\0b647546f893e9940f19857afde9c963\transformed\lifecycle-viewmodel-savedstate-2.8.7\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\c926496406194b5ee62ce3a45bfc542e\transformed\lifecycle-livedata-core-2.8.7\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\9e4bf6300112b28b09198cfe3009e7a6\transformed\lifecycle-viewmodel-compose-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-icons-core-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\538f50a7a66440eec79c215b66de86ee\transformed\material-icons-core-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\64aa45f8cdda35b0dce20356d09b754b\transformed\ui-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-test-manifest:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\27941441a25c14175619e8734cbab037\transformed\ui-test-manifest-1.7.3\AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\d095dd6d826d015043b50a3575329849\transformed\ui-tooling-release\AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.activity:activity-compose:1.9.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\c16f8c36108ee6ccf83eb5b808eeadbd\transformed\activity-compose-1.9.3\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity-ktx:1.9.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\ebf3715db0f8c95b7ee5d977d34efeee\transformed\activity-ktx-1.9.3\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\c97044fe2cb307e8c13f0d4e875ac514\transformed\lifecycle-runtime-ktx-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.datastore:datastore-preferences:1.0.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\6c5d16b09134445be3daaa0c1237f6f0\transformed\datastore-preferences-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.datastore:datastore:1.0.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\9bbff3e6c62cfb775cd13b7b1fc6d2e1\transformed\datastore-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\4d83ccf46f9a2ec49b1cc4f8f79a1c2a\transformed\runtime-saveable-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\625ea7cc0f7bae27a8395f187166feaf\transformed\runtime-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\e6df5b51d6d77b9fde9dc314d4fc7a3d\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\5b3c181ac2c825a3f1fb950d5a8969d2\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:17:1-55:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\403b38d5b2032498a082eced5e464b7c\transformed\startup-runtime-1.1.1\AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.tracing:tracing:1.2.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\13003ea6df13a3d9ffdfeac34404110f\transformed\tracing-1.2.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\c600f273f09a1a29b0b695d3186824aa\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\68ff54416ec6a80a2ca4f4c195d3100b\transformed\core-runtime-2.2.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\6640de75bc8addbe2d025fb54962ce23\transformed\annotation-experimental-1.4.1\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.dagger:dagger-lint-aar:2.46.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\476be4d5b5268f769c4a5768afa4de26\transformed\dagger-lint-aar-2.46.1\AndroidManifest.xml:16:1-19:12
+	package
+		INJECTED from D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml
+	xmlns:tools
+		ADDED from D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:3:5-51
+	android:versionCode
+		INJECTED from D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:4:5-66
+	android:name
+		ADDED from D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:4:22-64
+application
+ADDED from D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:5:5-29:19
+INJECTED from D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:5:5-29:19
+MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\ac8c89205764dde8ad3037a904ddb0ba\transformed\emoji2-1.3.0\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\ac8c89205764dde8ad3037a904ddb0ba\transformed\emoji2-1.3.0\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.core:core:1.15.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\7742085132d2511bc38ee35494231e4f\transformed\core-1.15.0\AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.15.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\7742085132d2511bc38ee35494231e4f\transformed\core-1.15.0\AndroidManifest.xml:28:5-89
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\98ec50c8e78484b2011fb4be36045703\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\98ec50c8e78484b2011fb4be36045703\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.compose.ui:ui-test-manifest:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\27941441a25c14175619e8734cbab037\transformed\ui-test-manifest-1.7.3\AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.compose.ui:ui-test-manifest:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\27941441a25c14175619e8734cbab037\transformed\ui-test-manifest-1.7.3\AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\d095dd6d826d015043b50a3575329849\transformed\ui-tooling-release\AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\d095dd6d826d015043b50a3575329849\transformed\ui-tooling-release\AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\403b38d5b2032498a082eced5e464b7c\transformed\startup-runtime-1.1.1\AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\403b38d5b2032498a082eced5e464b7c\transformed\startup-runtime-1.1.1\AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\c600f273f09a1a29b0b695d3186824aa\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\c600f273f09a1a29b0b695d3186824aa\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+	android:extractNativeLibs
+		INJECTED from D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.15.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\7742085132d2511bc38ee35494231e4f\transformed\core-1.15.0\AndroidManifest.xml:28:18-86
+	android:supportsRtl
+		ADDED from D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:13:9-35
+	android:label
+		ADDED from D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:11:9-41
+	android:fullBackupContent
+		ADDED from D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:9:9-54
+	android:roundIcon
+		ADDED from D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:12:9-54
+	tools:targetApi
+		ADDED from D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:15:9-29
+	android:icon
+		ADDED from D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:10:9-43
+	android:allowBackup
+		ADDED from D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:7:9-35
+	android:theme
+		ADDED from D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:14:9-47
+	android:networkSecurityConfig
+		ADDED from D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:16:9-69
+	android:dataExtractionRules
+		ADDED from D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:8:9-65
+	android:name
+		ADDED from D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:6:9-42
+activity#com.example.globalapp.MainActivity
+ADDED from D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:18:9-28:20
+	android:label
+		ADDED from D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:21:13-45
+	android:exported
+		ADDED from D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:20:13-36
+	android:theme
+		ADDED from D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:22:13-51
+	android:name
+		ADDED from D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:19:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:23:13-27:29
+action#android.intent.action.MAIN
+ADDED from D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:24:17-69
+	android:name
+		ADDED from D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:24:25-66
+category#android.intent.category.LAUNCHER
+ADDED from D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:26:17-77
+	android:name
+		ADDED from D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml:26:27-74
+uses-sdk
+INJECTED from D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml
+INJECTED from D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml
+MERGED from [com.google.accompanist:accompanist-swiperefresh:0.23.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\fdefd462bbd9930ef658c9e56f91acd7\transformed\accompanist-swiperefresh-0.23.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.accompanist:accompanist-swiperefresh:0.23.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\fdefd462bbd9930ef658c9e56f91acd7\transformed\accompanist-swiperefresh-0.23.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-compose:2.5.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\d1392aa982786301a3f8f2b49d00447e\transformed\navigation-compose-2.5.3\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-compose:2.5.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\d1392aa982786301a3f8f2b49d00447e\transformed\navigation-compose-2.5.3\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.compose.material3:material3-android:1.3.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\d919f914fdc0eb5662e71969dcd8127c\transformed\material3-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material3:material3-android:1.3.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\d919f914fdc0eb5662e71969dcd8127c\transformed\material3-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material:material-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\7eda34cdc81acebbffcfe26c31b2e0b3\transformed\material-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\7eda34cdc81acebbffcfe26c31b2e0b3\transformed\material-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\1d7163cd3fcef2b3325f119a756a33b8\transformed\material-ripple-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\1d7163cd3fcef2b3325f119a756a33b8\transformed\material-ripple-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\db91560d52a6a8a29e0b475390a29aa1\transformed\foundation-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\db91560d52a6a8a29e0b475390a29aa1\transformed\foundation-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\0a093909929cfcf10e42cd18b7749683\transformed\foundation-layout-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\0a093909929cfcf10e42cd18b7749683\transformed\foundation-layout-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\834d832089efeda23165e40d3afc9c8a\transformed\animation-core-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\834d832089efeda23165e40d3afc9c8a\transformed\animation-core-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\4b321629a302cb6ea113876de69e4ef1\transformed\animation-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\4b321629a302cb6ea113876de69e4ef1\transformed\animation-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\4c8175d2501df9d32be3526d3c2cea00\transformed\ui-tooling-data-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\4c8175d2501df9d32be3526d3c2cea00\transformed\ui-tooling-data-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\34afba05b4978c059683211900eec74a\transformed\ui-unit-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\34afba05b4978c059683211900eec74a\transformed\ui-unit-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\43bc76638092c9167455521ffde6b867\transformed\ui-geometry-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\43bc76638092c9167455521ffde6b867\transformed\ui-geometry-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\19ae8f3ff5c7132bdca2f002ccdcd7d4\transformed\ui-text-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\19ae8f3ff5c7132bdca2f002ccdcd7d4\transformed\ui-text-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\deb61dfa596d92ab59e7950069c28ccf\transformed\ui-util-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\deb61dfa596d92ab59e7950069c28ccf\transformed\ui-util-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\3fc9063054a4e474279d224b02cd397b\transformed\ui-tooling-preview-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\3fc9063054a4e474279d224b02cd397b\transformed\ui-tooling-preview-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\6d31f74f2bc5b71f79c1f7b72498e19e\transformed\ui-graphics-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\6d31f74f2bc5b71f79c1f7b72498e19e\transformed\ui-graphics-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.biometric:biometric:1.1.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\df750b83a839a8d9bdf0ee92d22128d1\transformed\biometric-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.biometric:biometric:1.1.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\df750b83a839a8d9bdf0ee92d22128d1\transformed\biometric-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.dagger:hilt-android:2.46.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\1cea1b2d33bc9fc9ec2b4b274697dc0f\transformed\hilt-android-2.46.1\AndroidManifest.xml:18:3-42
+MERGED from [com.google.dagger:hilt-android:2.46.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\1cea1b2d33bc9fc9ec2b4b274697dc0f\transformed\hilt-android-2.46.1\AndroidManifest.xml:18:3-42
+MERGED from [androidx.appcompat:appcompat:1.4.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\a7fc631fc12e126d7a92b88670eda6ca\transformed\appcompat-1.4.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.4.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\a7fc631fc12e126d7a92b88670eda6ca\transformed\appcompat-1.4.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.5.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\9c8ac26fd7d657e070dbc983916470a0\transformed\fragment-1.5.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.5.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\9c8ac26fd7d657e070dbc983916470a0\transformed\fragment-1.5.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.9.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\d6952451a675b9aad28107c1c6fc4851\transformed\activity-1.9.3\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.9.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\d6952451a675b9aad28107c1c6fc4851\transformed\activity-1.9.3\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.5.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\bba18d4584386025ba02411cf5b1bdb9\transformed\navigation-runtime-ktx-2.5.3\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.5.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\bba18d4584386025ba02411cf5b1bdb9\transformed\navigation-runtime-ktx-2.5.3\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-runtime:2.5.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\bf44a988b2e53c117229004b48f67c6c\transformed\navigation-runtime-2.5.3\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-runtime:2.5.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\bf44a988b2e53c117229004b48f67c6c\transformed\navigation-runtime-2.5.3\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\56365293d289f54d070f233df15f268c\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\56365293d289f54d070f233df15f268c\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.navigation:navigation-common-ktx:2.5.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\f2981f531b9915ab234c10ef331078b0\transformed\navigation-common-ktx-2.5.3\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-common-ktx:2.5.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\f2981f531b9915ab234c10ef331078b0\transformed\navigation-common-ktx-2.5.3\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-common:2.5.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\fba4dbc94980641ec3322cd9d8aa83c5\transformed\navigation-common-2.5.3\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-common:2.5.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\fba4dbc94980641ec3322cd9d8aa83c5\transformed\navigation-common-2.5.3\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core-ktx:1.15.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\73d95d70d6e7d429a74b13c14c8b304a\transformed\core-ktx-1.15.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.15.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\73d95d70d6e7d429a74b13c14c8b304a\transformed\core-ktx-1.15.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.4.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\5ea4482a78992eb7b5efb53f70d44a18\transformed\appcompat-resources-1.4.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.4.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\5ea4482a78992eb7b5efb53f70d44a18\transformed\appcompat-resources-1.4.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\6dd7bfd435ea648e3e94bf35f7595ec1\transformed\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\6dd7bfd435ea648e3e94bf35f7595ec1\transformed\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\a4c759ac7c3744faf8ca66650bde9043\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\a4c759ac7c3744faf8ca66650bde9043\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\890da4839d3f682b0f3b665b274b3217\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\890da4839d3f682b0f3b665b274b3217\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\04d03e494b649336cd888b4df777604f\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\04d03e494b649336cd888b4df777604f\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\728ab89cf49fabff6ef4bd568e603813\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\728ab89cf49fabff6ef4bd568e603813\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\d578c81c30f00f59401dd56b0eb9959e\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\d578c81c30f00f59401dd56b0eb9959e\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.autofill:autofill:1.0.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\828a81ae504dae14dee37897377deffa\transformed\autofill-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.autofill:autofill:1.0.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\828a81ae504dae14dee37897377deffa\transformed\autofill-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.graphics:graphics-path:1.0.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\3dc5532b5813b22453020350cc181a8e\transformed\graphics-path-1.0.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.graphics:graphics-path:1.0.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\3dc5532b5813b22453020350cc181a8e\transformed\graphics-path-1.0.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.3.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\0657b45a1f1406d2e82ac47554f45350\transformed\emoji2-views-helper-1.3.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.3.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\0657b45a1f1406d2e82ac47554f45350\transformed\emoji2-views-helper-1.3.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\ac8c89205764dde8ad3037a904ddb0ba\transformed\emoji2-1.3.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\ac8c89205764dde8ad3037a904ddb0ba\transformed\emoji2-1.3.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.core:core:1.15.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\7742085132d2511bc38ee35494231e4f\transformed\core-1.15.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.15.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\7742085132d2511bc38ee35494231e4f\transformed\core-1.15.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\98ec50c8e78484b2011fb4be36045703\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\98ec50c8e78484b2011fb4be36045703\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\21a37c85a455c5881bdbe51aa7693f9d\transformed\lifecycle-livedata-core-ktx-2.8.7\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\21a37c85a455c5881bdbe51aa7693f9d\transformed\lifecycle-livedata-core-ktx-2.8.7\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\627a91f458df0e64f5892878f303e68a\transformed\lifecycle-runtime-compose-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\627a91f458df0e64f5892878f303e68a\transformed\lifecycle-runtime-compose-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\16930bba0c8dbff7d0bb811a68898214\transformed\lifecycle-livedata-2.8.7\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\16930bba0c8dbff7d0bb811a68898214\transformed\lifecycle-livedata-2.8.7\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\5caa392c577eb811f52c13b45d96a2a3\transformed\lifecycle-viewmodel-2.8.7\AndroidManifest.xml:4:5-43
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\5caa392c577eb811f52c13b45d96a2a3\transformed\lifecycle-viewmodel-2.8.7\AndroidManifest.xml:4:5-43
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\495695c7cb3d7ec43147c84d184f1f05\transformed\lifecycle-viewmodel-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\495695c7cb3d7ec43147c84d184f1f05\transformed\lifecycle-viewmodel-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\6f1b20038be3c46b9162224f95ded7dc\transformed\savedstate-ktx-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\6f1b20038be3c46b9162224f95ded7dc\transformed\savedstate-ktx-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\82d22e12bac57e7c58c18a21cdb816b2\transformed\savedstate-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\82d22e12bac57e7c58c18a21cdb816b2\transformed\savedstate-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\67e6dc12e4017d369db0cc8be87e6339\transformed\lifecycle-runtime-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\67e6dc12e4017d369db0cc8be87e6339\transformed\lifecycle-runtime-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\d37d53d31dd55ce59ed45be63c4068ed\transformed\lifecycle-viewmodel-ktx-2.8.7\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\d37d53d31dd55ce59ed45be63c4068ed\transformed\lifecycle-viewmodel-ktx-2.8.7\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\0b647546f893e9940f19857afde9c963\transformed\lifecycle-viewmodel-savedstate-2.8.7\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\0b647546f893e9940f19857afde9c963\transformed\lifecycle-viewmodel-savedstate-2.8.7\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\c926496406194b5ee62ce3a45bfc542e\transformed\lifecycle-livedata-core-2.8.7\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\c926496406194b5ee62ce3a45bfc542e\transformed\lifecycle-livedata-core-2.8.7\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\9e4bf6300112b28b09198cfe3009e7a6\transformed\lifecycle-viewmodel-compose-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\9e4bf6300112b28b09198cfe3009e7a6\transformed\lifecycle-viewmodel-compose-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\538f50a7a66440eec79c215b66de86ee\transformed\material-icons-core-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\538f50a7a66440eec79c215b66de86ee\transformed\material-icons-core-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\64aa45f8cdda35b0dce20356d09b754b\transformed\ui-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\64aa45f8cdda35b0dce20356d09b754b\transformed\ui-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-test-manifest:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\27941441a25c14175619e8734cbab037\transformed\ui-test-manifest-1.7.3\AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-test-manifest:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\27941441a25c14175619e8734cbab037\transformed\ui-test-manifest-1.7.3\AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\d095dd6d826d015043b50a3575329849\transformed\ui-tooling-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\d095dd6d826d015043b50a3575329849\transformed\ui-tooling-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity-compose:1.9.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\c16f8c36108ee6ccf83eb5b808eeadbd\transformed\activity-compose-1.9.3\AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-compose:1.9.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\c16f8c36108ee6ccf83eb5b808eeadbd\transformed\activity-compose-1.9.3\AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.9.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\ebf3715db0f8c95b7ee5d977d34efeee\transformed\activity-ktx-1.9.3\AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.9.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\ebf3715db0f8c95b7ee5d977d34efeee\transformed\activity-ktx-1.9.3\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\c97044fe2cb307e8c13f0d4e875ac514\transformed\lifecycle-runtime-ktx-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\c97044fe2cb307e8c13f0d4e875ac514\transformed\lifecycle-runtime-ktx-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.datastore:datastore-preferences:1.0.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\6c5d16b09134445be3daaa0c1237f6f0\transformed\datastore-preferences-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.datastore:datastore-preferences:1.0.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\6c5d16b09134445be3daaa0c1237f6f0\transformed\datastore-preferences-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.datastore:datastore:1.0.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\9bbff3e6c62cfb775cd13b7b1fc6d2e1\transformed\datastore-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.datastore:datastore:1.0.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\9bbff3e6c62cfb775cd13b7b1fc6d2e1\transformed\datastore-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\4d83ccf46f9a2ec49b1cc4f8f79a1c2a\transformed\runtime-saveable-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\4d83ccf46f9a2ec49b1cc4f8f79a1c2a\transformed\runtime-saveable-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\625ea7cc0f7bae27a8395f187166feaf\transformed\runtime-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\625ea7cc0f7bae27a8395f187166feaf\transformed\runtime-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\e6df5b51d6d77b9fde9dc314d4fc7a3d\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\e6df5b51d6d77b9fde9dc314d4fc7a3d\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\5b3c181ac2c825a3f1fb950d5a8969d2\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\5b3c181ac2c825a3f1fb950d5a8969d2\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:21:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:21:5-44
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\403b38d5b2032498a082eced5e464b7c\transformed\startup-runtime-1.1.1\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\403b38d5b2032498a082eced5e464b7c\transformed\startup-runtime-1.1.1\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.tracing:tracing:1.2.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\13003ea6df13a3d9ffdfeac34404110f\transformed\tracing-1.2.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.tracing:tracing:1.2.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\13003ea6df13a3d9ffdfeac34404110f\transformed\tracing-1.2.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\c600f273f09a1a29b0b695d3186824aa\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\c600f273f09a1a29b0b695d3186824aa\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\68ff54416ec6a80a2ca4f4c195d3100b\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\68ff54416ec6a80a2ca4f4c195d3100b\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\6640de75bc8addbe2d025fb54962ce23\transformed\annotation-experimental-1.4.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\6640de75bc8addbe2d025fb54962ce23\transformed\annotation-experimental-1.4.1\AndroidManifest.xml:5:5-44
+MERGED from [com.google.dagger:dagger-lint-aar:2.46.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\476be4d5b5268f769c4a5768afa4de26\transformed\dagger-lint-aar-2.46.1\AndroidManifest.xml:18:3-42
+MERGED from [com.google.dagger:dagger-lint-aar:2.46.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\476be4d5b5268f769c4a5768afa4de26\transformed\dagger-lint-aar-2.46.1\AndroidManifest.xml:18:3-42
+	android:targetSdkVersion
+		INJECTED from D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from D:\Globalset2\MOVIL\GlobalApp\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.USE_BIOMETRIC
+ADDED from [androidx.biometric:biometric:1.1.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\df750b83a839a8d9bdf0ee92d22128d1\transformed\biometric-1.1.0\AndroidManifest.xml:24:5-72
+	android:name
+		ADDED from [androidx.biometric:biometric:1.1.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\df750b83a839a8d9bdf0ee92d22128d1\transformed\biometric-1.1.0\AndroidManifest.xml:24:22-69
+uses-permission#android.permission.USE_FINGERPRINT
+ADDED from [androidx.biometric:biometric:1.1.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\df750b83a839a8d9bdf0ee92d22128d1\transformed\biometric-1.1.0\AndroidManifest.xml:27:5-74
+	android:name
+		ADDED from [androidx.biometric:biometric:1.1.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\df750b83a839a8d9bdf0ee92d22128d1\transformed\biometric-1.1.0\AndroidManifest.xml:27:22-71
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\ac8c89205764dde8ad3037a904ddb0ba\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\98ec50c8e78484b2011fb4be36045703\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\98ec50c8e78484b2011fb4be36045703\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\403b38d5b2032498a082eced5e464b7c\transformed\startup-runtime-1.1.1\AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\403b38d5b2032498a082eced5e464b7c\transformed\startup-runtime-1.1.1\AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\ac8c89205764dde8ad3037a904ddb0ba\transformed\emoji2-1.3.0\AndroidManifest.xml:28:13-31
+	android:authorities
+		ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\ac8c89205764dde8ad3037a904ddb0ba\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
+	android:exported
+		ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\ac8c89205764dde8ad3037a904ddb0ba\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\ac8c89205764dde8ad3037a904ddb0ba\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
+meta-data#androidx.emoji2.text.EmojiCompatInitializer
+ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\ac8c89205764dde8ad3037a904ddb0ba\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\ac8c89205764dde8ad3037a904ddb0ba\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\ac8c89205764dde8ad3037a904ddb0ba\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.15.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\7742085132d2511bc38ee35494231e4f\transformed\core-1.15.0\AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.15.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\7742085132d2511bc38ee35494231e4f\transformed\core-1.15.0\AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.15.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\7742085132d2511bc38ee35494231e4f\transformed\core-1.15.0\AndroidManifest.xml:23:9-81
+permission#com.example.globalapp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.15.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\7742085132d2511bc38ee35494231e4f\transformed\core-1.15.0\AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.15.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\7742085132d2511bc38ee35494231e4f\transformed\core-1.15.0\AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.15.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\7742085132d2511bc38ee35494231e4f\transformed\core-1.15.0\AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.15.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\7742085132d2511bc38ee35494231e4f\transformed\core-1.15.0\AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.15.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\7742085132d2511bc38ee35494231e4f\transformed\core-1.15.0\AndroidManifest.xml:26:22-94
+uses-permission#com.example.globalapp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.15.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\7742085132d2511bc38ee35494231e4f\transformed\core-1.15.0\AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.15.0] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\7742085132d2511bc38ee35494231e4f\transformed\core-1.15.0\AndroidManifest.xml:26:22-94
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\98ec50c8e78484b2011fb4be36045703\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\98ec50c8e78484b2011fb4be36045703\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\98ec50c8e78484b2011fb4be36045703\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:30:17-78
+activity#androidx.activity.ComponentActivity
+ADDED from [androidx.compose.ui:ui-test-manifest:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\27941441a25c14175619e8734cbab037\transformed\ui-test-manifest-1.7.3\AndroidManifest.xml:23:9-25:39
+	android:exported
+		ADDED from [androidx.compose.ui:ui-test-manifest:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\27941441a25c14175619e8734cbab037\transformed\ui-test-manifest-1.7.3\AndroidManifest.xml:25:13-36
+	android:name
+		ADDED from [androidx.compose.ui:ui-test-manifest:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\27941441a25c14175619e8734cbab037\transformed\ui-test-manifest-1.7.3\AndroidManifest.xml:24:13-63
+activity#androidx.compose.ui.tooling.PreviewActivity
+ADDED from [androidx.compose.ui:ui-tooling-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\d095dd6d826d015043b50a3575329849\transformed\ui-tooling-release\AndroidManifest.xml:23:9-25:39
+	android:exported
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\d095dd6d826d015043b50a3575329849\transformed\ui-tooling-release\AndroidManifest.xml:25:13-36
+	android:name
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.7.3] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\d095dd6d826d015043b50a3575329849\transformed\ui-tooling-release\AndroidManifest.xml:24:13-71
+meta-data#androidx.profileinstaller.ProfileInstallerInitializer
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
+receiver#androidx.profileinstaller.ProfileInstallReceiver
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
+	android:enabled
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+	android:permission
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+	android:directBootAware
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
+intent-filter#action:name:androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
+action#androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
+intent-filter#action:name:androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
+action#androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
+intent-filter#action:name:androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
+action#androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
+intent-filter#action:name:androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
+action#androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Novakory\.gradle\caches\8.11-rc-2\transforms\980a972511f2e432a45af5aec74e682f\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:25-92

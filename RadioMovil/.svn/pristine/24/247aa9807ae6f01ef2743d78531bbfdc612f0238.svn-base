@@ -1,0 +1,9 @@
+package dagger.hilt.internal.processedrootsentinel.codegen;
+
+import dagger.hilt.internal.processedrootsentinel.ProcessedRootSentinel;
+
+@ProcessedRootSentinel(
+    roots = "com.example.globalapp.GlobalApplication"
+)
+public final class _com_example_globalapp_GlobalApplication {
+}

@@ -1,0 +1,341 @@
+package com.example.globalapp.views
+
+import android.util.Log
+import android.widget.Toast
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material3.Badge
+import androidx.compose.material3.BadgedBox
+import androidx.compose.material3.Checkbox
+import androidx.compose.material3.CheckboxDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FabPosition
+import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.FloatingActionButtonDefaults
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.compose.ui.zIndex
+import androidx.lifecycle.viewModelScope
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
+import com.example.globalapp.R
+import com.example.globalapp.components.GProgressBar
+import com.example.globalapp.components.GSwitch
+import com.example.globalapp.components.SimpleTextField
+import com.example.globalapp.navegation.AppScreens
+import com.example.globalapp.util.formatNumber
+import com.example.globalapp.viewModels.ControllerDetallePropuesta
+import com.example.globalapp.viewModels.ControllerLogin
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+
+//fun DetailNav(navController: NavController,params:ArrayList<String>?){//? es para especificar que puede venir null
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+//fun DetailNav(navController: NavController,params:String?,opcional:Int?) {//? es para especificar que puede venir null
+fun DetailNav(navController: NavController,controllerDetallePropuesta: ControllerDetallePropuesta,claveControl:String,viewModelLogin: ControllerLogin) {//? es para especificar que puede venir null
+    ContainerDetailView(navController,controllerDetallePropuesta,claveControl,viewModelLogin)
+
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun ContainerDetailView(navController: NavController,controllerDetallePropuesta: ControllerDetallePropuesta,cveControl:String,viewModelLogin: ControllerLogin){
+    var border = Modifier.border(1.dp,Color.Gray)
+//    var showDialog by remember { mutableStateOf(false) }
+    val listData by controllerDetallePropuesta.lista.collectAsState()
+
+    LaunchedEffect(Unit){
+        try{
+            controllerDetallePropuesta.updateProgressbarPropuestasState(isLoading = true,"Cargando detalle")
+
+            while(true){
+                if(listData.isNotEmpty()) {
+                    Log.i("DetailView",listData.toString())
+                    Log.i("DetailView",listData.size.toString())
+                    break
+                }
+                delay(1000)
+            }
+        }catch (e:Exception){
+
+        }finally {
+            controllerDetallePropuesta.updateProgressbarPropuestasState(isLoading = false,"")
+        }
+    }
+
+
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = colorResource(R.color.set_secundary),
+                    titleContentColor = Color.LightGray,
+                ),
+                title = {
+                    Box{
+                        Text("Detalle")
+                        Box(
+                            Modifier
+                                .offset(y = 22.dp)
+                                .align(Alignment.BottomEnd)
+                        ) {
+
+
+                            Row {
+                                Icon(
+                                    painter = painterResource(id = R.drawable.baseline_account_circle_24),
+                                    contentDescription = "Logout",
+                                    tint = Color.LightGray,
+
+                                    modifier = Modifier//.border(1.dp,Color.Black
+                                        .size(18.dp,18.dp)
+                                        .align(Alignment.CenterVertically)
+                                )
+                                Text(
+                                    viewModelLogin.user,
+                                    fontSize = 14.sp,
+                                )
+                            }
+                        }
+                    }
+                },
+                actions = {
+                    Row{
+//
+                    }
+
+                }
+            )
+        },
+    ) { innerPadding ->
+
+
+        Column(
+            modifier = Modifier
+                .padding(innerPadding)
+                .fillMaxWidth()
+                .padding(8.dp)
+                .then(border),
+        ) {
+            Row(verticalAlignment = Alignment.CenterVertically){
+
+                Box(
+                    modifier = Modifier
+                        .weight(1f)
+                        .padding(top = 4.dp, end = 4.dp, start = 4.dp),
+                    contentAlignment = Alignment.CenterEnd
+                ) {
+                    SimpleTextField(controllerDetallePropuesta.search,"", enabled = controllerDetallePropuesta.isSearching.isNotBlank(), modifier = Modifier.fillMaxWidth(1f)) {
+                        controllerDetallePropuesta.onValue(it,"search")
+                        controllerDetallePropuesta.filterSearch()
+                    }
+                }
+            }
+            Row(Modifier.fillMaxWidth()
+                .padding(horizontal = 8.dp)
+                .padding(top = 4.dp)
+//                .then(border)
+                , horizontalArrangement = Arrangement.SpaceBetween){
+                Text(
+                    cveControl,
+                    textAlign = TextAlign.Center,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 18.sp,
+                    color = Color.Gray,
+                    modifier = Modifier.align(Alignment.CenterVertically)
+                )
+                HorizontalDivider(
+                    modifier = Modifier.weight(1f)
+                        .align(Alignment.CenterVertically)
+                )
+            }
+
+
+            //BODY PROPUESTAS____________________________________________________________________
+            val scrollState = rememberScrollState()
+            val headers by controllerDetallePropuesta.headers.collectAsState();
+            Row(modifier = border.height(40.dp)) {
+                Box(
+                    modifier = border.width(25.dp)
+                        .fillMaxHeight()
+                ) {
+
+                    Text(text = listData.size.toString(),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(start = 3.dp)
+                            //.align(Alignment.Center) // Posiciona el texto al centro del contenedor
+                            .zIndex(1f), // Asegura que el texto esté al frente
+                        //color = Color.LightGray, // Opcional, para mejor visibilidad
+                        //textAlign = TextAlign.Center,
+                        fontSize = 10.sp
+                    )
+                }
+
+                Row(
+                    Modifier
+                        .weight(1f)
+                        .horizontalScroll(scrollState)
+                ){
+                    headers.forEach{header->
+                        if(header.visible) {
+                            Text(
+                                text = header.title,
+                                modifier = border.width(header.width.dp)
+                                    .fillMaxHeight()
+                                    .wrapContentHeight(Alignment.CenterVertically)
+                                    .clickable {
+                                        Log.i("propuesta:header", header.sort.toString())
+                                        if (header.sort == null) {
+                                            controllerDetallePropuesta.updateSortHeader(
+                                                header.title,
+                                                true,
+                                                header.dataIndexStg
+                                            )
+                                        } else {
+                                            controllerDetallePropuesta.updateSortHeader(
+                                                header.title,
+                                                !header.sort!!,
+                                                header.dataIndexStg
+                                            )
+                                        }
+                                    },
+                                textAlign = TextAlign.Center,
+                                color = if (header.sort == true) Color.Blue else if (header.sort == false) Color.Red else Color.Black,
+
+
+                                )
+                        }
+
+                    }
+                }
+            }
+
+
+            if(controllerDetallePropuesta.progressbarPropuestasState.isLoading){
+                Column(modifier = border
+                    .fillMaxHeight()
+                    .fillMaxWidth(),
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    GProgressBar(controllerDetallePropuesta.progressbarPropuestasState.message)
+                }
+            }else{
+                LazyColumn(modifier = border
+                    .fillMaxHeight()
+                    .fillMaxWidth()) {
+                    itemsIndexed(listData) { index,documento ->
+                        Row(modifier = border.fillMaxWidth()) {
+//                            Text(index.toString())
+                            Box(
+                                modifier = border
+                                    .width(25.dp)
+                                    .height(40.dp)
+                            ){
+                                Text(text = (index+1).toString(),
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(start = 3.dp)
+//                                        .align(Alignment.Center), // Posiciona el texto al centro del contenedor
+                                        .zIndex(1f), // Asegura que el texto esté al frente
+                                    //color = Color.LightGray, // Opcional, para mejor visibilidad
+//                                    textAlign = TextAlign.Center,
+                                    fontSize = 10.sp
+                                )
+
+                            }
+//
+//
+                            Row(
+                                Modifier
+                                    .weight(1f)
+                                    .height(40.dp)
+                                    .horizontalScroll(scrollState)
+                            ) {
+                                headers.forEach { header ->
+                                    if(header.visible) {
+                                        Box(
+                                            modifier = border
+                                                .width(header.width.dp)
+                                                .fillMaxSize()
+                                        ) {
+                                            val text = header.dataIndex(documento).trim()
+                                            Text(
+                                                text = text.ifEmpty { "" },
+//                                                header.dataIndex(documento),
+                                                textAlign = TextAlign.Center,
+                                                maxLines = 2,
+                                                overflow = TextOverflow.Ellipsis,
+                                                modifier =
+                                                border
+                                                    .fillMaxSize()
+                                                    .wrapContentHeight(Alignment.CenterVertically)
+                                                    .padding(horizontal = 2.dp)
+                                            )
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+                    item {
+                        Spacer(modifier = Modifier.height(80.dp))
+                    }
+                }
+            }
+        }
+    }
+}

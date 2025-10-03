@@ -1,0 +1,19 @@
+package dagger.hilt.internal.aggregatedroot.codegen;
+
+import dagger.hilt.android.HiltAndroidApp;
+import dagger.hilt.internal.aggregatedroot.AggregatedRoot;
+
+/**
+ * This class should only be referenced by generated code! This class aggregates information across multiple compilations.
+ */
+@AggregatedRoot(
+    root = "com.example.globalapp.GlobalApplication",
+    rootPackage = "com.example.globalapp",
+    originatingRoot = "com.example.globalapp.GlobalApplication",
+    originatingRootPackage = "com.example.globalapp",
+    rootAnnotation = HiltAndroidApp.class,
+    rootSimpleNames = "GlobalApplication",
+    originatingRootSimpleNames = "GlobalApplication"
+)
+public class _com_example_globalapp_GlobalApplication {
+}

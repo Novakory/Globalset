@@ -1,0 +1,249 @@
+package com.example.globalapp.viewModels;
+
+@kotlin.Metadata(mv = {1, 9, 0}, k = 1, xi = 48, d1 = {"\u0000x\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0010\u000b\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\r\n\u0002\u0010\b\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u001a\n\u0002\u0010\t\n\u0002\b\f\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\"\b\u0007\u0018\u00002\u00020\u0001B\u000f\b\u0007\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u00a2\u0006\u0002\u0010\u0004J\u001b\u0010\\\u001a\u0004\u0018\u00010\r2\u0006\u0010]\u001a\u00020^H\u0082@\u00f8\u0001\u0000\u00a2\u0006\u0002\u0010_J\u001b\u0010`\u001a\u0004\u0018\u00010\r2\u0006\u0010]\u001a\u00020^H\u0082@\u00f8\u0001\u0000\u00a2\u0006\u0002\u0010_J\u0006\u0010a\u001a\u00020bJ!\u0010c\u001a\n\u0012\u0004\u0012\u00020\n\u0018\u00010\u00072\u0006\u0010d\u001a\u00020 H\u0082@\u00f8\u0001\u0000\u00a2\u0006\u0002\u0010eJ!\u0010f\u001a\n\u0012\u0004\u0012\u00020\n\u0018\u00010\u00072\u0006\u0010d\u001a\u00020 H\u0082@\u00f8\u0001\u0000\u00a2\u0006\u0002\u0010eJ!\u0010g\u001a\n\u0012\u0004\u0012\u00020\n\u0018\u00010\u00072\u0006\u0010d\u001a\u00020 H\u0082@\u00f8\u0001\u0000\u00a2\u0006\u0002\u0010eJ&\u0010h\u001a\u00020b2\u0006\u0010i\u001a\u00020.2\u0006\u0010j\u001a\u00020k2\u0006\u0010l\u001a\u00020 2\u0006\u0010m\u001a\u00020 J\u000e\u0010n\u001a\u00020b2\u0006\u0010d\u001a\u00020 J\b\u0010o\u001a\u00020bH\u0002J\u0016\u0010p\u001a\u00020b2\u0006\u0010q\u001a\u00020 2\u0006\u0010r\u001a\u00020 J\b\u0010s\u001a\u00020bH\u0002J\u0006\u0010t\u001a\u00020bJ\u000e\u0010u\u001a\u00020b2\u0006\u0010v\u001a\u00020\u0015J\u0016\u0010w\u001a\u00020b2\u0006\u0010x\u001a\u00020 2\u0006\u0010y\u001a\u00020\u0015J\u000e\u0010z\u001a\u00020b2\u0006\u0010/\u001a\u00020.J\u0018\u0010{\u001a\u00020b2\u0006\u0010|\u001a\u00020\u00152\u0006\u0010}\u001a\u00020 H\u0002J\u0018\u0010~\u001a\u00020b2\u0006\u0010|\u001a\u00020\u00152\u0006\u0010}\u001a\u00020 H\u0002J!\u0010\u007f\u001a\u00020b2\t\u0010\u0080\u0001\u001a\u0004\u0018\u00010\u00152\u0006\u0010}\u001a\u00020 H\u0002\u00a2\u0006\u0003\u0010\u0081\u0001J\u000f\u0010\u0082\u0001\u001a\u00020b2\u0006\u0010E\u001a\u00020\u0015J!\u0010\u0083\u0001\u001a\u00020b2\u0007\u0010\u0084\u0001\u001a\u00020 2\u0006\u0010y\u001a\u00020\u00152\u0007\u0010\u0085\u0001\u001a\u00020 J\u0010\u0010\u0086\u0001\u001a\u00020b2\u0007\u0010\u0087\u0001\u001a\u00020\u0015J\u0018\u0010\u0088\u0001\u001a\u00020b2\u0007\u0010\u0089\u0001\u001a\u00020\u00152\u0006\u0010d\u001a\u00020 J\u0010\u0010\u008a\u0001\u001a\u00020b2\u0007\u0010\u008b\u0001\u001a\u00020QJ\u0010\u0010\u008c\u0001\u001a\u00020\u00152\u0007\u0010\u008b\u0001\u001a\u00020QR\u001a\u0010\u0005\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020\b0\u00070\u0006X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u001a\u0010\t\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020\n0\u00070\u0006X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u001a\u0010\u000b\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020\n0\u00070\u0006X\u0082\u0004\u00a2\u0006\u0002\n\u0000R+\u0010\u000e\u001a\u00020\r2\u0006\u0010\f\u001a\u00020\r8F@BX\u0086\u008e\u0002\u00a2\u0006\u0012\n\u0004\b\u0013\u0010\u0014\u001a\u0004\b\u000f\u0010\u0010\"\u0004\b\u0011\u0010\u0012R+\u0010\u0016\u001a\u00020\u00152\u0006\u0010\f\u001a\u00020\u00158F@BX\u0086\u008e\u0002\u00a2\u0006\u0012\n\u0004\b\u001b\u0010\u0014\u001a\u0004\b\u0017\u0010\u0018\"\u0004\b\u0019\u0010\u001aR\u001d\u0010\u001c\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020\b0\u00070\u001d\u00a2\u0006\b\n\u0000\u001a\u0004\b\u001e\u0010\u001fR+\u0010!\u001a\u00020 2\u0006\u0010\f\u001a\u00020 8F@BX\u0086\u008e\u0002\u00a2\u0006\u0012\n\u0004\b%\u0010\u0014\u001a\u0004\b!\u0010\"\"\u0004\b#\u0010$R+\u0010&\u001a\u00020\u00152\u0006\u0010\f\u001a\u00020\u00158F@BX\u0086\u008e\u0002\u00a2\u0006\u0012\n\u0004\b(\u0010\u0014\u001a\u0004\b&\u0010\u0018\"\u0004\b\'\u0010\u001aR&\u0010)\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020\n0\u00070\u0006X\u0086\u000e\u00a2\u0006\u000e\n\u0000\u001a\u0004\b*\u0010+\"\u0004\b,\u0010-R+\u0010/\u001a\u00020.2\u0006\u0010\f\u001a\u00020.8F@BX\u0086\u008e\u0002\u00a2\u0006\u0012\n\u0004\b4\u00105\u001a\u0004\b0\u00101\"\u0004\b2\u00103R+\u00107\u001a\u0002062\u0006\u0010\f\u001a\u0002068F@BX\u0086\u008e\u0002\u00a2\u0006\u0012\n\u0004\b<\u0010\u0014\u001a\u0004\b8\u00109\"\u0004\b:\u0010;R+\u0010=\u001a\u0002062\u0006\u0010\f\u001a\u0002068F@BX\u0086\u008e\u0002\u00a2\u0006\u0012\n\u0004\b@\u0010\u0014\u001a\u0004\b>\u00109\"\u0004\b?\u0010;R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004\u00a2\u0006\u0002\n\u0000R+\u0010A\u001a\u00020 2\u0006\u0010\f\u001a\u00020 8F@BX\u0086\u008e\u0002\u00a2\u0006\u0012\n\u0004\bD\u0010\u0014\u001a\u0004\bB\u0010\"\"\u0004\bC\u0010$R+\u0010E\u001a\u00020\u00152\u0006\u0010\f\u001a\u00020\u00158F@BX\u0086\u008e\u0002\u00a2\u0006\u0012\n\u0004\bH\u0010\u0014\u001a\u0004\bF\u0010\u0018\"\u0004\bG\u0010\u001aR+\u0010I\u001a\u00020\u00152\u0006\u0010\f\u001a\u00020\u00158F@BX\u0086\u008e\u0002\u00a2\u0006\u0012\n\u0004\bL\u0010\u0014\u001a\u0004\bJ\u0010\u0018\"\u0004\bK\u0010\u001aR+\u0010M\u001a\u00020\u00152\u0006\u0010\f\u001a\u00020\u00158F@BX\u0086\u008e\u0002\u00a2\u0006\u0012\n\u0004\bP\u0010\u0014\u001a\u0004\bN\u0010\u0018\"\u0004\bO\u0010\u001aR+\u0010R\u001a\u00020Q2\u0006\u0010\f\u001a\u00020Q8F@BX\u0086\u008e\u0002\u00a2\u0006\u0012\n\u0004\bW\u0010\u0014\u001a\u0004\bS\u0010T\"\u0004\bU\u0010VR+\u0010X\u001a\u00020 2\u0006\u0010\f\u001a\u00020 8F@BX\u0086\u008e\u0002\u00a2\u0006\u0012\n\u0004\b[\u0010\u0014\u001a\u0004\bY\u0010\"\"\u0004\bZ\u0010$\u0082\u0002\u0004\n\u0002\b\u0019\u00a8\u0006\u008d\u0001"}, d2 = {"Lcom/example/globalapp/viewModels/ControllerPropuestas;", "Landroidx/lifecycle/ViewModel;", "repository", "Lcom/example/globalapp/retrofit/LoginRepository;", "(Lcom/example/globalapp/retrofit/LoginRepository;)V", "_headers", "Lkotlinx/coroutines/flow/MutableStateFlow;", "", "Lcom/example/globalapp/models/HeaderData;", "_lista", "Lcom/example/globalapp/models/retrofit/PropuestasResponse;", "_listaOriginal", "<set-?>", "Lcom/example/globalapp/models/retrofit/AutorizarPropuestasResponse;", "autorizarPropuestasResponse", "getAutorizarPropuestasResponse", "()Lcom/example/globalapp/models/retrofit/AutorizarPropuestasResponse;", "setAutorizarPropuestasResponse", "(Lcom/example/globalapp/models/retrofit/AutorizarPropuestasResponse;)V", "autorizarPropuestasResponse$delegate", "Landroidx/compose/runtime/MutableState;", "", "checkAll", "getCheckAll", "()Z", "setCheckAll", "(Z)V", "checkAll$delegate", "headers", "Lkotlinx/coroutines/flow/StateFlow;", "getHeaders", "()Lkotlinx/coroutines/flow/StateFlow;", "", "isSearching", "()Ljava/lang/String;", "setSearching", "(Ljava/lang/String;)V", "isSearching$delegate", "isSearchingAsc", "setSearchingAsc", "isSearchingAsc$delegate", "lista", "getLista", "()Lkotlinx/coroutines/flow/MutableStateFlow;", "setLista", "(Lkotlinx/coroutines/flow/MutableStateFlow;)V", "", "numPropuestasAfectadas", "getNumPropuestasAfectadas", "()I", "setNumPropuestasAfectadas", "(I)V", "numPropuestasAfectadas$delegate", "Landroidx/compose/runtime/MutableIntState;", "Lcom/example/globalapp/models/controllers/ProgressBarModel;", "progressbarDialogState", "getProgressbarDialogState", "()Lcom/example/globalapp/models/controllers/ProgressBarModel;", "setProgressbarDialogState", "(Lcom/example/globalapp/models/controllers/ProgressBarModel;)V", "progressbarDialogState$delegate", "progressbarPropuestasState", "getProgressbarPropuestasState", "setProgressbarPropuestasState", "progressbarPropuestasState$delegate", "search", "getSearch", "setSearch", "search$delegate", "showDialog", "getShowDialog", "setShowDialog", "showDialog$delegate", "switchAutorizando", "getSwitchAutorizando", "setSwitchAutorizando", "switchAutorizando$delegate", "switchPropuestasPendientes", "getSwitchPropuestasPendientes", "setSwitchPropuestasPendientes", "switchPropuestasPendientes$delegate", "", "tiempoInicioSuspendido", "getTiempoInicioSuspendido", "()J", "setTiempoInicioSuspendido", "(J)V", "tiempoInicioSuspendido$delegate", "txtPasswordDialog", "getTxtPasswordDialog", "setTxtPasswordDialog", "txtPasswordDialog$delegate", "autorizarPropuestasApi", "autorizarPropuestasRequest", "Lcom/example/globalapp/models/retrofit/AutorizarPropuestasRequest;", "(Lcom/example/globalapp/models/retrofit/AutorizarPropuestasRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "desautorizarPropuestasApi", "filterSearch", "", "getPropuestas", "claveUsuario", "(Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "getPropuestasApi", "getPropuestasPendientesApi", "handlerAutorizarDesautorizar", "idUsuario", "viewModelLogin", "Lcom/example/globalapp/viewModels/ControllerLogin;", "user", "password", "handlerGetPropuestas", "initHeaders", "onValue", "value", "key", "ordenar", "resetNumPropuestasAfectadas", "updateCheckAll", "isCheckAll", "updateCheckState", "cveControl", "isChecked", "updateNumPropuestasAfectadas", "updateProgressbarDialogState", "isLoading", "message", "updateProgressbarPropuestasState", "updateResponse", "success", "(Ljava/lang/Boolean;Ljava/lang/String;)V", "updateShowDialog", "updateSortHeader", "title", "dataIndex", "updateSwitchAutorizando", "isAutorizando", "updateSwitchPropuestasPendientes", "isPropuestasPendientes", "updateTiempoInicioSuspendido", "tiempoSuspendido", "validaTiempoSuspendido", "app_debug"})
+@dagger.hilt.android.lifecycle.HiltViewModel
+public final class ControllerPropuestas extends androidx.lifecycle.ViewModel {
+    @org.jetbrains.annotations.NotNull
+    private final com.example.globalapp.retrofit.LoginRepository repository = null;
+    @org.jetbrains.annotations.NotNull
+    private final androidx.compose.runtime.MutableState tiempoInicioSuspendido$delegate = null;
+    @org.jetbrains.annotations.NotNull
+    private final androidx.compose.runtime.MutableIntState numPropuestasAfectadas$delegate = null;
+    @org.jetbrains.annotations.NotNull
+    private final androidx.compose.runtime.MutableState showDialog$delegate = null;
+    @org.jetbrains.annotations.NotNull
+    private final androidx.compose.runtime.MutableState txtPasswordDialog$delegate = null;
+    @org.jetbrains.annotations.NotNull
+    private final androidx.compose.runtime.MutableState switchAutorizando$delegate = null;
+    @org.jetbrains.annotations.NotNull
+    private final androidx.compose.runtime.MutableState switchPropuestasPendientes$delegate = null;
+    @org.jetbrains.annotations.NotNull
+    private final androidx.compose.runtime.MutableState search$delegate = null;
+    @org.jetbrains.annotations.NotNull
+    private final androidx.compose.runtime.MutableState isSearching$delegate = null;
+    @org.jetbrains.annotations.NotNull
+    private final androidx.compose.runtime.MutableState isSearchingAsc$delegate = null;
+    @org.jetbrains.annotations.NotNull
+    private final androidx.compose.runtime.MutableState checkAll$delegate = null;
+    @org.jetbrains.annotations.NotNull
+    private final androidx.compose.runtime.MutableState progressbarPropuestasState$delegate = null;
+    @org.jetbrains.annotations.NotNull
+    private final androidx.compose.runtime.MutableState progressbarDialogState$delegate = null;
+    @org.jetbrains.annotations.NotNull
+    private final androidx.compose.runtime.MutableState autorizarPropuestasResponse$delegate = null;
+    @org.jetbrains.annotations.NotNull
+    private final kotlinx.coroutines.flow.MutableStateFlow<java.util.List<com.example.globalapp.models.retrofit.PropuestasResponse>> _listaOriginal = null;
+    @org.jetbrains.annotations.NotNull
+    private final kotlinx.coroutines.flow.MutableStateFlow<java.util.List<com.example.globalapp.models.retrofit.PropuestasResponse>> _lista = null;
+    @org.jetbrains.annotations.NotNull
+    private kotlinx.coroutines.flow.MutableStateFlow<java.util.List<com.example.globalapp.models.retrofit.PropuestasResponse>> lista;
+    @org.jetbrains.annotations.NotNull
+    private kotlinx.coroutines.flow.MutableStateFlow<java.util.List<com.example.globalapp.models.HeaderData>> _headers;
+    @org.jetbrains.annotations.NotNull
+    private final kotlinx.coroutines.flow.StateFlow<java.util.List<com.example.globalapp.models.HeaderData>> headers = null;
+    
+    @javax.inject.Inject
+    public ControllerPropuestas(@org.jetbrains.annotations.NotNull
+    com.example.globalapp.retrofit.LoginRepository repository) {
+        super();
+    }
+    
+    public final long getTiempoInicioSuspendido() {
+        return 0L;
+    }
+    
+    private final void setTiempoInicioSuspendido(long p0) {
+    }
+    
+    public final void updateTiempoInicioSuspendido(long tiempoSuspendido) {
+    }
+    
+    public final boolean validaTiempoSuspendido(long tiempoSuspendido) {
+        return false;
+    }
+    
+    public final int getNumPropuestasAfectadas() {
+        return 0;
+    }
+    
+    private final void setNumPropuestasAfectadas(int p0) {
+    }
+    
+    public final void updateNumPropuestasAfectadas(int numPropuestasAfectadas) {
+    }
+    
+    public final void resetNumPropuestasAfectadas() {
+    }
+    
+    public final boolean getShowDialog() {
+        return false;
+    }
+    
+    private final void setShowDialog(boolean p0) {
+    }
+    
+    @org.jetbrains.annotations.NotNull
+    public final java.lang.String getTxtPasswordDialog() {
+        return null;
+    }
+    
+    private final void setTxtPasswordDialog(java.lang.String p0) {
+    }
+    
+    public final void updateShowDialog(boolean showDialog) {
+    }
+    
+    public final boolean getSwitchAutorizando() {
+        return false;
+    }
+    
+    private final void setSwitchAutorizando(boolean p0) {
+    }
+    
+    public final boolean getSwitchPropuestasPendientes() {
+        return false;
+    }
+    
+    private final void setSwitchPropuestasPendientes(boolean p0) {
+    }
+    
+    public final void updateSwitchAutorizando(boolean isAutorizando) {
+    }
+    
+    public final void updateSwitchPropuestasPendientes(boolean isPropuestasPendientes, @org.jetbrains.annotations.NotNull
+    java.lang.String claveUsuario) {
+    }
+    
+    @org.jetbrains.annotations.NotNull
+    public final java.lang.String getSearch() {
+        return null;
+    }
+    
+    private final void setSearch(java.lang.String p0) {
+    }
+    
+    @org.jetbrains.annotations.NotNull
+    public final java.lang.String isSearching() {
+        return null;
+    }
+    
+    private final void setSearching(java.lang.String p0) {
+    }
+    
+    public final boolean isSearchingAsc() {
+        return false;
+    }
+    
+    private final void setSearchingAsc(boolean p0) {
+    }
+    
+    public final void onValue(@org.jetbrains.annotations.NotNull
+    java.lang.String value, @org.jetbrains.annotations.NotNull
+    java.lang.String key) {
+    }
+    
+    public final boolean getCheckAll() {
+        return false;
+    }
+    
+    private final void setCheckAll(boolean p0) {
+    }
+    
+    public final void updateCheckAll(boolean isCheckAll) {
+    }
+    
+    @org.jetbrains.annotations.NotNull
+    public final com.example.globalapp.models.controllers.ProgressBarModel getProgressbarPropuestasState() {
+        return null;
+    }
+    
+    private final void setProgressbarPropuestasState(com.example.globalapp.models.controllers.ProgressBarModel p0) {
+    }
+    
+    @org.jetbrains.annotations.NotNull
+    public final com.example.globalapp.models.controllers.ProgressBarModel getProgressbarDialogState() {
+        return null;
+    }
+    
+    private final void setProgressbarDialogState(com.example.globalapp.models.controllers.ProgressBarModel p0) {
+    }
+    
+    @org.jetbrains.annotations.NotNull
+    public final com.example.globalapp.models.retrofit.AutorizarPropuestasResponse getAutorizarPropuestasResponse() {
+        return null;
+    }
+    
+    private final void setAutorizarPropuestasResponse(com.example.globalapp.models.retrofit.AutorizarPropuestasResponse p0) {
+    }
+    
+    @org.jetbrains.annotations.NotNull
+    public final kotlinx.coroutines.flow.MutableStateFlow<java.util.List<com.example.globalapp.models.retrofit.PropuestasResponse>> getLista() {
+        return null;
+    }
+    
+    public final void setLista(@org.jetbrains.annotations.NotNull
+    kotlinx.coroutines.flow.MutableStateFlow<java.util.List<com.example.globalapp.models.retrofit.PropuestasResponse>> p0) {
+    }
+    
+    @org.jetbrains.annotations.NotNull
+    public final kotlinx.coroutines.flow.StateFlow<java.util.List<com.example.globalapp.models.HeaderData>> getHeaders() {
+        return null;
+    }
+    
+    private final void initHeaders() {
+    }
+    
+    public final void handlerGetPropuestas(@org.jetbrains.annotations.NotNull
+    java.lang.String claveUsuario) {
+    }
+    
+    public final void updateCheckState(@org.jetbrains.annotations.NotNull
+    java.lang.String cveControl, boolean isChecked) {
+    }
+    
+    public final void updateSortHeader(@org.jetbrains.annotations.NotNull
+    java.lang.String title, boolean isChecked, @org.jetbrains.annotations.NotNull
+    java.lang.String dataIndex) {
+    }
+    
+    private final void ordenar() {
+    }
+    
+    public final void filterSearch() {
+    }
+    
+    public final void handlerAutorizarDesautorizar(int idUsuario, @org.jetbrains.annotations.NotNull
+    com.example.globalapp.viewModels.ControllerLogin viewModelLogin, @org.jetbrains.annotations.NotNull
+    java.lang.String user, @org.jetbrains.annotations.NotNull
+    java.lang.String password) {
+    }
+    
+    private final java.lang.Object getPropuestas(java.lang.String claveUsuario, kotlin.coroutines.Continuation<? super java.util.List<com.example.globalapp.models.retrofit.PropuestasResponse>> $completion) {
+        return null;
+    }
+    
+    private final java.lang.Object getPropuestasApi(java.lang.String claveUsuario, kotlin.coroutines.Continuation<? super java.util.List<com.example.globalapp.models.retrofit.PropuestasResponse>> $completion) {
+        return null;
+    }
+    
+    private final java.lang.Object getPropuestasPendientesApi(java.lang.String claveUsuario, kotlin.coroutines.Continuation<? super java.util.List<com.example.globalapp.models.retrofit.PropuestasResponse>> $completion) {
+        return null;
+    }
+    
+    private final java.lang.Object autorizarPropuestasApi(com.example.globalapp.models.retrofit.AutorizarPropuestasRequest autorizarPropuestasRequest, kotlin.coroutines.Continuation<? super com.example.globalapp.models.retrofit.AutorizarPropuestasResponse> $completion) {
+        return null;
+    }
+    
+    private final java.lang.Object desautorizarPropuestasApi(com.example.globalapp.models.retrofit.AutorizarPropuestasRequest autorizarPropuestasRequest, kotlin.coroutines.Continuation<? super com.example.globalapp.models.retrofit.AutorizarPropuestasResponse> $completion) {
+        return null;
+    }
+    
+    private final void updateResponse(java.lang.Boolean success, java.lang.String message) {
+    }
+    
+    private final void updateProgressbarDialogState(boolean isLoading, java.lang.String message) {
+    }
+    
+    private final void updateProgressbarPropuestasState(boolean isLoading, java.lang.String message) {
+    }
+}
