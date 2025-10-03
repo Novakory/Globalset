@@ -1,0 +1,41 @@
+
+import { generateError } from '../utils/errorsUtil.js';
+import { pool } from '../bd.js';
+import { query, response } from 'express';
+import { printQuery, encriptador } from '../utils/dbUtil.js';
+
+//
+export const updateUsers = async (req, res) => {
+  try {
+    const { users } = req.body;
+    // console.log(users);
+    if(users==null || users.length==0)  return res.status(201).json({ SUCCESS: false, MESSAGE: "Nada para actualizar en updateUsers" }) 
+
+    const values = users.map(() => '(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)').join(',\n');
+
+    const query = `
+      INSERT INTO usuarios (id_usuario, nombre, apellido_materno, apellido_paterno, clave_usuario, contrasena, empresas,facultad_total, facultad_mancomunada, facultad_acceso)
+      VALUES 
+      ${values}
+      ON DUPLICATE KEY UPDATE 
+        contrasena = IF(IFNULL(VALUES(contrasena),'') != IFNULL(contrasena,''), VALUES(contrasena), contrasena),
+        empresas = IF(IFNULL(VALUES(empresas),'') != IFNULL(empresas,''), VALUES(empresas), empresas),
+        facultad_acceso = IF(IFNULL(VALUES(facultad_acceso),'') != IFNULL(facultad_acceso,''), VALUES(facultad_acceso), facultad_acceso),
+        facultad_mancomunada = IF(IFNULL(VALUES(facultad_mancomunada),'') != IFNULL(facultad_mancomunada,''), VALUES(facultad_mancomunada), facultad_mancomunada),
+        facultad_total = IF(IFNULL(VALUES(facultad_total),'') != IFNULL(facultad_total,''), VALUES(facultad_total), facultad_total);
+    `;
+
+    const params = users.flatMap(user => [//todos los subarrays los deja en uno solo
+      user.id_usuario, user.nombre, user.apellido_materno, user.apellido_paterno, user.clave_usuario, user.contrasena, user.empresas, user.facultad_total, user.facultad_mancomunada, user.facultad_acceso,
+    ]);
+    // printQuery("updateUsers2", query, params);
+    const [response] = await pool.query(query, params);
+    // console.log(response)
+    const rowsAffected = parseInt(response.affectedRows) - users.length;
+    console.log("cambios usuarios: ", rowsAffected)
+    res.json({ SUCCESS: true, MESSAGE: "" });
+  } catch (error) {
+    console.log(error);
+    return res.status(400).json({ SUCCESS: false, MESSAGE: "Error al insertar los usuarios" })
+  }
+}
