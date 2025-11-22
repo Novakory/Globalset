@@ -13,7 +13,7 @@ const whiteList = [process.env.FRONTEND_URL, "https://websocketking.com"]
 if (process.argv[2] == '--developer') whiteList.push(undefined);//paa que en modo test pueda hacer peticiones desde postman
 const corsOption = {
   origin: function (origin, callback) {
-    // console.log({ origin });
+    console.log({ origin });
     if (whiteList.includes(origin)) {
       callback(null, true);
     } else {

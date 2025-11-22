@@ -2,51 +2,236 @@
 import { generateError } from '../utils/errorsUtil.js';
 import { pool } from '../bd.js';
 import { query, response } from 'express';
-import { printQuery, encriptador } from '../utils/dbUtil.js';
+import { queryWithParams } from '../utils/dbUtil.js';
 import { formatDB } from '../utils/dateUtil.js';
 import { wsClients } from '../utils/wsServer.js'
 import { wsSendAlert } from '../utils/wsService.js'
+import sql from 'mssql'
 
-export const operacionesSet = async (req, res) => {
-  const connection = await pool.getConnection();
+const MAX_PARAMS = 2000;//MAXIMO DE PARAMETROS PERMITIDOS PARA PROCESAR SIMULTANEAMENTE EN SQL SERVER
+//ACTUALIA CON LAS PROPUESTAS DEL SET
+export const updatePropuestas = async (req, res) => {//ok
   try {
+    const { propuestas } = req.body;
+    const connection = await pool;
+
+    const COLUMNS = 15;
+    //PROCESARA DE A 140 PROPUESTAS POR EJECUCION PARA EVITAR REVASAR LOS MAXIMOS PARAMETROS PERMITIDOS POR SQL SERVE
+    const MAX_BATCH = Math.floor(MAX_PARAMS / COLUMNS);
+
+    if (propuestas == null || propuestas.length == 0) return res.status(201).json({ SUCCESS: false, MESSAGE: "Nada para actualizar en updatePropuestas" })
+
+    let countRowsAffected = 0;
+    async function procesarBatch(batch) {
+      const values = batch.map(() => '(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)').join(',\n');
+      const params = batch.flatMap(propuesta => [//todos los subarrays los deja en uno solo
+        propuesta.cve_control,
+        formatDB(propuesta.fec_propuesta),
+        propuesta.importe, propuesta.id_divisa, propuesta.concepto, propuesta.no_empresa, propuesta.desc_empresa, propuesta.id_banco, propuesta.desc_banco, propuesta.id_chequera, propuesta.nivel_autorizacion, propuesta.usuario_uno, propuesta.usuario_dos, propuesta.usuario_tres, propuesta.motivo_rechazo
+      ]);
+
+      const query = `
+        MERGE INTO propuestas AS target
+        USING (VALUES
+          ${values}
+        ) AS source (cve_control, fec_propuesta, importe, id_divisa, concepto, no_empresa, desc_empresa, id_banco, desc_banco, id_chequera,nivel_autorizacion, usuario_uno, usuario_dos,usuario_tres,motivo_rechazo)
+        ON target.cve_control = source.cve_control
+        WHEN MATCHED AND(
+          ISNULL(source.fec_propuesta,'') <> ISNULL(target.fec_propuesta,'')
+          OR ISNULL(source.importe,'') <> ISNULL(target.importe,'')
+          OR ISNULL(source.id_divisa,'') <> ISNULL(target.id_divisa,'')
+          OR ISNULL(source.concepto,'') <> ISNULL(target.concepto,'')
+          OR ISNULL(source.no_empresa,'') <> ISNULL(target.no_empresa,'')
+          OR ISNULL(source.desc_empresa,'') <> ISNULL(target.desc_empresa,'')
+          OR ISNULL(source.id_banco,'') <> ISNULL(target.id_banco,'')
+          OR ISNULL(source.desc_banco,'') <> ISNULL(target.desc_banco,'')
+          OR ISNULL(source.id_chequera,'') <> ISNULL(target.id_chequera,'')
+          OR ISNULL(source.nivel_autorizacion,'') <> ISNULL(target.nivel_autorizacion,'')
+          OR ISNULL(source.usuario_uno,'') <> ISNULL(target.usuario_uno,'')
+          OR ISNULL(source.usuario_dos,'') <> ISNULL(target.usuario_dos,'')
+          OR ISNULL(source.usuario_tres,'') <> ISNULL(target.usuario_tres,'')
+          OR ISNULL(source.motivo_rechazo,'') <> ISNULL(target.motivo_rechazo,'')
+        ) THEN UPDATE SET
+            fec_propuesta = CASE WHEN ISNULL(source.fec_propuesta,'') <> ISNULL(target.fec_propuesta,'') THEN source.fec_propuesta ELSE target.fec_propuesta END,
+            importe = CASE WHEN ISNULL(source.importe,'') <> ISNULL(target.importe,'') THEN source.importe ELSE target.importe END,
+            id_divisa = CASE WHEN ISNULL(source.id_divisa,'') <> ISNULL(target.id_divisa,'') THEN source.id_divisa ELSE target.id_divisa END,
+            concepto = CASE WHEN ISNULL(source.concepto,'') <> ISNULL(target.concepto,'') THEN source.concepto ELSE target.concepto END,
+            no_empresa = CASE WHEN ISNULL(source.no_empresa,'') <> ISNULL(target.no_empresa,'') THEN source.no_empresa ELSE target.no_empresa END,
+            desc_empresa = CASE WHEN ISNULL(source.desc_empresa,'') <> ISNULL(target.desc_empresa,'') THEN source.desc_empresa ELSE target.desc_empresa END,
+            id_banco = CASE WHEN ISNULL(source.id_banco,'') <> ISNULL(target.id_banco,'') THEN source.id_banco ELSE target.id_banco END,
+            desc_banco = CASE WHEN ISNULL(source.desc_banco,'') <> ISNULL(target.desc_banco,'') THEN source.desc_banco ELSE target.desc_banco END,
+            id_chequera = CASE WHEN ISNULL(source.id_chequera,'') <> ISNULL(target.id_chequera,'') THEN source.id_chequera ELSE target.id_chequera END,
+            nivel_autorizacion = CASE WHEN ISNULL(source.nivel_autorizacion,'') <> ISNULL(target.nivel_autorizacion,'') THEN source.nivel_autorizacion ELSE target.nivel_autorizacion END,
+            usuario_uno = CASE WHEN ISNULL(source.usuario_uno,'') <> ISNULL(target.usuario_uno,'') THEN source.usuario_uno ELSE target.usuario_uno END,
+            usuario_dos = CASE WHEN ISNULL(source.usuario_dos,'') <> ISNULL(target.usuario_dos,'') THEN source.usuario_dos ELSE target.usuario_dos END,
+            usuario_tres = CASE WHEN ISNULL(source.usuario_tres,'') <> ISNULL(target.usuario_tres,'') THEN source.usuario_tres ELSE target.usuario_tres END,
+            motivo_rechazo = CASE WHEN ISNULL(source.motivo_rechazo,'') <> ISNULL(target.motivo_rechazo,'') THEN source.motivo_rechazo ELSE target.motivo_rechazo END
+        WHEN NOT MATCHED THEN
+          INSERT (cve_control, fec_propuesta, importe, id_divisa, concepto, no_empresa, desc_empresa, id_banco, desc_banco, id_chequera,nivel_autorizacion, usuario_uno, usuario_dos,usuario_tres,motivo_rechazo)
+          VALUES (source.cve_control, source.fec_propuesta, source.importe, source.id_divisa, source.concepto, source.no_empresa, source.desc_empresa, source.id_banco, source.desc_banco, source.id_chequera,source.nivel_autorizacion, source.usuario_uno, source.usuario_dos,source.usuario_tres,source.motivo_rechazo);
+      `;
+      const response = await queryWithParams(connection, query, params);
+      countRowsAffected += parseInt(response.rowsAffected[0]) || 0;
+    }
+    for (let i = 0; i < propuestas.length; i += MAX_BATCH) {
+      const batch = propuestas.slice(i, i + MAX_BATCH);
+      await procesarBatch(batch);
+    }
+
+    console.log("cambios propuestas: ", countRowsAffected)
+    if (countRowsAffected > 0) {
+      wsSendAlert(wsClients, countRowsAffected);
+    }
+    res.json({ SUCCESS: true, MESSAGE: "" });
+  } catch (error) {
+    console.log(error);
+    return res.status(400).json({ SUCCESS: false, MESSAGE: "Error al insertar las propuestas" })
+  }
+}
+
+
+
+
+
+export const deletePropuestasPagadas = async (req, res) => {//ELIMINA LAS PROPUESTAS PAGADAS
+  const connection = await pool;
+  const transaction = new sql.Transaction(connection);
+  try {
+    const { listClavesControl } = req.body;
+    if (listClavesControl == null || listClavesControl.length == 0) return res.status(201).json({ SUCCESS: false, MESSAGE: "Nada para actualizar en deletePropuestasPagadas" })
+
+    const stgClavesControlHolders = listClavesControl.map(() => "?").join(",");
+    const query = `
+      DELETE FROM propuestas WHERE cve_control in(${stgClavesControlHolders})
+    `;
+
+    transaction.begin();
+    const response = await queryWithParams(connection, query, params, "deletePropuestasPagadas");
+    transaction.commit();
+
+    // console.log(response)
+    const rowsAffected = parseInt(response.rowsAffected[0]) || 0;
+    res.json({ SUCCESS: true, MESSAGE: "", AFFECTED_ROWS: rowsAffected });
+  } catch (error) {
+    transaction.rollback();
+    console.log(error);
+    return res.status(400).json({ SUCCESS: false, MESSAGE: "Error al eliminar las propuestas pagadas" })
+  }
+}
+
+// export const getPropuestasAutorizadasDesautorizadas = async (req, res) => {//OBTIENE LAS PROPUESTAS AUTORIZADAS O DESAUTORIZADAS DESDE LA APP MOVIL
+export const getPropuestasModificadasMovil = async (req, res) => {//OBTIENE LAS PROPUESTAS AUTORIZADAS O DESAUTORIZADAS DESDE LA APP MOVIL
+  const connection = await pool;
+  try {
+    const query = `
+      SELECT 
+      cve_control,usuario_uno,usuario_dos,usuario_tres,motivo_rechazo
+      FROM propuestas
+      WHERE status = 1
+    `;
+    // printQuery("getPropuestasModificadasMovil", query);
+    const response = await connection.query(query);
+
+    const data = response.recordset.length > 0 ? JSON.stringify(response.recordset) : null
+    if (data != null) await resetPropuestasMovil();//TODO ver si las actualizo meidante una respuesta de websocket una ves que estoy seguro que se modificaron en el set
+    // Respuesta exitosa
+    res.json({
+      SUCCESS: true,
+      MESSAGE: "",
+      DATA: data
+    });
+
+  } catch (error) {
+    console.error("Error en getPropuestasModificadasMovil:", error);
+    return res.status(500).json({ SUCCESS: false, MESSAGE: "Error en el servidor" });
+  }
+}
+
+const resetPropuestasMovil = async function () {
+  const connection = await pool;
+  try {
+    await connection.query("UPDATE propuestas SET status = 0 WHERE status = 1")
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+
+
+
+
+
+
+
+
+
+//TODO ver si se llega a usar
+export const operacionesSet = async (req, res) => {
+  try {
+    const connection = await pool;
     const { propuestas, listClavesControl } = req.body;
 
     connection.beginTransaction()
 
     //1 - ACTUALIZA Ó INSERTA CAMPOS________________________________________________________________________________-
-    const values = propuestas.map(() => '(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)').join(',\n');
+    const values = propuestas.map(() => '(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)').join(',\n');
 
     const query = `
-      INSERT INTO propuestas (cve_control, fec_propuesta, importe, id_divisa, concepto, no_empresa, desc_empresa, id_banco, desc_banco, id_chequera,nivel_autorizacion, usuario_uno, usuario_dos,usuario_tres)
-      VALUES 
-      ${values}
-      ON DUPLICATE KEY UPDATE WHEN status IS NOT NULL
-        fec_propuesta = IF(VALUES(fec_propuesta) != fec_propuesta, VALUES(fec_propuesta), fec_propuesta),
-        importe = IF(VALUES(importe) != importe, VALUES(importe), importe),
-        id_divisa = IF(VALUES(id_divisa) != id_divisa, VALUES(id_divisa), id_divisa),
-        concepto = IF(VALUES(concepto) != concepto, VALUES(concepto), concepto),
-        no_empresa = IF(VALUES(no_empresa) != no_empresa, VALUES(no_empresa), no_empresa),
-        desc_empresa = IF(VALUES(desc_empresa) != desc_empresa, VALUES(desc_empresa), desc_empresa),
-        id_banco = IF(VALUES(id_banco) != id_banco, VALUES(id_banco), id_banco),
-        desc_banco = IF(VALUES(desc_banco) != desc_banco, VALUES(desc_banco), desc_banco),
-        id_chequera = IF(VALUES(id_chequera) != id_chequera, VALUES(id_chequera), id_chequera),
-        nivel_autorizacion = IF(VALUES(nivel_autorizacion) != nivel_autorizacion, VALUES(nivel_autorizacion), nivel_autorizacion),
-        usuario_uno = IF(VALUES(usuario_uno) != usuario_uno, VALUES(usuario_uno), usuario_uno),
-        usuario_dos = IF(VALUES(usuario_dos) != usuario_dos, VALUES(usuario_dos), usuario_dos),
-        usuario_tres = IF(VALUES(usuario_tres) != usuario_tres, VALUES(usuario_tres), usuario_tres);
+      MERGE INTO propuestas AS target
+      USING (VALUES
+        ${values}
+      ) AS source (cve_control, fec_propuesta, importe, id_divisa, concepto, no_empresa, desc_empresa, id_banco, desc_banco, id_chequera,nivel_autorizacion, usuario_uno, usuario_dos,usuario_tres,motivo_rechazo)
+      ON target.cve_control = source.cve_control
+      WHEN MATCHED AND(
+        ISNULL(source.fec_propuesta,'') <> ISNULL(target.fec_propuesta,'')
+        OR ISNULL(source.importe,'') <> ISNULL(target.importe,'')
+        OR ISNULL(source.id_divisa,'') <> ISNULL(target.id_divisa,'')
+        OR ISNULL(source.concepto,'') <> ISNULL(target.concepto,'')
+        OR ISNULL(source.no_empresa,'') <> ISNULL(target.no_empresa,'')
+        OR ISNULL(source.desc_empresa,'') <> ISNULL(target.desc_empresa,'')
+        OR ISNULL(source.id_banco,'') <> ISNULL(target.id_banco,'')
+        OR ISNULL(source.desc_banco,'') <> ISNULL(target.desc_banco,'')
+        OR ISNULL(source.id_chequera,'') <> ISNULL(target.id_chequera,'')
+        OR ISNULL(source.nivel_autorizacion,'') <> ISNULL(target.nivel_autorizacion,'')
+        OR ISNULL(source.usuario_uno,'') <> ISNULL(target.usuario_uno,'')
+        OR ISNULL(source.usuario_dos,'') <> ISNULL(target.usuario_dos,'')
+        OR ISNULL(source.usuario_tres,'') <> ISNULL(target.usuario_tres,'')
+        OR ISNULL(source.motivo_rechazo,'') <> ISNULL(target.motivo_rechazo,'')
+      ) THEN UPDATE SET
+          fec_propuesta = CASE WHEN ISNULL(source.fec_propuesta,'') <> ISNULL(target.fec_propuesta,'') THEN source.fec_propuesta ELSE target.fec_propuesta END,
+          importe = CASE WHEN ISNULL(source.importe,'') <> ISNULL(target.importe,'') THEN source.importe ELSE target.importe END,
+          id_divisa = CASE WHEN ISNULL(source.id_divisa,'') <> ISNULL(target.id_divisa,'') THEN source.id_divisa ELSE target.id_divisa END,
+          concepto = CASE WHEN ISNULL(source.concepto,'') <> ISNULL(target.concepto,'') THEN source.concepto ELSE target.concepto END,
+          no_empresa = CASE WHEN ISNULL(source.no_empresa,'') <> ISNULL(target.no_empresa,'') THEN source.no_empresa ELSE target.no_empresa END,
+          desc_empresa = CASE WHEN ISNULL(source.desc_empresa,'') <> ISNULL(target.desc_empresa,'') THEN source.desc_empresa ELSE target.desc_empresa END,
+          id_banco = CASE WHEN ISNULL(source.id_banco,'') <> ISNULL(target.id_banco,'') THEN source.id_banco ELSE target.id_banco END,
+          desc_banco = CASE WHEN ISNULL(source.desc_banco,'') <> ISNULL(target.desc_banco,'') THEN source.desc_banco ELSE target.desc_banco END,
+          id_chequera = CASE WHEN ISNULL(source.id_chequera,'') <> ISNULL(target.id_chequera,'') THEN source.id_chequera ELSE target.id_chequera END,
+          nivel_autorizacion = CASE WHEN ISNULL(source.nivel_autorizacion,'') <> ISNULL(target.nivel_autorizacion,'') THEN source.nivel_autorizacion ELSE target.nivel_autorizacion END,
+          usuario_uno = CASE WHEN ISNULL(source.usuario_uno,'') <> ISNULL(target.usuario_uno,'') THEN source.usuario_uno ELSE target.usuario_uno END,
+          usuario_dos = CASE WHEN ISNULL(source.usuario_dos,'') <> ISNULL(target.usuario_dos,'') THEN source.usuario_dos ELSE target.usuario_dos END,
+          usuario_tres = CASE WHEN ISNULL(source.usuario_tres,'') <> ISNULL(target.usuario_tres,'') THEN source.usuario_tres ELSE target.usuario_tres END,
+          motivo_rechazo = CASE WHEN ISNULL(source.motivo_rechazo,'') <> ISNULL(target.motivo_rechazo,'') THEN source.motivo_rechazo ELSE target.motivo_rechazo END
+      WHEN NOT MATCHED THEN
+        INSERT (cve_control, fec_propuesta, importe, id_divisa, concepto, no_empresa, desc_empresa, id_banco, desc_banco, id_chequera,nivel_autorizacion, usuario_uno, usuario_dos,usuario_tres,motivo_rechazo)
+        VALUES (source.cve_control, source.fec_propuesta, source.importe, source.id_divisa, source.concepto, source.no_empresa, source.desc_empresa, source.id_banco, source.desc_banco, source.id_chequera,source.nivel_autorizacion, source.usuario_uno, source.usuario_dos,source.usuario_tres,source.motivo_rechazo);
     `;
 
     const params = propuestas.flatMap(propuesta => [//todos los subarrays los deja en uno solo
       propuesta.cve_control,
       formatDB(propuesta.fec_propuesta),
-      propuesta.importe, propuesta.id_divisa, propuesta.concepto, propuesta.no_empresa, propuesta.desc_empresa, propuesta.id_banco, propuesta.desc_banco, propuesta.id_chequera, propuesta.nivel_autorizacion, propuesta.usuario_uno, propuesta.usuario_dos, propuesta.usuario_tres
+      propuesta.importe, propuesta.id_divisa, propuesta.concepto, propuesta.no_empresa, propuesta.desc_empresa, propuesta.id_banco, propuesta.desc_banco, propuesta.id_chequera, propuesta.nivel_autorizacion, propuesta.usuario_uno, propuesta.usuario_dos, propuesta.usuario_tres, propuesta.motivo_rechazo
     ]);
-    // printQuery("updatePropuestas", query, params);
-    const [response] = await connection.query(query, params);
-    console.log(response, "END update propuestas_____________________________\n")
 
+    const response = await queryWithParams(connection, query, params, "updatePropuestas");
+    // console.log(response, "END update propuestas_____________________________\n")
+    const rowsAffected = response.rowsAffected;
+    console.log("cambios propuestas: ", rowsAffected)
+    if (rowsAffected > 0) {
+      wsSendAlert(wsClients, rowsAffected);
+    }
 
+    //TODO por migrar a sql server
     //2 - ELIMINAR PROPUESTAS PAGADAS________________________________________________________________
     const stgClavesControlHolders = listClavesControl.map(() => "?").join(",");
     query = `
@@ -87,107 +272,7 @@ export const operacionesSet = async (req, res) => {
   }
 }
 
-export const updatePropuestas = async (req, res) => {//ACTUALIA CON LAS PROPUESTAS DEL SET
-  try {
-    const { propuestas } = req.body;
-    // console.log({ propuestas });
-    if(propuestas==null || propuestas.length==0)  return res.status(201).json({ SUCCESS: false, MESSAGE: "Nada para actualizar en updatePropuestas" }) 
-    const values = propuestas.map(() => '(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)').join(',\n');
 
-    const query = `
-      INSERT INTO propuestas (cve_control, fec_propuesta, importe, id_divisa, concepto, no_empresa, desc_empresa, id_banco, desc_banco, id_chequera,nivel_autorizacion, usuario_uno, usuario_dos,usuario_tres)
-      VALUES 
-      ${values}
-      ON DUPLICATE KEY UPDATE 
-        fec_propuesta = IF(IFNULL(VALUES(fec_propuesta),'') != IFNULL(fec_propuesta,''), VALUES(fec_propuesta), fec_propuesta),
-        importe = IF(IFNULL(VALUES(importe),'') != IFNULL(importe,''), VALUES(importe), importe),
-        id_divisa = IF(IFNULL(VALUES(id_divisa),'') != IFNULL(id_divisa,''), VALUES(id_divisa), id_divisa),
-        concepto = IF(IFNULL(VALUES(concepto),'') != IFNULL(concepto,''), VALUES(concepto), concepto),
-        no_empresa = IF(IFNULL(VALUES(no_empresa),'') != IFNULL(no_empresa,''), VALUES(no_empresa), no_empresa),
-        desc_empresa = IF(IFNULL(VALUES(desc_empresa),'') != IFNULL(desc_empresa,''), VALUES(desc_empresa), desc_empresa),
-        id_banco = IF(IFNULL(VALUES(id_banco),'') != IFNULL(id_banco,''), VALUES(id_banco), id_banco),
-        desc_banco = IF(IFNULL(VALUES(desc_banco),'') != IFNULL(desc_banco,''), VALUES(desc_banco), desc_banco),
-        id_chequera = IF(IFNULL(VALUES(id_chequera),'') != IFNULL(id_chequera,''), VALUES(id_chequera), id_chequera),
-        nivel_autorizacion = IF(IFNULL(VALUES(nivel_autorizacion),'') != IFNULL(nivel_autorizacion,''), VALUES(nivel_autorizacion), nivel_autorizacion),
-        usuario_uno = IF(IFNULL(VALUES(usuario_uno),'') != IFNULL(usuario_uno,''), VALUES(usuario_uno), usuario_uno),
-        usuario_dos = IF(IFNULL(VALUES(usuario_dos),'') != IFNULL(usuario_dos,''), VALUES(usuario_dos), usuario_dos),
-        usuario_tres = IF(IFNULL(VALUES(usuario_tres),'') != IFNULL(usuario_tres,''), VALUES(usuario_tres), usuario_tres);
-    `;
 
-    const params = propuestas.flatMap(propuesta => [//todos los subarrays los deja en uno solo
-      propuesta.cve_control,
-      formatDB(propuesta.fec_propuesta),
-      propuesta.importe, propuesta.id_divisa, propuesta.concepto, propuesta.no_empresa, propuesta.desc_empresa, propuesta.id_banco, propuesta.desc_banco, propuesta.id_chequera, propuesta.nivel_autorizacion, propuesta.usuario_uno, propuesta.usuario_dos, propuesta.usuario_tres
-    ]);
-    // printQuery("updatePropuestas", query, params);
-    const [response] = await pool.query(query, params);
-    // console.log(response, "END update propuestas_____________________________\n")
-    const rowsAffected = parseInt(response.affectedRows) - propuestas.length;
-    console.log("cambios propuestas: ", rowsAffected)
-    if (rowsAffected > 0) {
-      wsSendAlert(wsClients, rowsAffected);
-    }
-    res.json({ SUCCESS: true, MESSAGE: "" });
-  } catch (error) {
-    console.log(error);
-    return res.status(400).json({ SUCCESS: false, MESSAGE: "Error al insertar las propuestas" })
-  }
-}
-export const deletePropuestasPagadas = async (req, res) => {//ELIMINA LAS PROPUESTAS PAGADAS
-  const connection = await pool.getConnection(); //la conexion se usa para poder trabajar con transacciones
-  try {
-    const { listClavesControl } = req.body;
-    if(listClavesControl==null || listClavesControl.length==0)  return res.status(201).json({ SUCCESS: false, MESSAGE: "Nada para actualizar en deletePropuestasPagadas" }) 
 
-    const stgClavesControlHolders = listClavesControl.map(() => "?").join(",");
-    const query = `
-      DELETE FROM propuestas WHERE cve_control in(${stgClavesControlHolders})
-    `;
 
-    // printQuery(query, listClavesControl)
-
-    connection.beginTransaction()
-    const [response] = await connection.query(query, listClavesControl);
-    connection.commit();
-
-    // console.log(response)
-    res.json({ SUCCESS: true, MESSAGE: "", AFFECTED_ROWS: response.affectedRows });
-  } catch (error) {
-    connection.rollback();
-    console.log(error);
-    return res.status(400).json({ SUCCESS: false, MESSAGE: "Error al eliminar las propuestas pagadas" })
-  } finally {
-    connection.release();
-  }
-}
-
-// export const getPropuestasAutorizadasDesautorizadas = async (req, res) => {//OBTIENE LAS PROPUESTAS AUTORIZADAS O DESAUTORIZADAS DESDE LA APP MOVIL
-export const getPropuestasModificadasMovil = async (req, res) => {//OBTIENE LAS PROPUESTAS AUTORIZADAS O DESAUTORIZADAS DESDE LA APP MOVIL
-  try {
-    const query = `
-      SELECT 
-      cve_control,usuario_dos,usuario_tres
-      FROM propuestas
-      WHERE status = 1
-    `;
-    // printQuery("getPropuestasModificadasMovil", query);
-    const [rows] = await pool.query(query);
-
-    const data = rows.length > 0 ? JSON.stringify(rows) : null
-    if (data != null) await updateStatusPropuestasModificasMovil();//TODO ver si las actualizo meidante una respuesta de websocket una ves que estoy seguro que se modificaron en el set
-    // Respuesta exitosa
-    res.json({
-      SUCCESS: true,
-      MESSAGE: "",
-      DATA: data
-    });
-
-  } catch (error) {
-    console.error("Error en getPropuestasModificadasMovil:", error);
-    return res.status(500).json({ SUCCESS: false, MESSAGE: "Error en el servidor" });
-  }
-}
-
-const updateStatusPropuestasModificasMovil = async function () {
-  await pool.query("UPDATE propuestas SET status = 0 WHERE status = 1")
-}

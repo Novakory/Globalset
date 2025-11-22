@@ -1,5 +1,27 @@
-import crypto from 'crypto';
+import crypto from 'crypto'
+import sql from 'mssql'
+
+export async function queryWithParams(connection, query, params, method) {
+  const request = connection.request();
+
+  // Reemplazamos cada '?' por '@p0', '@p1', ...
+  let i = 0;
+  const queryWithNamed = query.replace(/\?/g, () => `@p${i++}`);
+
+  // Agregamos los parámetros al request
+  params.forEach((value, index) => {
+    request.input(`p${index}`, typeof value === "number" ? sql.Int : sql.VarChar, value);
+  });
+
+  if(!(method === "" || method === undefined || method === null)) printQuery(method,query,params)
+
+  return request.query(queryWithNamed);
+}
+
+
 export function printQuery(method, baseQuery, params = null) {
+  // console.log("baseQuery: ",baseQuery)
+  // console.log("params: ",params)
   if (Array.isArray(params)) {
     params.forEach(param => {
       baseQuery = baseQuery.replace("?", param)

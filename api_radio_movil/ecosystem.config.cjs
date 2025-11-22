@@ -24,7 +24,6 @@ module.exports = {
         DB_HOST: "localhost",
         DB_NAME: "radio_movil",
         JWT_SECRET: "radio_movil",
-        FRONTEND_URL: "ok"
       }
     }
   ]
