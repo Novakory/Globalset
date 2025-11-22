@@ -38,8 +38,8 @@ import com.example.globalapp.navegation.AppNavegation
 import com.example.globalapp.retrofit.openWebSocket
 import com.example.globalapp.ui.theme.GlobalAppTheme
 import com.example.globalapp.viewModels.ControllerDetallePropuesta
-import com.example.globalapp.viewModels.ControllerLogin
-import com.example.globalapp.viewModels.ControllerPropuestas
+import com.example.globalapp.views.login.controllers.ControllerLogin
+import com.example.globalapp.views.home.controllers.ControllerPropuestas
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -91,38 +91,38 @@ class MainActivity : AppCompatActivity() {//: AppCompatActivity() {//: Component
                         BiometricManager.Authenticators.DEVICE_CREDENTIAL
             ) == BiometricManager.BIOMETRIC_SUCCESS
         ) {
-            viewModel.setInCanAutenticate(true);
-            viewModel.promptInfo = BiometricPrompt.PromptInfo.Builder()
+            viewModel.controllerAuthFingerprint.updateCanAutenticate(true);
+            viewModel.controllerAuthFingerprint.promptInfo = BiometricPrompt.PromptInfo.Builder()
                 .setTitle("Autenticación biométrica")
                 .setSubtitle("Autenticación usando huella digital o patron")
                 .setAllowedAuthenticators(BiometricManager.Authenticators.BIOMETRIC_STRONG or BiometricManager.Authenticators.DEVICE_CREDENTIAL)
                 .build()
         } else {
-            viewModel.setInCanAutenticate(false);
+            viewModel.controllerAuthFingerprint.updateCanAutenticate(false);
         }
     }
 
     private fun authenticate(viewModel: ControllerLogin) {//,onResult: (Boolean) -> Unit
-        if (!viewModel.canAutenticate) {
+        if (!viewModel.controllerAuthFingerprint.canAutenticate) {
 //            onResult(false)
-            viewModel.setInIsAutenticate(false)
+            viewModel.controllerAuthFingerprint.updateIsAutenticate(false)
             return
         }
 
-        viewModel.biometricPrompt = BiometricPrompt(
+        viewModel.controllerAuthFingerprint.biometricPrompt = BiometricPrompt(
             this,
             ContextCompat.getMainExecutor(this),
             object : BiometricPrompt.AuthenticationCallback() {
                 override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
                     super.onAuthenticationSucceeded(result)
 //                    onResult(true)
-                    viewModel.setInIsAutenticate(true)
+                    viewModel.controllerAuthFingerprint.updateIsAutenticate(true)
                 }
 
                 override fun onAuthenticationFailed() {
                     super.onAuthenticationFailed()
 //                    onResult(false)
-                    viewModel.setInIsAutenticate(false)
+                    viewModel.controllerAuthFingerprint.updateIsAutenticate(false)
                 }
             }
         )

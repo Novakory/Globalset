@@ -1,6 +1,5 @@
-package com.example.globalapp.views
+package com.example.globalapp.views.home
 
-import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -9,7 +8,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -20,21 +18,13 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.BottomAppBarDefaults
 import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.FloatingActionButtonDefaults
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -44,26 +34,23 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.example.globalapp.R
 import com.example.globalapp.components.GProgressBar
 import com.example.globalapp.components.MyFloatingActionButton
 import com.example.globalapp.components.OunTextField
 import com.example.globalapp.components.OunTextFieldPassword
 import com.example.globalapp.components.TextAlert
-import com.example.globalapp.retrofit.LoginClient
-import com.example.globalapp.retrofit.LoginRepository
 import com.example.globalapp.util.Constants
-import com.example.globalapp.viewModels.ControllerLogin
-import com.example.globalapp.viewModels.ControllerPropuestas
+import com.example.globalapp.views.login.controllers.ControllerLogin
+import com.example.globalapp.views.home.controllers.ControllerPropuestas
+import com.example.globalapp.views.login.controllers.AuthPurpose
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DialogView(
+fun DialogRechazar(
     confirmText :String,
     navController: NavController,
     viewoModelPropuestas: ControllerPropuestas,
@@ -74,7 +61,7 @@ fun DialogView(
     AlertDialog(
         onDismissRequest,
         title = {
-            Text(text = if(viewoModelPropuestas.switchAutorizando) "AUTORIZAR" else "DESAUTORIZAR",
+            Text(text = "RECHAZAR",
                 modifier = Modifier
                     .padding(4.dp)
                     .fillMaxWidth(),
@@ -87,7 +74,7 @@ fun DialogView(
             )
         },
         text = {
-            ContentAutorizar(navController,viewoModelPropuestas,viewModelLogin)
+            DialogPanelRechazar(navController,viewoModelPropuestas,viewModelLogin)
         },
 
         confirmButton = {
@@ -98,7 +85,7 @@ fun DialogView(
                     containerColor = colorResource(R.color.set_secundary),
                 ),
                 modifier = Modifier.fillMaxWidth(),
-                enabled = !viewoModelPropuestas.progressbarDialogState.isLoading
+                enabled = !viewoModelPropuestas.controllerDialogRechazar.progressbarState.isLoading
             ) {
                 Text(confirmText)
             }
@@ -108,12 +95,13 @@ fun DialogView(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ContentAutorizar(
+private fun DialogPanelRechazar(
     navController: NavController,
     viewoModelPropuestas: ControllerPropuestas,
     viewModelLogin: ControllerLogin
 ) {
     val border = Modifier.border(1.dp, Color.Gray)
+    val controllerDialogRechazar = viewoModelPropuestas.controllerDialogRechazar;
 
     Column(
         verticalArrangement = Arrangement.Center,
@@ -144,18 +132,37 @@ fun ContentAutorizar(
                     .padding(16.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                OunTextFieldPassword(viewoModelPropuestas.txtPasswordDialog, "Contraseña",
-                    enabled = !viewoModelPropuestas.progressbarDialogState.isLoading,
-                    modifier = Modifier.fillMaxWidth()) {
-                    viewoModelPropuestas.onValue(it,"txtPasswordDialog")
-                }
+                OunTextField( controllerDialogRechazar.txtMotivoRechazo,"Motivo rechazo",
+                    modifier = Modifier.fillMaxWidth(),
+                    onValueChange = controllerDialogRechazar::updateTxtMotivoRechazo
+                )
+                Spacer(modifier = Modifier.height(10.dp))
+
+                HorizontalDivider(modifier = Modifier.fillMaxWidth())
+
+                Spacer(modifier = Modifier.height(10.dp))
+                OunTextFieldPassword(controllerDialogRechazar.txtPasswordDialog, "Contraseña",
+                    enabled = !controllerDialogRechazar.progressbarState.isLoading,
+                    modifier = Modifier.fillMaxWidth(),
+                    onValueChange = controllerDialogRechazar::updateTxtPassword
+                )
+//                {
+//                        viewoModelPropuestas.controllerDialogRechazar.updateTxtPassword(it)
+//                }
                 Spacer(modifier = Modifier.height(10.dp))
                 Button(
                     onClick = {
-                        viewoModelPropuestas.handlerAutorizarDesautorizar(viewModelLogin.idUsuario,viewModelLogin,viewModelLogin.user.trim(),viewoModelPropuestas.txtPasswordDialog.toString())
+//                        viewoModelPropuestas.handlerAutorizarDesautorizar(viewModelLogin.idUsuario,viewModelLogin,viewModelLogin.user.trim(),viewoModelPropuestas.controllerDialogAutorizarDesautorizar.txtPasswordDialog.toString())
+//                        idUsuario,
+//                        viewModelLogin,
+                        viewoModelPropuestas.handlerRechazar(
+                            viewModelLogin,
+                            viewModelLogin.user.trim(),
+                            controllerDialogRechazar.txtPasswordDialog,
+                            controllerDialogRechazar.txtMotivoRechazo)
                     },
                     modifier = Modifier.fillMaxWidth(),
-                    enabled = !viewoModelPropuestas.progressbarDialogState.isLoading,
+                    enabled = !controllerDialogRechazar.progressbarState.isLoading,
                     colors = ButtonDefaults.buttonColors(
                         contentColor = Color.White,
                         containerColor = colorResource(R.color.set_secundary),
@@ -169,14 +176,14 @@ fun ContentAutorizar(
                 ) {
                     Text("Aceptar")
                 }
-                if (viewoModelPropuestas.progressbarDialogState.isLoading) {
+                if (controllerDialogRechazar.progressbarState.isLoading) {
                     Spacer(Modifier.height(10.dp))
-                    GProgressBar(viewoModelPropuestas.progressbarDialogState.message)
+                    GProgressBar(controllerDialogRechazar.progressbarState.message)
                 }
-                if(viewoModelPropuestas.autorizarPropuestasResponse.SUCCESS == false) {
+                if(controllerDialogRechazar.responseService.SUCCESS == false) {
                     Spacer(Modifier.height(10.dp))
                     TextAlert(
-                        viewoModelPropuestas.autorizarPropuestasResponse.MESSAGE,
+                        controllerDialogRechazar.responseService.MESSAGE,
                         Constants.ICO_WARNING,
                         textAlign =  TextAlign.Center
                     )
@@ -194,9 +201,10 @@ fun ContentAutorizar(
                 Spacer(modifier = Modifier.height(8.dp))
 
                 MyFloatingActionButton(
-                    enabled = !viewoModelPropuestas.progressbarDialogState.isLoading,
+                    enabled = !controllerDialogRechazar.progressbarState.isLoading,
                     onClick = {
-                        viewModelLogin.handlerFingerPrint(navController,viewModelLogin.user)
+                        viewModelLogin.handlerFingerPrint(navController,viewModelLogin.user,
+                            AuthPurpose.RECHAZAR_PROPUESTAS)
                     },
                     containerColor = BottomAppBarDefaults.bottomAppBarFabColor,
                     elevation = FloatingActionButtonDefaults.bottomAppBarFabElevation()

@@ -1,9 +1,12 @@
 package com.example.globalapp.models.retrofit
 
+import com.example.globalapp.models.controllers.Usuario
+
 data class LoginResponse(
-    val SUCCESS:Boolean,
-    val ERROR_MESSAGE:String,
-    val ID_USUARIO:Int
+    val SUCCESS: Boolean,
+    val MESSAGE: String,
+    val USUARIO: Usuario?,
+    val TOKEN: String?
 )
 
 

@@ -1,10 +1,6 @@
-package com.example.globalapp.views
+package com.example.globalapp.views.login
 
 import android.util.Log
-import android.widget.ProgressBar
-import androidx.compose.animation.core.animateDpAsState
-import androidx.compose.animation.core.tween
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -20,17 +16,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.BottomAppBarDefaults
 import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.FloatingActionButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
@@ -48,20 +40,16 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.example.globalapp.R
 import com.example.globalapp.components.MyFloatingActionButton
 import com.example.globalapp.components.OunTextField
 import com.example.globalapp.components.OunTextFieldPassword
-import com.example.globalapp.retrofit.LoginClient
-import com.example.globalapp.retrofit.LoginRepository
 import com.example.globalapp.util.StoreLogin
-import com.example.globalapp.viewModels.ControllerLogin
+import com.example.globalapp.views.login.controllers.AuthPurpose
+import com.example.globalapp.views.login.controllers.ControllerLogin
 
 @Composable
 fun LoginNav(navController: NavController,viewModelLogin: ControllerLogin){
@@ -80,10 +68,16 @@ fun Login(
     viewModelLogin.setUserLogin(storeLogin.getUserStore.collectAsState(initial = "").value);
     var userStore = storeLogin.getUserStore.collectAsState(initial = "").value;
     var passwordStore = storeLogin.getPasswordStore.collectAsState(initial = "").value;
-    LaunchedEffect(viewModelLogin.isAutenticate) {
-        if (viewModelLogin.isAutenticate) {
-            Log.i("autentication:login","ENTRO")
-            viewModelLogin.handlerEntrar(navController, viewModelLogin.user, passwordStore, storeLogin)
+    LaunchedEffect(viewModelLogin.controllerAuthFingerprint.isAutenticate,viewModelLogin.controllerAuthFingerprint.authPurpose) {
+        if (viewModelLogin.controllerAuthFingerprint.isAutenticate) {
+            when(viewModelLogin.controllerAuthFingerprint.authPurpose){
+                AuthPurpose.LOGIN -> {
+                    Log.i("autentication:login","ENTRO")
+                    viewModelLogin.handlerEntrar(navController, viewModelLogin.user, passwordStore, storeLogin)
+                }
+                else -> Unit
+            }
+
         }
     }
 
@@ -91,7 +85,7 @@ fun Login(
     Scaffold (
         floatingActionButton = {
             MyFloatingActionButton(
-                onClick = { viewModelLogin.handlerFingerPrint(navController,userStore) },
+                onClick = { viewModelLogin.handlerFingerPrint(navController,userStore, AuthPurpose.LOGIN) },
                 containerColor = BottomAppBarDefaults.bottomAppBarFabColor,
                 elevation = FloatingActionButtonDefaults.bottomAppBarFabElevation(),
                 enabled = !viewModelLogin.isLoading
@@ -200,7 +194,7 @@ fun Login(
                             Spacer(Modifier.height(10.dp))
                             CircularProgressIndicator()
                         }
-                        if (viewModelLogin.loginResponse.ERROR_MESSAGE != "") {
+                        if (viewModelLogin.loginResponse.MESSAGE != "") {
                             Spacer(Modifier.height(10.dp))
                             Image(
                                 painter = painterResource(id = R.drawable.baseline_warning_24),
@@ -211,7 +205,7 @@ fun Login(
                                     .clip(CircleShape)//HACE QUE SEA CIRCULAR
                                 //.background(Color.Gray)
                             )
-                            Text(viewModelLogin.loginResponse.ERROR_MESSAGE, color = Color.Red)
+                            Text(viewModelLogin.loginResponse.MESSAGE, color = Color.Red)
                         }
                     }
                 }

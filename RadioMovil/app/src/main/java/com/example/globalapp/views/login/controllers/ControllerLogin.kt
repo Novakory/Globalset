@@ -1,20 +1,22 @@
-package com.example.globalapp.viewModels
+package com.example.globalapp.views.login.controllers
 
 import android.util.Log
 import android.widget.Toast
-import androidx.biometric.BiometricPrompt
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavController
+import com.example.globalapp.models.controllers.Usuario
 import com.example.globalapp.models.retrofit.LoginResponse
 import com.example.globalapp.navegation.AppScreens
 import com.example.globalapp.retrofit.LoginRepository
 import com.example.globalapp.util.StoreLogin
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -23,6 +25,9 @@ import javax.inject.Inject
 class ControllerLogin @Inject constructor(private val repository: LoginRepository) : ViewModel() {
     //FORMA 2
     //VARIABLES
+    private val _usuarioLogin: MutableStateFlow<Usuario?> = MutableStateFlow(null)
+    val usuarioLogin: StateFlow<Usuario?> = _usuarioLogin// 🔹 Exponemos una versión "solo lectura" para la UI
+
     var idUsuario  by mutableStateOf(0)
         private set
     //VARIABLES DE TEXTFIELDS
@@ -44,25 +49,28 @@ class ControllerLogin @Inject constructor(private val repository: LoginRepositor
     }
 
     var isLoading by mutableStateOf(false);
-    var loginResponse by mutableStateOf(LoginResponse(false, "",0))
+    var loginResponse by mutableStateOf(LoginResponse(false, "", null, null))
         private set
 
     //AUTENTICACION HUELLA
-    var canAutenticate by mutableStateOf(false)
-        private set
-    fun setInCanAutenticate(canAutenticate:Boolean){
-        this.canAutenticate = canAutenticate
-    }
-    var isAutenticate by mutableStateOf(false)
-        private set
-    fun setInIsAutenticate(isAutenticate:Boolean){
-        this.isAutenticate = isAutenticate
-    }
-    lateinit var promptInfo: BiometricPrompt.PromptInfo
-    lateinit var biometricPrompt:BiometricPrompt
-    fun showDialogAutenticate(){
-        biometricPrompt.authenticate(promptInfo)
-    }
+    val controllerAuthFingerprint = ControllerAuthFingerprint();
+//    var canAutenticate by mutableStateOf(false)
+//        private set
+//    fun setInCanAutenticate(canAutenticate:Boolean){
+//        this.canAutenticate = canAutenticate
+//    }
+//    var isAutenticate by mutableStateOf(false)
+//        private set
+//    fun setInIsAutenticate(isAutenticate:Boolean){
+//        this.isAutenticate = isAutenticate
+//    }
+//    lateinit var promptInfo: BiometricPrompt.PromptInfo
+//    lateinit var biometricPrompt: BiometricPrompt
+//    fun showDialogAutenticate(){
+//        biometricPrompt.authenticate(promptInfo)
+//    }
+
+
     init {
 
     }
@@ -79,8 +87,9 @@ class ControllerLogin @Inject constructor(private val repository: LoginRepositor
         if (!validateDatos(user, password)) {
             loginResponse = loginResponse.copy(
                 SUCCESS = false,
-                ERROR_MESSAGE = "Campos vacios"
+                MESSAGE = "Campos vacios"
             )
+            setUsuario(null)
             return false
         };
         try {
@@ -93,45 +102,51 @@ class ControllerLogin @Inject constructor(private val repository: LoginRepositor
 //                    Log.i("login:into","DENTRO DE LOGIN DATA")
                 loginResponse = loginResponse.copy(
                     SUCCESS = loginData.SUCCESS,
-                    ERROR_MESSAGE = loginData.ERROR_MESSAGE
+                    MESSAGE = loginData.MESSAGE,
+                    USUARIO = loginData.USUARIO,
+                    TOKEN = loginData.TOKEN
                 )
-                idUsuario = loginData.ID_USUARIO
+                idUsuario = loginData.USUARIO?.id_usuario ?: 0
+                setUsuario(loginResponse.USUARIO)
                 return true;
             } else {
 //                    Log.i("login:into","ELSE DE LOGIN DATA")
                 loginResponse = loginResponse.copy(
                     SUCCESS = false,
-                    ERROR_MESSAGE = "No se pudo conectar al servidor"
+                    MESSAGE = "No se pudo conectar al servidor"
                 )
+                setUsuario(null)
                 return false
             }
         } catch (e: Exception) {
 //                Log.i("login:into","EXCEPTION")
             loginResponse = loginResponse.copy(
                 SUCCESS = false,
-                ERROR_MESSAGE = e.message.toString()
+                MESSAGE = e.message.toString()
             )
+            setUsuario(null)
             return false
         } finally {
             isLoading = false;
         }
+        return false
     }
 
-    fun handlerFingerPrint(navController: NavController,userStore:String) {
-        if(!canAutenticate){
-            Toast.makeText(navController.context,"Tu dispositivo no tiene esta opción",Toast.LENGTH_LONG);
+    fun handlerFingerPrint(navController: NavController, userStore:String,purpose: AuthPurpose) {
+        if(!controllerAuthFingerprint.canAutenticate){
+            Toast.makeText(navController.context,"Tu dispositivo no tiene esta opción", Toast.LENGTH_LONG);
             return
         }
         var credencialesGuardadas:Boolean = userStore.trim().isNotEmpty()
         if(!credencialesGuardadas){
-            Toast.makeText(navController.context,"Necesitas logearte por primera vez",Toast.LENGTH_LONG);
+            Toast.makeText(navController.context,"Necesitas logearte por primera vez", Toast.LENGTH_LONG);
             return
         }
-        showDialogAutenticate()
+        controllerAuthFingerprint.showDialogAutenticate(purpose)
     }
 
-    fun handlerEntrar(navController: NavController, user: String, password: String,storeLogin:StoreLogin) {
-        loginResponse = loginResponse.copy(SUCCESS = false, ERROR_MESSAGE = "");
+    fun handlerEntrar(navController: NavController, user: String, password: String, storeLogin: StoreLogin) {
+        loginResponse = loginResponse.copy(SUCCESS = false, MESSAGE = "");
         viewModelScope.launch {
             validateApiLogin(user, password)
             try {
@@ -141,22 +156,22 @@ class ControllerLogin @Inject constructor(private val repository: LoginRepositor
                     storeLogin.savePasswordStore(password);
                     clearValuesLogin();
                     isLoading=false
-                    isAutenticate = false;
+                    controllerAuthFingerprint.updateIsAutenticate(false)
                     gotoMain(navController)
                 } else{
                     //clearValuesLogin();
                     isLoading=false
-                    isAutenticate = false;
+                    controllerAuthFingerprint.updateIsAutenticate(false)
                 }
             }catch (e:Exception){
                 e.printStackTrace()
             }finally {
                 isLoading=false
-                isAutenticate = false;
+                controllerAuthFingerprint.updateIsAutenticate(false)
             }
 
             Log.i("login:success", loginResponse.SUCCESS.toString())
-            Log.i("login:error_message", loginResponse.ERROR_MESSAGE)
+            Log.i("login:error_message", loginResponse.MESSAGE)
         }
     }
 
@@ -183,5 +198,11 @@ class ControllerLogin @Inject constructor(private val repository: LoginRepositor
     private suspend fun clearValuesLogin(){
         this.user = "";
         this.password = "";
+    }
+
+
+    //SETTERS
+    fun setUsuario(usuario: Usuario?){
+        _usuarioLogin.value = usuario
     }
 }

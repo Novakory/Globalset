@@ -6,14 +6,12 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.example.globalapp.models.controllers.DetallesPropuesta
-import com.example.globalapp.navegation.AppScreens
 import com.example.globalapp.viewModels.ControllerDetallePropuesta
-import com.example.globalapp.viewModels.ControllerLogin
-import com.example.globalapp.viewModels.ControllerPropuestas
+import com.example.globalapp.views.login.controllers.ControllerLogin
+import com.example.globalapp.views.home.controllers.ControllerPropuestas
 import com.example.globalapp.views.DetailNav
-import com.example.globalapp.views.LoginNav
-import com.example.globalapp.views.MainNav
+import com.example.globalapp.views.login.LoginNav
+import com.example.globalapp.views.home.MainNav
 
 @Composable
 fun AppNavegation(viewModelLogin: ControllerLogin,viewModelPropuestas: ControllerPropuestas,viewModelDetallesPropuesta: ControllerDetallePropuesta) {

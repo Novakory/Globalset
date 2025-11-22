@@ -13,8 +13,8 @@ import com.example.globalapp.util.gsonToWebSocketResponse
 import com.example.globalapp.util.jsonToDetallesPropuestaList
 import com.example.globalapp.util.jsonToMap
 import com.example.globalapp.viewModels.ControllerDetallePropuesta
-import com.example.globalapp.viewModels.ControllerLogin
-import com.example.globalapp.viewModels.ControllerPropuestas
+import com.example.globalapp.views.login.controllers.ControllerLogin
+import com.example.globalapp.views.home.controllers.ControllerPropuestas
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken

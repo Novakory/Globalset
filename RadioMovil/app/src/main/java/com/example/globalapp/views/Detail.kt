@@ -75,7 +75,7 @@ import com.example.globalapp.components.SimpleTextField
 import com.example.globalapp.navegation.AppScreens
 import com.example.globalapp.util.formatNumber
 import com.example.globalapp.viewModels.ControllerDetallePropuesta
-import com.example.globalapp.viewModels.ControllerLogin
+import com.example.globalapp.views.login.controllers.ControllerLogin
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 

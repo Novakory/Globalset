@@ -1,5 +1,6 @@
 package com.example.globalapp.views
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -12,15 +13,19 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.BottomAppBarDefaults
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.FloatingActionButtonDefaults
 import androidx.compose.material3.HorizontalDivider
@@ -45,15 +50,21 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.globalapp.R
+import com.example.globalapp.components.GProgressBar
 import com.example.globalapp.components.GSwitch
+import com.example.globalapp.components.MyFloatingActionButton
 import com.example.globalapp.components.OunTextField
+import com.example.globalapp.components.OunTextFieldPassword
 import com.example.globalapp.components.TextAlert
 import com.example.globalapp.util.Constants
+import com.example.globalapp.views.login.controllers.ControllerLogin
+import com.example.globalapp.views.home.controllers.ControllerPropuestas
 
 @Preview(showBackground = true)
 @Composable
-fun lines(){
+private fun lines(){
     Row(verticalAlignment = Alignment.CenterVertically) {
         HorizontalDivider(modifier = Modifier.weight(1f))
         Text("ó", fontSize = 24.sp, fontWeight = FontWeight.Bold)
@@ -62,7 +73,7 @@ fun lines(){
 }
 @Preview(showBackground = true)
 @Composable
-fun DialogViewPreviews() {
+private fun DialogViewPreviews() {
     var border = Modifier.border(1.dp, Color.Gray)
     var password by rememberSaveable { mutableStateOf("") };
 
@@ -169,7 +180,7 @@ fun DialogViewPreviews() {
 
 @Preview(showBackground = true)
 @Composable
-fun MainHaderNav(){
+private fun MainHaderNav(){
     Row(Modifier.fillMaxWidth()
         .padding(horizontal = 8.dp)
         , horizontalArrangement = Arrangement.SpaceBetween){
@@ -193,7 +204,7 @@ fun MainHaderNav(){
 
 @Preview(showBackground = true)
 @Composable
-fun LoginPreview(){
+private fun LoginPreview(){
 //    val nav = rememberNavController();
 //    val viewModel: ControllerLogin = viewModel();
 //    LoginNav(nav,viewModel);
@@ -216,7 +227,7 @@ fun LoginPreview(){
 
 
 @Composable
-fun LoginPrev(){
+private fun LoginPrev(){
     var border = Modifier.border(1.dp,Color.Gray)
     Scaffold (
         floatingActionButton = {
@@ -315,6 +326,178 @@ fun LoginPrev(){
                 }
             }
             Spacer(modifier = Modifier.height(100.dp))
+        }
+    }
+}
+
+
+
+@Preview(showBackground = true)
+@Composable
+private fun DialogRechazarPreview(){
+    AlertDialog(
+        onDismissRequest = {
+
+        },
+        title = {
+            Column {
+                Image(
+                    painter = painterResource(id = R.drawable.logo_radioformula1),
+                    contentDescription = "logo",
+                    modifier =
+                        Modifier
+//                .size(100.dp)
+                            .width(100.dp)
+                            .height(20.dp)
+                            .clip(CircleShape)//HACE QUE SEA CIRCULAR
+//                        .offset(y = -5.dp)
+//                    .border(BorderStroke(1.dp,Color.Gray), shape = RoundedCornerShape(100.dp))
+//                .background(colorResource(R.color.set_tertiary))
+//                        .padding(8.dp)
+                )
+
+//                Spacer(Modifier.padding(4.dp))
+                Text(text = "RECHAZAR",
+                    modifier = Modifier
+                        .padding(4.dp)
+                        .fillMaxWidth()
+                    ,
+                    textAlign = TextAlign.Center,
+
+                    color = colorResource(R.color.set_secundary),
+                    fontSize = 22.sp,
+                    fontWeight = FontWeight.Bold,
+                    fontFamily = FontFamily.Serif
+                )
+            }
+
+        },
+        text = {
+            DialogPanelRechazarPreview()
+        },
+
+        confirmButton = {
+            Button(
+                onClick = {
+
+                },
+              //  colors = ButtonDefaults.buttonColors(
+                //    contentColor = Color.White,
+                    //containerColor = colorResource(R.color.set_secundary),
+//                ),
+                modifier = Modifier.fillMaxWidth(),
+            ) {
+                Text("Cerrar")
+            }
+        }
+    )
+}
+
+@SuppressLint("UnrememberedMutableState")
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun DialogPanelRechazarPreview() {
+    var txtPasswordDialog by mutableStateOf("")
+    val border = Modifier.border(1.dp, Color.Gray)
+
+    Column(
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+//        Image(
+//            painter = painterResource(id = R.drawable.logo_radioformula1),
+//            contentDescription = "logo",
+//            modifier =
+//                Modifier
+////                .size(100.dp)
+//                    .width(200.dp)
+//                    .height(100.dp)
+//                    .clip(CircleShape)//HACE QUE SEA CIRCULAR
+////                    .border(BorderStroke(1.dp,Color.Gray), shape = RoundedCornerShape(100.dp))
+////                .background(colorResource(R.color.set_tertiary))
+//                    .padding(8.dp)
+//        )
+//        Spacer(modifier = Modifier.height(8.dp))
+        Box(
+            modifier = Modifier
+                .border(1.dp, Color.LightGray, shape = RoundedCornerShape(20.dp))
+                .clip(shape = RoundedCornerShape(20.dp))
+        ) {
+            Column(
+                modifier = Modifier.background(color = colorResource(id = R.color.opaque))
+                    .border(1.dp, Color.Gray)
+                    .padding(16.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                OunTextField( txtPasswordDialog,"Motivo rechazo",
+                    modifier = Modifier.fillMaxWidth()) {
+
+                }
+                Spacer(modifier = Modifier.height(10.dp))
+
+                HorizontalDivider(modifier = Modifier.fillMaxWidth())
+
+                Spacer(modifier = Modifier.height(10.dp))
+                OunTextFieldPassword ( txtPasswordDialog,"Contraseña",
+                    modifier = Modifier.fillMaxWidth()) {
+
+                }
+                Spacer(modifier = Modifier.height(10.dp))
+                Button(
+                    onClick = {
+
+                    },
+                    modifier = Modifier.fillMaxWidth(),
+                    colors = ButtonDefaults.buttonColors(
+                        contentColor = Color.White,
+                        containerColor = colorResource(R.color.set_secundary),
+                    ),
+//                    colors = ButtonColors(
+//                        contentColor = Color.White,
+//                        containerColor = Color.Gray,
+//                        disabledContentColor = Color.Red,
+//                        disabledContainerColor = Color.Black
+//                    )
+                ) {
+                    Text("Aceptar")
+                }
+//                if (viewoModelPropuestas.progressbarDialogState.isLoading) {
+//                    Spacer(Modifier.height(10.dp))
+//                    GProgressBar(viewoModelPropuestas.progressbarDialogState.message)
+//                }
+//                if(viewoModelPropuestas.autorizarPropuestasResponse.SUCCESS == false) {
+//                    Spacer(Modifier.height(10.dp))
+//                    TextAlert(
+//                        viewoModelPropuestas.autorizarPropuestasResponse.MESSAGE,
+//                        Constants.ICO_WARNING,
+//                        textAlign =  TextAlign.Center
+//                    )
+//                }
+
+
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    HorizontalDivider(modifier = Modifier.weight(1f))
+                    Text("ó", fontSize = 24.sp//, fontWeight = FontWeight.Bold
+                        , modifier = Modifier.padding(horizontal = 3.dp))
+                    HorizontalDivider(modifier = Modifier.weight(1f))
+                }
+
+
+                Spacer(modifier = Modifier.height(8.dp))
+
+                MyFloatingActionButton(
+                    onClick = {
+                    },
+                    containerColor = BottomAppBarDefaults.bottomAppBarFabColor,
+                    elevation = FloatingActionButtonDefaults.bottomAppBarFabElevation()
+                ) {
+                    Icon(
+                        painterResource(id = R.drawable.baseline_fingerprint_24),
+                        "Localized description",
+                        modifier = border.size(46.dp)
+                    )
+                }
+            }
         }
     }
 }

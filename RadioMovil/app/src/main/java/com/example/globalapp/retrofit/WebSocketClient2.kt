@@ -10,7 +10,7 @@ import com.example.globalapp.util.gsonToWebSocketGenericResponse
 import com.example.globalapp.util.gsonToWebSocketResponse
 import com.example.globalapp.util.jsonToDetallesPropuestaList
 import com.example.globalapp.viewModels.ControllerDetallePropuesta
-import com.example.globalapp.viewModels.ControllerPropuestas
+import com.example.globalapp.views.home.controllers.ControllerPropuestas
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.WebSocket

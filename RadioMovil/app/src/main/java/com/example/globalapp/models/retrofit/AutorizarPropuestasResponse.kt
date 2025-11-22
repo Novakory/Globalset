@@ -10,3 +10,8 @@ data class AutorizarPropuestasRequest(
     val propuestas: List<PropuestasResponse>,
     val id_usuario: Int
 )
+
+data class RechazarPropuestasRequest(
+    val propuestas: List<PropuestasResponse>,
+    val motivoRechazo: String
+)
