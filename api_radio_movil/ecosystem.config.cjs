@@ -10,20 +10,23 @@ module.exports = {
         // DB_USER: "usrapp",
         // DB_PASSWORD: "rgXe25?YTCYb7Mco",
 
-        // DB_HOST: "localhost",
-        // PORT: "3002",
-        // DB_PORT: 1433,
-        // DB_NAME: "radio_movil",
-        // JWT_SECRET: "radio_movil"
-        // FRONTEND_URL: "ok"
+        DB_HOST: "gfdb01",
+        DB_PORT: 1433,
+        DB_USER: "sa",
+        DB_PASSWORD: "Rf@8#w4*3_Uc3h=J",
+        DB_NAME: "radio_movil",
 
         PORT: "3002",
-        DB_USER: "sa",
-        DB_PASSWORD: "Supern0va",
-        DB_PORT: 1433,
-        DB_HOST: "localhost",
-        DB_NAME: "radio_movil",
-        JWT_SECRET: "radio_movil",
+        JWT_SECRET: "radio_movil"
+        // FRONTEND_URL: "ok"
+
+        // PORT: "3002",
+        // DB_USER: "sa",
+        // DB_PASSWORD: "Supern0va",
+        // DB_PORT: 1433,
+        // DB_HOST: "localhost",
+        // DB_NAME: "radio_movil",
+        // JWT_SECRET: "radio_movil",
       }
     }
   ]

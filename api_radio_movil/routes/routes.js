@@ -39,6 +39,7 @@ router.post('/login', (req, res, next) => {
 //SET
 //TODO ver si desde set tambien que sea necesario generar el jwt para mandarlo en la peticion
 router.get('/propuestas-modificadas', getPropuestasModificadasMovil);
+
 router.post('/propuestas', updatePropuestas);
 router.delete('/propuestas', deletePropuestasPagadas);
 // router.get('/propuestas', getPropuestas);
