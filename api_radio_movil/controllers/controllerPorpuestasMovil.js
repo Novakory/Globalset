@@ -32,17 +32,17 @@ export const getPropuestasByUser = async (req, res) => {//ok
     const connection = await pool;
     const { clave_usuario } = req.params;
 
+    const empresasUsuario = await getEmpresasAsignadas(connection, clave_usuario);
+
     const query = `
       SELECT 
       ${sameColumnsSelected}
       FROM propuestas p
-      JOIN usuarios u ON u.clave_usuario = @clave_usuario
-      CROSS APPLY STRING_SPLIT(u.empresas, ',') e
       WHERE 
       p.usuario_uno IS NOT NULL
-      AND e.value = CAST(p.no_empresa AS VARCHAR(10))
+      AND p.no_empresa IN(${empresasUsuario})
     `;//TODO sin validar que el usuario_uno sea null? para el regreso lo siga viendo?
-    // console.log("query getPropuestasByUser: ", query)
+    console.log("query getPropuestasByUser: ", query)
     const result = await connection.request()
       .input("clave_usuario", sql.TYPES.VarChar, clave_usuario)
       .query(query)
@@ -59,6 +59,7 @@ export const getPropuestasPendientesByUser = async (req, res) => {//ok
   try {
     const connection = await pool;
 
+    const empresasUsuario = await getEmpresasAsignadas(connection, clave_usuario);
     const { clave_usuario } = req.params;
 
     const query = `
@@ -66,9 +67,8 @@ export const getPropuestasPendientesByUser = async (req, res) => {//ok
       ${sameColumnsSelected}
       FROM propuestas p
       JOIN usuarios u ON u.clave_usuario = @clave_usuario
-      CROSS APPLY STRING_SPLIT(u.empresas, ',') e
       WHERE p.usuario_uno IS NOT NULL
-      AND e.value = CAST(p.no_empresa AS VARCHAR(10))
+      AND p.no_empresa IN(${empresasUsuario})
       AND (
         (CASE WHEN p.nivel_autorizacion = 3 AND (p.usuario_dos IS NULL OR p.usuario_tres IS NULL) THEN 1 ELSE 0 END) = 1
         OR (CASE WHEN p.nivel_autorizacion = 2 AND p.usuario_dos IS NULL THEN 1 ELSE 0 END) = 1
@@ -446,4 +446,32 @@ export const autorizarPropuestas2 = async (req, res) => {
   } finally {
     connection.release();
   }
+}
+
+async function getEmpresasAsignadas(connection, clave_usuario) {
+  const queryEmpresas = `
+    SELECT empresas
+    FROM usuarios
+    WHERE clave_usuario = @clave_usuario
+  `;
+
+  const result = await connection.request()
+    .input("clave_usuario", sql.VarChar, clave_usuario)
+    .query(queryEmpresas);
+
+  if (result.recordset.length === 0) {
+    const error = new Error("Usuario no encontrado");
+    error.status = 404;
+    throw error;
+  }
+
+  const empresasUsuario = result.recordset[0].empresas;
+
+  if (!empresasUsuario || empresasUsuario.trim() === "") {
+    const error = new Error("El usuario no tiene empresas asignadas");
+    error.status = 400;
+    throw error;
+  }
+
+  return empresasUsuario;
 }
