@@ -178,7 +178,8 @@ export const autorizarPropuestas = async (req, res) => {//ok
           query = `UPDATE propuestas SET status = 1, motivo_rechazo = null, usuario_dos = @id_usuario, usuario_tres = @id_usuario  WHERE cve_control = @cve_control`;
         } else if (propuesta.nivel_autorizacion === 3 && propuesta.usuario_tres === null) {
           query = `UPDATE propuestas SET status = 1, motivo_rechazo = null, usuario_tres = @id_usuario  WHERE cve_control = @cve_control`;
-        }
+        }else
+          throw generateError(201, `La propuesta con clave de control ${propuesta.cve_control} ya tiene su número maximo de autorizaciones (${propuesta.nivel_autorizacion})`);
 
         console.log("query autorizarPropuestas: ", query)
         const responseUpdate = await connection.request()
