@@ -59,8 +59,8 @@ export const getPropuestasPendientesByUser = async (req, res) => {//ok
   try {
     const connection = await pool;
 
-    const empresasUsuario = await getEmpresasAsignadas(connection, clave_usuario);
     const { clave_usuario } = req.params;
+    const empresasUsuario = await getEmpresasAsignadas(connection, clave_usuario);
 
     const query = `
       SELECT 
@@ -363,9 +363,6 @@ export const rechazarPropuestas = async (req, res) => {//ok
     return getGenericError(res, error);
   }
 }
-
-
-
 
 
 
