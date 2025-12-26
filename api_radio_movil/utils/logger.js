@@ -10,7 +10,7 @@ function writeLog(level, message) {
   const timestamp = new Date().toISOString();
   fs.appendFileSync(
     logPath,
-    `[${timestamp}] [${level}] ${message}\n`
+    `[${timestamp}] [${level}] ${message}\r\n`
   );
 }
 
