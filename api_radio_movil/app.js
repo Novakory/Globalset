@@ -5,6 +5,7 @@ import cors from "cors";
 import { createServer } from "http";
 import routes from './routes/routes.js';
 import { wss } from './utils/wsServer.js'
+import "./logger.js";
 
 const app = express();
 

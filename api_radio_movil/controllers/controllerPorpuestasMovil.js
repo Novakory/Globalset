@@ -5,6 +5,7 @@ import sql from 'mssql'
 import { query, response } from 'express';
 import { printQuery, encriptador } from '../utils/dbUtil.js';
 import { formatDB } from '../utils/dateUtil.js';
+import "./logger.js";
 
 const sameColumnsSelected = `
       p.cve_control,

@@ -2,6 +2,7 @@
 import { generateError } from '../utils/errorsUtil.js';
 import { pool } from '../bd.js';
 import { queryWithParams } from '../utils/dbUtil.js';
+import "./logger.js";
 
 //TODO - SI LLEGA A HABER DEMASIADOS USUARIOS PUEDE MARCAR ERRROR POR LOS MAXIMOS 2100 PARAMETROS POR OPERACION
 //EN ESE CASO REMPLAZAR POR LA FORMA DE BATCHS COMO EN controlllerPropuestasSet.js

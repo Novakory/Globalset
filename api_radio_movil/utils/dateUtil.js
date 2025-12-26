@@ -1,4 +1,5 @@
 import { parse, format, isValid } from "date-fns";
+import "./logger.js";
 
 /**
  * Devuelve la fecha introducida en formato Date

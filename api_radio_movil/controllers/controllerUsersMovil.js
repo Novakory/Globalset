@@ -5,6 +5,7 @@ import sql from 'mssql'
 import { query, response } from 'express';
 import { printQuery, encriptador, queryWithParams } from '../utils/dbUtil.js';
 import { generateToken } from '../utils/jwt.js'
+import "./logger.js";
 
 export const validaLogin = async (req, res) => {//ok
   const connection = await pool;

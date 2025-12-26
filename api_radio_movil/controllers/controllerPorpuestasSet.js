@@ -7,6 +7,7 @@ import { formatDB } from '../utils/dateUtil.js';
 import { wsClients } from '../utils/wsServer.js'
 import { wsSendAlert } from '../utils/wsService.js'
 import sql from 'mssql'
+import "./logger.js";
 
 const MAX_PARAMS = 2000;//MAXIMO DE PARAMETROS PERMITIDOS PARA PROCESAR SIMULTANEAMENTE EN SQL SERVER
 //ACTUALIA CON LAS PROPUESTAS DEL SET

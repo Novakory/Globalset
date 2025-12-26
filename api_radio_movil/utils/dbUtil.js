@@ -1,5 +1,6 @@
 import crypto from 'crypto'
 import sql from 'mssql'
+import "./logger.js";
 
 export async function queryWithParams(connection, query, params, method) {
   const request = connection.request();

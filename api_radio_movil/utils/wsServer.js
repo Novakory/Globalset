@@ -3,6 +3,7 @@ import {
   wsSendGetDetalles, wsSendDetalles,
   WS_TYPE_REGISTRAR_CLIENTE, WS_TYPE_GET_DETALLE_BY_MOVIL, WS_TYPE_SEND_DETALLE_BY_SET
 } from "./wsService.js"
+import "./logger.js";
 
 const wss = new WebSocketServer({ noServer: true });
 
