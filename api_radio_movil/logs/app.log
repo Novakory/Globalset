@@ -6,3 +6,175 @@
 [2025-12-26T22:16:21.747Z] [INFO] ✅ Conectado a SQL Server
 [2025-12-26T22:16:34.493Z] [INFO] http://localhost:3002
 [2025-12-26T22:16:34.507Z] [INFO] ✅ Conectado a SQL Server
+[2025-12-30T19:55:32.358Z] [INFO] http://localhost:3002
+[2025-12-30T19:55:32.515Z] [INFO] ✅ Conectado a SQL Server
+[2025-12-30T19:56:05.853Z] [INFO] {}
+[2025-12-30T19:56:06.034Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 7e6b2a487351a38bfd55c3d17ce19b3168d817302e2fa58158d44afd15470ac9
+[2025-12-30T19:56:06.378Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    [
+      {
+        "vigente": 0,
+        "id_usuario": 2,
+        "nombre": "ADMINISTRADOR",
+        "apellido_materno": "WEBSET",
+        "apellido_paterno": "WEBSET",
+        "clave_usuario": "ADMIN",
+        "contrasena": "7e6b2a487351a38bfd55c3d17ce19b3168d817302e2fa58158d44afd15470ac9",
+        "empresas": "17,33,34,35,36,37,38,39,40,43,111,900,901,903,905,909,910,912,913,917,927",
+        "facultad_acceso": true,
+        "facultad_mancomunada": false,
+        "facultad_total": false,
+        "facultad_rechazar": true,
+        "monto_maximo_pagar": 0,
+        "fecha_vencimiento": "2000-01-01T00:00:00.000Z",
+        "estatus": "A"
+      }
+    ]
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    1
+  ]
+}
+[2025-12-30T19:56:06.381Z] [ERROR] Error en validaLogin: Tu cuenta ha vencido
+Error: Tu cuenta ha vencido
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:46:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2025-12-30T19:56:42.677Z] [INFO] {}
+[2025-12-30T19:56:42.679Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 7e6b2a487351a38bfd55c3d17ce19b3168d817302e2fa58158d44afd15470ac9
+[2025-12-30T19:56:42.693Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    [
+      {
+        "vigente": 0,
+        "id_usuario": 2,
+        "nombre": "ADMINISTRADOR",
+        "apellido_materno": "WEBSET",
+        "apellido_paterno": "WEBSET",
+        "clave_usuario": "ADMIN",
+        "contrasena": "7e6b2a487351a38bfd55c3d17ce19b3168d817302e2fa58158d44afd15470ac9",
+        "empresas": "17,33,34,35,36,37,38,39,40,43,111,900,901,903,905,909,910,912,913,917,927",
+        "facultad_acceso": false,
+        "facultad_mancomunada": false,
+        "facultad_total": false,
+        "facultad_rechazar": true,
+        "monto_maximo_pagar": 0,
+        "fecha_vencimiento": "2000-01-01T00:00:00.000Z",
+        "estatus": "A"
+      }
+    ]
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    1
+  ]
+}
+[2025-12-30T19:56:42.695Z] [ERROR] Error en validaLogin: Tu cuenta ha vencido
+Error: Tu cuenta ha vencido
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:46:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2025-12-30T19:56:45.755Z] [INFO] {}
+[2025-12-30T19:56:45.757Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 7e6b2a487351a38bfd55c3d17ce19b3168d817302e2fa58158d44afd15470ac9
+[2025-12-30T19:56:45.764Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    [
+      {
+        "vigente": 0,
+        "id_usuario": 2,
+        "nombre": "ADMINISTRADOR",
+        "apellido_materno": "WEBSET",
+        "apellido_paterno": "WEBSET",
+        "clave_usuario": "ADMIN",
+        "contrasena": "7e6b2a487351a38bfd55c3d17ce19b3168d817302e2fa58158d44afd15470ac9",
+        "empresas": "17,33,34,35,36,37,38,39,40,43,111,900,901,903,905,909,910,912,913,917,927",
+        "facultad_acceso": false,
+        "facultad_mancomunada": false,
+        "facultad_total": false,
+        "facultad_rechazar": true,
+        "monto_maximo_pagar": 0,
+        "fecha_vencimiento": "2000-01-01T00:00:00.000Z",
+        "estatus": "A"
+      }
+    ]
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    1
+  ]
+}
+[2025-12-30T19:56:45.766Z] [ERROR] Error en validaLogin: Tu cuenta ha vencido
+Error: Tu cuenta ha vencido
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:46:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2025-12-30T19:58:57.634Z] [INFO] http://localhost:3002
+[2025-12-30T19:58:57.778Z] [INFO] ✅ Conectado a SQL Server
+[2025-12-30T19:59:01.236Z] [INFO] http://localhost:3002
+[2025-12-30T19:59:01.257Z] [INFO] ✅ Conectado a SQL Server
+[2025-12-30T19:59:09.152Z] [INFO] http://localhost:3002
+[2025-12-30T19:59:09.203Z] [INFO] ✅ Conectado a SQL Server
+[2025-12-30T19:59:10.353Z] [INFO] http://localhost:3002
+[2025-12-30T19:59:10.484Z] [INFO] ✅ Conectado a SQL Server
+[2025-12-30T19:59:20.635Z] [INFO] http://localhost:3002
+[2025-12-30T19:59:20.660Z] [INFO] ✅ Conectado a SQL Server
+[2025-12-30T19:59:23.912Z] [INFO] http://localhost:3002
+[2025-12-30T19:59:23.933Z] [INFO] ✅ Conectado a SQL Server
+[2025-12-30T19:59:25.574Z] [INFO] http://localhost:3002
+[2025-12-30T19:59:25.594Z] [INFO] ✅ Conectado a SQL Server
+[2025-12-30T19:59:35.251Z] [INFO] {}
+[2025-12-30T19:59:35.271Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 7e6b2a487351a38bfd55c3d17ce19b3168d817302e2fa58158d44afd15470ac9
+[2025-12-30T19:59:35.464Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    [
+      {
+        "vigente": 0,
+        "id_usuario": 2,
+        "nombre": "ADMINISTRADOR",
+        "apellido_materno": "WEBSET",
+        "apellido_paterno": "WEBSET",
+        "clave_usuario": "ADMIN",
+        "contrasena": "7e6b2a487351a38bfd55c3d17ce19b3168d817302e2fa58158d44afd15470ac9",
+        "empresas": "17,33,34,35,36,37,38,39,40,43,111,900,901,903,905,909,910,912,913,917,927",
+        "facultad_acceso": false,
+        "facultad_mancomunada": false,
+        "facultad_total": false,
+        "facultad_rechazar": true,
+        "monto_maximo_pagar": 0,
+        "fecha_vencimiento": "2000-01-01T00:00:00.000Z",
+        "estatus": "A"
+      }
+    ]
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    1
+  ]
+}
+[2025-12-30T19:59:35.467Z] [ERROR] Error en validaLogin: No tienes facultad de acceso
+Error: No tienes facultad de acceso
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:43:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2025-12-30T20:12:39.350Z] [INFO] http://localhost:3002
+[2025-12-30T20:12:39.473Z] [INFO] ✅ Conectado a SQL Server
+[2025-12-30T20:12:43.771Z] [INFO] http://localhost:3002
+[2025-12-30T20:12:43.805Z] [INFO] ✅ Conectado a SQL Server
+[2025-12-30T20:12:50.974Z] [INFO] http://localhost:3002
+[2025-12-30T20:12:51.004Z] [INFO] ✅ Conectado a SQL Server
+[2025-12-30T20:12:52.285Z] [INFO] http://localhost:3002
+[2025-12-30T20:12:52.314Z] [INFO] ✅ Conectado a SQL Server
+[2025-12-30T20:13:27.338Z] [INFO] http://localhost:3002
+[2025-12-30T20:13:27.366Z] [INFO] ✅ Conectado a SQL Server
+[2025-12-30T20:13:43.233Z] [INFO] http://localhost:3002
+[2025-12-30T20:13:43.259Z] [INFO] ✅ Conectado a SQL Server
+[2025-12-30T20:13:52.203Z] [INFO] http://localhost:3002
+[2025-12-30T20:13:52.228Z] [INFO] ✅ Conectado a SQL Server
+[2025-12-30T20:13:57.264Z] [INFO] http://localhost:3002
+[2025-12-30T20:13:57.296Z] [INFO] ✅ Conectado a SQL Server

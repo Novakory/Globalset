@@ -11,7 +11,11 @@ import {
   rechazarPropuestas
 } from '../controllers/controllerPorpuestasMovil.js';
 
-import { updatePropuestas, deletePropuestasPagadas, getPropuestasModificadasMovil } from '../controllers/controllerPorpuestasSet.js';
+import { updatePropuestas, 
+  deletePropuestasPagadas, 
+  deletePropuestasSinAutorizacion,
+  getPropuestasModificadasMovil 
+} from '../controllers/controllerPorpuestasSet.js';
 
 //TODO por agregar middlewares
 // import { registerUser, verifiyAccount, login, getUser } from '../controllers/authController.js';
@@ -36,15 +40,16 @@ router.post('/login', (req, res, next) => {
 
 //PROPUESTAS_______________________________________________________-
 
-//SET
+//SET-------------------------------------------------
 //TODO ver si desde set tambien que sea necesario generar el jwt para mandarlo en la peticion
 router.get('/propuestas-modificadas', getPropuestasModificadasMovil);
 
 router.post('/propuestas', updatePropuestas);
 router.delete('/propuestas', deletePropuestasPagadas);
+router.delete('/propuestas-sin-autorizacion', deletePropuestasSinAutorizacion);
 // router.get('/propuestas', getPropuestas);
 
-//MOVIL
+//MOVIL-----------------------------------------------
 router.get('/propuestas/user/:clave_usuario', authMiddleware, getPropuestasByUser);
 router.get('/propuestas-pendientes/user/:clave_usuario', authMiddleware, getPropuestasPendientesByUser);
 router.post('/autorizar-propuestas', authMiddleware, autorizarPropuestas);

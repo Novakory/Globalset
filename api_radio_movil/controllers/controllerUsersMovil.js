@@ -22,7 +22,7 @@ export const validaLogin = async (req, res) => {//ok
 
     // Consulta SQL
     // const query = `SELECT facultad_acceso,id_usuario FROM usuarios WHERE clave_usuario = @clave_usuario AND contrasena = @contrasena`;
-    const query = `SELECT * FROM usuarios WHERE clave_usuario = ? AND contrasena = ?`;
+    const query = `SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = ? AND contrasena = ?`;
 
     const result = await queryWithParams(connection, query, [user, passwordEncriptado], "validaLogin")
     // printQuery("validaLogin", query, [user, passwordEncriptado]);
@@ -39,8 +39,11 @@ export const validaLogin = async (req, res) => {//ok
     if (result.recordset.length === 0) {
       throw generateError(401, "Credenciales incorrectas")
     }
-    if (result.recordset[0].facultad_acceso === 0) {
-      throw generateError(401, "tienes facultad de acceso");
+    if (result.recordset[0].facultad_acceso === false || result.recordset[0].facultad_acceso === 0) {
+      throw generateError(401, "No tienes facultad de acceso");
+    }
+    if (result.recordset[0].vigente === false || result.recordset[0].vigente === 0) {
+      throw generateError(401, "Tu cuenta ha vencido");
     }
 
     // const usuario = { ...result.recordset[0], contrasena: '' }

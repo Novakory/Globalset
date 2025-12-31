@@ -31,13 +31,14 @@ export const updatePropuestas = async (req, res) => {//ok
         propuesta.importe, propuesta.id_divisa, propuesta.concepto, propuesta.no_empresa, propuesta.desc_empresa, propuesta.id_banco, propuesta.desc_banco, propuesta.id_chequera, propuesta.nivel_autorizacion, propuesta.usuario_uno, propuesta.usuario_dos, propuesta.usuario_tres, propuesta.motivo_rechazo
       ]);
 
+      //TODO ver como hacer que las propuestas que tengan un status en 1 no sean modificadas
       const query = `
         MERGE INTO propuestas AS target
         USING (VALUES
           ${values}
         ) AS source (cve_control, fec_propuesta, importe, id_divisa, concepto, no_empresa, desc_empresa, id_banco, desc_banco, id_chequera,nivel_autorizacion, usuario_uno, usuario_dos,usuario_tres,motivo_rechazo)
         ON target.cve_control = source.cve_control
-        WHEN MATCHED AND(
+        WHEN MATCHED AND target.status = 0 AND(
           ISNULL(source.fec_propuesta,'') <> ISNULL(target.fec_propuesta,'')
           OR ISNULL(source.importe,'') <> ISNULL(target.importe,'')
           OR ISNULL(source.id_divisa,'') <> ISNULL(target.id_divisa,'')
@@ -117,6 +118,33 @@ export const deletePropuestasPagadas = async (req, res) => {//ELIMINA LAS PROPUE
     transaction.rollback();
     console.log(error);
     return res.status(400).json({ SUCCESS: false, MESSAGE: "Error al eliminar las propuestas pagadas" })
+  }
+}
+
+//ELIMINA LAS PROPUESTAS QUE SE ENCUENTREN SIN AUTORIZACION QUE ANTERIORMENTE YA TENIAN ALMENOS LA PRIMERA AUTORIZACION
+export const deletePropuestasSinAutorizacion = async (req, res) => {
+  const connection = await pool;
+  const transaction = new sql.Transaction(connection);
+  try {
+    const { listClavesControl } = req.body;
+    if (listClavesControl == null || listClavesControl.length == 0) return res.status(201).json({ SUCCESS: false, MESSAGE: "Nada para actualizar en deletePropuestasSinAutorizacion" })
+
+    const stgClavesControlHolders = listClavesControl.map(() => "?").join(",");
+    const query = `
+      DELETE FROM propuestas WHERE cve_control in(${stgClavesControlHolders})
+    `;
+
+    transaction.begin();
+    const response = await queryWithParams(connection, query, params, "deletePropuestasSinAutorizacion");
+    transaction.commit();
+
+    // console.log(response)
+    const rowsAffected = parseInt(response.rowsAffected[0]) || 0;
+    res.json({ SUCCESS: true, MESSAGE: "", AFFECTED_ROWS: rowsAffected });
+  } catch (error) {
+    transaction.rollback();
+    console.log(error);
+    return res.status(400).json({ SUCCESS: false, MESSAGE: "Error al eliminar las propuestas sin autorizacion" })
   }
 }
 
