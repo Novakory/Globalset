@@ -39,12 +39,16 @@ export const validaLogin = async (req, res) => {//ok
     if (result.recordset.length === 0) {
       throw generateError(401, "Credenciales incorrectas")
     }
-    if (result.recordset[0].facultad_acceso === false || result.recordset[0].facultad_acceso === 0) {
-      throw generateError(401, "No tienes facultad de acceso");
-    }
     if (result.recordset[0].vigente === false || result.recordset[0].vigente === 0) {
       throw generateError(401, "Tu cuenta ha vencido");
     }
+    if (result.recordset[0].estatus !== 'A') {
+      throw generateError(401, "Tu cuenta esta inactiva");
+    }
+    if (result.recordset[0].facultad_acceso === false || result.recordset[0].facultad_acceso === 0) {
+      throw generateError(401, "No tienes facultad de acceso");
+    }
+
 
     // const usuario = { ...result.recordset[0], contrasena: '' }
     const { contrasena, empresas, ...usuario } = result.recordset[0];

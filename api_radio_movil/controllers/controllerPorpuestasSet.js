@@ -108,11 +108,15 @@ export const deletePropuestasPagadas = async (req, res) => {//ELIMINA LAS PROPUE
     `;
 
     transaction.begin();
-    const response = await queryWithParams(connection, query, params, "deletePropuestasPagadas");
+    const response = await queryWithParams(connection, query, listClavesControl, "deletePropuestasPagadas");
     transaction.commit();
 
     // console.log(response)
     const rowsAffected = parseInt(response.rowsAffected[0]) || 0;
+    console.log("Propuestas pagadas eliminadas: ", rowsAffected)
+    if(rowsAffected>0){
+      wsSendAlert(wsClients, rowsAffected);
+    }
     res.json({ SUCCESS: true, MESSAGE: "", AFFECTED_ROWS: rowsAffected });
   } catch (error) {
     transaction.rollback();
@@ -130,16 +134,21 @@ export const deletePropuestasSinAutorizacion = async (req, res) => {
     if (listClavesControl == null || listClavesControl.length == 0) return res.status(201).json({ SUCCESS: false, MESSAGE: "Nada para actualizar en deletePropuestasSinAutorizacion" })
 
     const stgClavesControlHolders = listClavesControl.map(() => "?").join(",");
+
     const query = `
       DELETE FROM propuestas WHERE cve_control in(${stgClavesControlHolders})
     `;
 
     transaction.begin();
-    const response = await queryWithParams(connection, query, params, "deletePropuestasSinAutorizacion");
+    const response = await queryWithParams(connection, query, listClavesControl, "deletePropuestasSinAutorizacion");
     transaction.commit();
 
     // console.log(response)
     const rowsAffected = parseInt(response.rowsAffected[0]) || 0;
+    console.log("Propuestas sin autorizacion eliminadas: ", rowsAffected)
+    if(rowsAffected>0){
+      wsSendAlert(wsClients, rowsAffected);
+    }
     res.json({ SUCCESS: true, MESSAGE: "", AFFECTED_ROWS: rowsAffected });
   } catch (error) {
     transaction.rollback();

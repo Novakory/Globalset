@@ -12,14 +12,14 @@ export const updateUsers = async (req, res) => {//ok
 
     const { users } = req.body;
     if (users == null || users.length == 0) return res.status(201).json({ SUCCESS: false, MESSAGE: "Nada para actualizar en updateUsers" })
-
-    const values = users.map(() => '(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)').join(',\n');
+    
+    const values = users.map(() => '(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)').join(',\n');
 
     const query = `
       MERGE INTO usuarios AS target
       USING (VALUES
         ${values}
-      ) AS source (id_usuario, nombre, apellido_materno, apellido_paterno, clave_usuario, contrasena, empresas, facultad_acceso,facultad_mancomunada,facultad_total,facultad_rechazar, monto_maximo_pagar)
+      ) AS source (id_usuario, nombre, apellido_materno, apellido_paterno, clave_usuario, contrasena, empresas, facultad_acceso,facultad_mancomunada,facultad_total,facultad_rechazar, monto_maximo_pagar,fecha_vencimiento,estatus)
       ON target.id_usuario = source.id_usuario
       WHEN MATCHED AND(
         ISNULL(source.contrasena,'') <> ISNULL(target.contrasena,'')
@@ -29,6 +29,8 @@ export const updateUsers = async (req, res) => {//ok
         OR ISNULL(source.facultad_total,'') <> ISNULL(target.facultad_total,'')
         OR ISNULL(source.facultad_rechazar,'') <> ISNULL(target.facultad_rechazar,'')
         OR ISNULL(source.monto_maximo_pagar,'') <> ISNULL(target.monto_maximo_pagar,'')
+        OR ISNULL(source.fecha_vencimiento,'') <> ISNULL(CONVERT(VARCHAR,target.fecha_vencimiento,103),'')
+        OR ISNULL(source.estatus,'') <> ISNULL(target.estatus,'')
       ) THEN UPDATE SET
           contrasena = CASE WHEN ISNULL(source.contrasena,'') <> ISNULL(target.contrasena,'') THEN source.contrasena ELSE target.contrasena END,
           empresas = CASE WHEN ISNULL(source.empresas,'') <> ISNULL(target.empresas,'') THEN source.empresas ELSE target.empresas END,
@@ -36,18 +38,20 @@ export const updateUsers = async (req, res) => {//ok
           facultad_mancomunada = CASE WHEN ISNULL(source.facultad_mancomunada,'') <> ISNULL(target.facultad_mancomunada,'') THEN source.facultad_mancomunada ELSE target.facultad_mancomunada END,
           facultad_total = CASE WHEN ISNULL(source.facultad_total,'') <> ISNULL(target.facultad_total,'') THEN source.facultad_total ELSE target.facultad_total END,
           facultad_rechazar = CASE WHEN ISNULL(source.facultad_rechazar,'') <> ISNULL(target.facultad_rechazar,'') THEN source.facultad_rechazar ELSE target.facultad_rechazar END,
-          monto_maximo_pagar = CASE WHEN ISNULL(source.monto_maximo_pagar,'') <> ISNULL(target.monto_maximo_pagar,'') THEN source.monto_maximo_pagar ELSE target.monto_maximo_pagar END
+          monto_maximo_pagar = CASE WHEN ISNULL(source.monto_maximo_pagar,'') <> ISNULL(target.monto_maximo_pagar,'') THEN source.monto_maximo_pagar ELSE target.monto_maximo_pagar END,
+          fecha_vencimiento = CASE WHEN ISNULL(source.fecha_vencimiento,'') <> ISNULL(CONVERT(VARCHAR,target.fecha_vencimiento,103),'') THEN TRY_CONVERT(DATE, source.fecha_vencimiento, 103) ELSE target.fecha_vencimiento END,
+          estatus = CASE WHEN ISNULL(source.estatus,'') <> ISNULL(target.estatus,'') THEN source.estatus ELSE target.estatus END
       WHEN NOT MATCHED THEN
-        INSERT (id_usuario, nombre, apellido_materno, apellido_paterno, clave_usuario, contrasena, empresas, facultad_acceso,facultad_mancomunada,facultad_total,facultad_rechazar, monto_maximo_pagar)
-        VALUES (source.id_usuario, source.nombre, source.apellido_materno, source.apellido_paterno, source.clave_usuario, source.contrasena, source.empresas, source.facultad_acceso, source.facultad_mancomunada, source.facultad_total, source.facultad_rechazar, source.monto_maximo_pagar);
+        INSERT (id_usuario, nombre, apellido_materno, apellido_paterno, clave_usuario, contrasena, empresas, facultad_acceso,facultad_mancomunada,facultad_total,facultad_rechazar, monto_maximo_pagar,fecha_vencimiento,estatus)
+        VALUES (source.id_usuario, source.nombre, source.apellido_materno, source.apellido_paterno, source.clave_usuario, source.contrasena, source.empresas, source.facultad_acceso, source.facultad_mancomunada, source.facultad_total, source.facultad_rechazar, source.monto_maximo_pagar,source.fecha_vencimiento,source.estatus);
     `;
 
     const params = users.flatMap(user => [//todos los subarrays los deja en uno solo
-      user.id_usuario, user.nombre, user.apellido_materno, user.apellido_paterno, user.clave_usuario, user.contrasena, user.empresas, 
-      user.facultad_acceso,user.facultad_mancomunada,user.facultad_total, user.facultad_rechazar, user.monto_maximo_pagar
+      user.id_usuario, user.nombre, user.apellido_materno, user.apellido_paterno, user.clave_usuario, user.contrasena, user.empresas,
+      user.facultad_acceso, user.facultad_mancomunada, user.facultad_total, user.facultad_rechazar, user.monto_maximo_pagar,user.fecha_vencimiento,user.estatus
     ]);
     const response = await queryWithParams(connection, query, params);
-    
+
     console.log("cambios usuarios: ", response.rowsAffected)
     res.json({ SUCCESS: true, MESSAGE: "" });
   } catch (error) {
