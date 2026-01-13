@@ -22,6 +22,14 @@ export const validaLogin = async (req, res) => {//ok
 
     // Consulta SQL
     // const query = `SELECT facultad_acceso,id_usuario FROM usuarios WHERE clave_usuario = @clave_usuario AND contrasena = @contrasena`;
+    const queryIntentos = `SELECT intentos FROM usuarios WHERE clave_usuario = @clave_usuario`;
+    const responseIntentos = await connection.request()
+      .input("clave_usuario", sql.VarChar, user)
+      .query(queryIntentos);
+    // console.log("response intentos: ", responseIntentos)
+    const intentos = responseIntentos.recordset[0]?.intentos;
+    // console.log("intentos: ", intentos)
+
     const query = `SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = ? AND contrasena = ?`;
 
     const result = await queryWithParams(connection, query, [user, passwordEncriptado], "validaLogin")
@@ -33,10 +41,13 @@ export const validaLogin = async (req, res) => {//ok
     //   .input("contrasena", sql.TYPES.VarChar, passwordEncriptado)
     //   .query(query)
 
-    console.log("RESULT QUERY: ", result)
-    // 
-    // Validar resultado
+    // console.log("RESULT QUERY: ", result)
+    
+    if (intentos >= 5) {
+      throw generateError(401, "Limite de intentos excedido");
+    }
     if (result.recordset.length === 0) {
+      await actualizarIntentosUsuario(connection, user);
       throw generateError(401, "Credenciales incorrectas")
     }
     if (result.recordset[0].vigente === false || result.recordset[0].vigente === 0) {
@@ -48,6 +59,7 @@ export const validaLogin = async (req, res) => {//ok
     if (result.recordset[0].facultad_acceso === false || result.recordset[0].facultad_acceso === 0) {
       throw generateError(401, "No tienes facultad de acceso");
     }
+
 
 
     // const usuario = { ...result.recordset[0], contrasena: '' }
@@ -64,5 +76,22 @@ export const validaLogin = async (req, res) => {//ok
     console.error("Error en validaLogin:", error);
     return getGenericError(res, error);
     // return res.status(500).json({ SUCCESS: false, MESSAGE: "Error en el servidor", USUARIO: null });
+  }
+}
+
+async function actualizarIntentosUsuario(connection, clave_usuario) {//ok
+  try {
+    //TODO validar con express datos de entrada
+    const query = `update usuarios set intentos = intentos + 1, status = 1 where clave_usuario = @clave_usuario`;
+
+    // console.log("query rechazarPropuestas: ", query)
+    const response = await connection.request()
+      .input("clave_usuario", sql.VarChar, clave_usuario)
+      .query(query);
+    // console.log("repsuesta : ", response)
+    return true;
+  } catch (error) {
+    console.error(error)
+    return false;
   }
 }

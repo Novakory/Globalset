@@ -13,15 +13,15 @@ export const updateUsers = async (req, res) => {//ok
     const { users } = req.body;
     if (users == null || users.length == 0) return res.status(201).json({ SUCCESS: false, MESSAGE: "Nada para actualizar en updateUsers" })
     
-    const values = users.map(() => '(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)').join(',\n');
+    const values = users.map(() => '(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)').join(',\n');
 
     const query = `
       MERGE INTO usuarios AS target
       USING (VALUES
         ${values}
-      ) AS source (id_usuario, nombre, apellido_materno, apellido_paterno, clave_usuario, contrasena, empresas, facultad_acceso,facultad_mancomunada,facultad_total,facultad_rechazar, monto_maximo_pagar,fecha_vencimiento,estatus)
+      ) AS source (id_usuario, nombre, apellido_materno, apellido_paterno, clave_usuario, contrasena, empresas, facultad_acceso,facultad_mancomunada,facultad_total,facultad_rechazar, monto_maximo_pagar,fecha_vencimiento,estatus,intentos)
       ON target.id_usuario = source.id_usuario
-      WHEN MATCHED AND(
+      WHEN MATCHED AND target.status = 0 AND(
         ISNULL(source.contrasena,'') <> ISNULL(target.contrasena,'')
         OR ISNULL(source.empresas,'') <> ISNULL(target.empresas,'')
         OR ISNULL(source.facultad_acceso,'') <> ISNULL(target.facultad_acceso,'')
@@ -31,6 +31,7 @@ export const updateUsers = async (req, res) => {//ok
         OR ISNULL(source.monto_maximo_pagar,'') <> ISNULL(target.monto_maximo_pagar,'')
         OR ISNULL(source.fecha_vencimiento,'') <> ISNULL(CONVERT(VARCHAR,target.fecha_vencimiento,103),'')
         OR ISNULL(source.estatus,'') <> ISNULL(target.estatus,'')
+        OR ISNULL(source.intentos,0) <> ISNULL(target.intentos,0)
       ) THEN UPDATE SET
           contrasena = CASE WHEN ISNULL(source.contrasena,'') <> ISNULL(target.contrasena,'') THEN source.contrasena ELSE target.contrasena END,
           empresas = CASE WHEN ISNULL(source.empresas,'') <> ISNULL(target.empresas,'') THEN source.empresas ELSE target.empresas END,
@@ -40,15 +41,17 @@ export const updateUsers = async (req, res) => {//ok
           facultad_rechazar = CASE WHEN ISNULL(source.facultad_rechazar,'') <> ISNULL(target.facultad_rechazar,'') THEN source.facultad_rechazar ELSE target.facultad_rechazar END,
           monto_maximo_pagar = CASE WHEN ISNULL(source.monto_maximo_pagar,'') <> ISNULL(target.monto_maximo_pagar,'') THEN source.monto_maximo_pagar ELSE target.monto_maximo_pagar END,
           fecha_vencimiento = CASE WHEN ISNULL(source.fecha_vencimiento,'') <> ISNULL(CONVERT(VARCHAR,target.fecha_vencimiento,103),'') THEN TRY_CONVERT(DATE, source.fecha_vencimiento, 103) ELSE target.fecha_vencimiento END,
-          estatus = CASE WHEN ISNULL(source.estatus,'') <> ISNULL(target.estatus,'') THEN source.estatus ELSE target.estatus END
+          estatus = CASE WHEN ISNULL(source.estatus,'') <> ISNULL(target.estatus,'') THEN source.estatus ELSE target.estatus END,
+          intentos = CASE WHEN ISNULL(source.intentos,0) <> ISNULL(target.intentos,0) THEN source.intentos ELSE target.intentos END
       WHEN NOT MATCHED THEN
-        INSERT (id_usuario, nombre, apellido_materno, apellido_paterno, clave_usuario, contrasena, empresas, facultad_acceso,facultad_mancomunada,facultad_total,facultad_rechazar, monto_maximo_pagar,fecha_vencimiento,estatus)
-        VALUES (source.id_usuario, source.nombre, source.apellido_materno, source.apellido_paterno, source.clave_usuario, source.contrasena, source.empresas, source.facultad_acceso, source.facultad_mancomunada, source.facultad_total, source.facultad_rechazar, source.monto_maximo_pagar,source.fecha_vencimiento,source.estatus);
+        INSERT (id_usuario, nombre, apellido_materno, apellido_paterno, clave_usuario, contrasena, empresas, facultad_acceso,facultad_mancomunada,facultad_total,facultad_rechazar, monto_maximo_pagar,fecha_vencimiento,estatus,intentos)
+        VALUES (source.id_usuario, source.nombre, source.apellido_materno, source.apellido_paterno, source.clave_usuario, source.contrasena, source.empresas, source.facultad_acceso, source.facultad_mancomunada, source.facultad_total, source.facultad_rechazar, source.monto_maximo_pagar,source.fecha_vencimiento,source.estatus,source.intentos);
     `;
 
     const params = users.flatMap(user => [//todos los subarrays los deja en uno solo
       user.id_usuario, user.nombre, user.apellido_materno, user.apellido_paterno, user.clave_usuario, user.contrasena, user.empresas,
-      user.facultad_acceso, user.facultad_mancomunada, user.facultad_total, user.facultad_rechazar, user.monto_maximo_pagar,user.fecha_vencimiento,user.estatus
+      user.facultad_acceso, user.facultad_mancomunada, user.facultad_total, user.facultad_rechazar, user.monto_maximo_pagar,user.fecha_vencimiento,user.estatus,
+      user.intentos
     ]);
     const response = await queryWithParams(connection, query, params);
 
@@ -57,5 +60,42 @@ export const updateUsers = async (req, res) => {//ok
   } catch (error) {
     console.log(error);
     return res.status(400).json({ SUCCESS: false, MESSAGE: "Error al insertar los usuarios" })
+  }
+}
+
+//OBTIENE LOS USUARIOS MODIFICADOS DESDE LA APP MOVIL
+export const getUsuariosModificadosMovil = async (req, res) => {
+  const connection = await pool;
+  try {
+    const query = `
+      SELECT 
+      id_usuario,intentos
+      FROM usuarios
+      WHERE status = 1
+    `;
+    console.log("getUsuariosModificadosMovil", query);
+    const response = await connection.query(query);
+
+    const data = response.recordset.length > 0 ? JSON.stringify(response.recordset) : null
+    if (data != null) await resetUsuariosMovil();
+    // Respuesta exitosa
+    res.json({
+      SUCCESS: true,
+      MESSAGE: "",
+      DATA: data
+    });
+
+  } catch (error) {
+    console.error("Error en getPropuestasModificadasMovil:", error);
+    return res.status(500).json({ SUCCESS: false, MESSAGE: "Error en el servidor" });
+  }
+}
+
+const resetUsuariosMovil = async function () {
+  const connection = await pool;
+  try {
+    await connection.query("UPDATE usuarios SET status = 0 WHERE status = 1")
+  } catch (error) {
+    console.error(error)
   }
 }

@@ -38047,3 +38047,1953 @@ ReferenceError: params is not defined
       DELETE FROM propuestas WHERE cve_control in(M1025082025176,M1025082025173,M1026082025167,M927082025167,MAN027082025903,M1270820252,M127082025176,MAN127082025905,M527082025173,M827082025167,M1227082025167,M1026082025169,M327082025169,M427082025169,M227082025169,M527082025169,M127082025169,M1626082025169)
     
 [2026-01-02T18:38:41.573Z] [INFO] Propuestas sin autorizacion eliminadas:  0
+[2026-01-08T23:08:56.691Z] [INFO] http://localhost:3002
+[2026-01-08T23:08:56.738Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-08T23:09:31.126Z] [INFO] {}
+[2026-01-08T23:10:03.880Z] [INFO] {}
+[2026-01-08T23:10:20.264Z] [INFO] {}
+[2026-01-08T23:10:20.265Z] [INFO] query rechazarPropuestas:  update usuarios set intentos = intentos + 1 where clave_usuario = @clave_usuario
+[2026-01-08T23:11:10.913Z] [INFO] http://localhost:3002
+[2026-01-08T23:11:10.934Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-08T23:25:59.553Z] [INFO] {}
+[2026-01-08T23:25:59.642Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 7e6b2a487351a38bfd55c3d17ce19b3168d817302e2fa58158d44afd15470ac9
+[2026-01-08T23:26:00.038Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    [
+      {
+        "vigente": 1,
+        "id_usuario": 2,
+        "nombre": "ADMINISTRADOR",
+        "apellido_materno": "WEBSET",
+        "apellido_paterno": "WEBSET",
+        "clave_usuario": "ADMIN",
+        "contrasena": "7e6b2a487351a38bfd55c3d17ce19b3168d817302e2fa58158d44afd15470ac9",
+        "empresas": "17,33,34,35,36,37,38,39,40,43,111,900,901,903,905,909,910,912,913,917,927",
+        "facultad_acceso": true,
+        "facultad_mancomunada": true,
+        "facultad_total": false,
+        "facultad_rechazar": false,
+        "monto_maximo_pagar": 0,
+        "fecha_vencimiento": "2099-01-01T00:00:00.000Z",
+        "estatus": "A",
+        "intentos": 2
+      }
+    ]
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    1
+  ]
+}
+[2026-01-08T23:26:00.456Z] [INFO] {}
+[2026-01-08T23:26:00.469Z] [INFO] Nuevo cliente conectado
+[2026-01-08T23:26:00.475Z] [INFO] Mensaje recibido: Hola, servidor desde movil!
+[2026-01-08T23:26:00.519Z] [INFO] Mensaje recibido: {"id":"Admin","type":2}
+[2026-01-08T23:26:00.520Z] [INFO] numClientesActuales: 1
+[2026-01-08T23:26:23.727Z] [INFO] Cliente desconectado con ID: Admin
+[2026-01-08T23:26:23.730Z] [INFO] numClientesActuales: 0
+[2026-01-09T00:25:49.811Z] [INFO] {}
+[2026-01-09T00:25:49.930Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = aaa9402664f1a41f40ebbc52c9993eb66aeb366602958fdfaa283b71e64db123
+[2026-01-09T00:25:50.006Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:25:50.037Z] [ERROR] Error en validaLogin: Credenciales incorrectas
+Error: Credenciales incorrectas
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:40:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:25:50.210Z] [INFO] {}
+[2026-01-09T00:27:20.148Z] [INFO] http://localhost:3002
+[2026-01-09T00:27:20.194Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:29:00.963Z] [INFO] http://localhost:3002
+[2026-01-09T00:29:00.988Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:29:02.258Z] [INFO] http://localhost:3002
+[2026-01-09T00:29:02.288Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:29:06.719Z] [INFO] http://localhost:3002
+[2026-01-09T00:29:06.747Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:29:09.908Z] [INFO] http://localhost:3002
+[2026-01-09T00:29:09.932Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:29:12.952Z] [INFO] http://localhost:3002
+[2026-01-09T00:29:12.974Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:29:20.538Z] [INFO] http://localhost:3002
+[2026-01-09T00:29:20.560Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:29:24.873Z] [INFO] http://localhost:3002
+[2026-01-09T00:29:24.901Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:29:27.220Z] [INFO] http://localhost:3002
+[2026-01-09T00:29:27.257Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:29:30.882Z] [INFO] http://localhost:3002
+[2026-01-09T00:29:30.904Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:29:53.888Z] [INFO] {}
+[2026-01-09T00:29:54.073Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = aaa9402664f1a41f40ebbc52c9993eb66aeb366602958fdfaa283b71e64db123
+[2026-01-09T00:29:54.189Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:29:54.192Z] [ERROR] Error en validaLogin: Credenciales incorrectas
+Error: Credenciales incorrectas
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:41:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:29:54.242Z] [ERROR] Error en actualizarIntentosUsuario: Cannot set headers after they are sent to the client
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:652:11)
+    at ServerResponse.header (D:\Globalset2\Git\Globalset\api_radio_movil\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (D:\Globalset2\Git\Globalset\api_radio_movil\node_modules\express\lib\response.js:174:12)
+    at ServerResponse.json (D:\Globalset2\Git\Globalset\api_radio_movil\node_modules\express\lib\response.js:278:15)
+    at actualizarIntentosUsuario (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:91:9)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:32:10.468Z] [INFO] http://localhost:3002
+[2026-01-09T00:32:10.488Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:32:13.642Z] [INFO] http://localhost:3002
+[2026-01-09T00:32:13.662Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:32:19.205Z] [INFO] http://localhost:3002
+[2026-01-09T00:32:19.227Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:32:23.088Z] [INFO] http://localhost:3002
+[2026-01-09T00:32:23.111Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:32:34.534Z] [INFO] http://localhost:3002
+[2026-01-09T00:32:34.559Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:32:37.225Z] [INFO] http://localhost:3002
+[2026-01-09T00:32:37.249Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:32:44.725Z] [INFO] http://localhost:3002
+[2026-01-09T00:32:44.873Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:32:52.920Z] [INFO] http://localhost:3002
+[2026-01-09T00:32:53.043Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:32:55.544Z] [INFO] http://localhost:3002
+[2026-01-09T00:32:55.574Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:33:21.842Z] [INFO] http://localhost:3002
+[2026-01-09T00:33:21.869Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:33:30.664Z] [INFO] http://localhost:3002
+[2026-01-09T00:33:30.685Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:33:35.814Z] [INFO] http://localhost:3002
+[2026-01-09T00:33:35.834Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:33:43.074Z] [INFO] http://localhost:3002
+[2026-01-09T00:33:43.094Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:33:50.536Z] [INFO] http://localhost:3002
+[2026-01-09T00:33:50.571Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:34:04.080Z] [INFO] {}
+[2026-01-09T00:34:04.095Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 0bfe935e70c321c7ca3afc75ce0d0ca2f98b5422e008bb31c00c6d7f1f1c0ad6
+[2026-01-09T00:34:04.200Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:34:04.211Z] [ERROR] Error en validaLogin: Credenciales incorrectas
+Error: Credenciales incorrectas
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:41:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:34:17.325Z] [INFO] {}
+[2026-01-09T00:34:17.327Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 0bfe935e70c321c7ca3afc75ce0d0ca2f98b5422e008bb31c00c6d7f1f1c0ad6
+[2026-01-09T00:34:17.332Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:34:17.338Z] [ERROR] Error en validaLogin: Credenciales incorrectas
+Error: Credenciales incorrectas
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:41:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:34:24.627Z] [INFO] {}
+[2026-01-09T00:34:24.631Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 0bfe935e70c321c7ca3afc75ce0d0ca2f98b5422e008bb31c00c6d7f1f1c0ad6
+[2026-01-09T00:34:24.637Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:34:24.644Z] [ERROR] Error en validaLogin: Credenciales incorrectas
+Error: Credenciales incorrectas
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:41:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:34:43.460Z] [INFO] http://localhost:3002
+[2026-01-09T00:34:43.489Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:34:45.830Z] [INFO] http://localhost:3002
+[2026-01-09T00:34:45.850Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:34:56.147Z] [INFO] http://localhost:3002
+[2026-01-09T00:34:56.285Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:34:59.965Z] [INFO] http://localhost:3002
+[2026-01-09T00:35:00.059Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:35:02.010Z] [INFO] http://localhost:3002
+[2026-01-09T00:35:02.044Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:35:18.188Z] [INFO] http://localhost:3002
+[2026-01-09T00:35:18.209Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:35:20.893Z] [INFO] http://localhost:3002
+[2026-01-09T00:35:20.926Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:35:21.981Z] [INFO] http://localhost:3002
+[2026-01-09T00:35:22.004Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:35:43.190Z] [INFO] http://localhost:3002
+[2026-01-09T00:35:43.212Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:35:44.935Z] [INFO] http://localhost:3002
+[2026-01-09T00:35:44.959Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:35:46.392Z] [INFO] http://localhost:3002
+[2026-01-09T00:35:46.416Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:35:51.272Z] [INFO] http://localhost:3002
+[2026-01-09T00:35:51.291Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:35:53.123Z] [INFO] http://localhost:3002
+[2026-01-09T00:35:53.144Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:35:55.197Z] [INFO] http://localhost:3002
+[2026-01-09T00:35:55.217Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:35:58.573Z] [INFO] {}
+[2026-01-09T00:35:58.701Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 0bfe935e70c321c7ca3afc75ce0d0ca2f98b5422e008bb31c00c6d7f1f1c0ad6
+[2026-01-09T00:35:58.824Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:35:58.826Z] [ERROR] Error en validaLogin: Cannot read properties of undefined (reading 'intentos')
+TypeError: Cannot read properties of undefined (reading 'intentos')
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:39:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:36:13.517Z] [INFO] http://localhost:3002
+[2026-01-09T00:36:13.548Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:36:15.587Z] [INFO] {}
+[2026-01-09T00:36:15.600Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 0bfe935e70c321c7ca3afc75ce0d0ca2f98b5422e008bb31c00c6d7f1f1c0ad6
+[2026-01-09T00:36:15.645Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:36:15.646Z] [ERROR] Error en validaLogin: Limite de intentos excedido
+Error: Limite de intentos excedido
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:40:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:36:20.256Z] [INFO] {}
+[2026-01-09T00:36:20.260Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 0bfe935e70c321c7ca3afc75ce0d0ca2f98b5422e008bb31c00c6d7f1f1c0ad6
+[2026-01-09T00:36:20.267Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:36:20.268Z] [ERROR] Error en validaLogin: Limite de intentos excedido
+Error: Limite de intentos excedido
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:40:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:36:46.652Z] [INFO] http://localhost:3002
+[2026-01-09T00:36:46.674Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:36:47.895Z] [INFO] http://localhost:3002
+[2026-01-09T00:36:47.917Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:36:49.439Z] [INFO] http://localhost:3002
+[2026-01-09T00:36:49.459Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:36:51.569Z] [INFO] http://localhost:3002
+[2026-01-09T00:36:51.597Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:36:52.890Z] [INFO] http://localhost:3002
+[2026-01-09T00:36:52.911Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:36:54.641Z] [INFO] {}
+[2026-01-09T00:36:54.729Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 0bfe935e70c321c7ca3afc75ce0d0ca2f98b5422e008bb31c00c6d7f1f1c0ad6
+[2026-01-09T00:36:54.760Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:36:54.769Z] [ERROR] Error en validaLogin: Credenciales incorrectas
+Error: Credenciales incorrectas
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:41:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:37:03.485Z] [INFO] {}
+[2026-01-09T00:37:03.488Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 7e6b2a487351a38bfd55c3d17ce19b3168d817302e2fa58158d44afd15470ac9
+[2026-01-09T00:37:03.493Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    [
+      {
+        "vigente": 1,
+        "id_usuario": 2,
+        "nombre": "ADMINISTRADOR",
+        "apellido_materno": "WEBSET",
+        "apellido_paterno": "WEBSET",
+        "clave_usuario": "ADMIN",
+        "contrasena": "7e6b2a487351a38bfd55c3d17ce19b3168d817302e2fa58158d44afd15470ac9",
+        "empresas": "17,33,34,35,36,37,38,39,40,43,111,900,901,903,905,909,910,912,913,917,927",
+        "facultad_acceso": true,
+        "facultad_mancomunada": true,
+        "facultad_total": false,
+        "facultad_rechazar": false,
+        "monto_maximo_pagar": 0,
+        "fecha_vencimiento": "2099-01-01T00:00:00.000Z",
+        "estatus": "A",
+        "intentos": 7
+      }
+    ]
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    1
+  ]
+}
+[2026-01-09T00:37:03.494Z] [ERROR] Error en validaLogin: Limite de intentos excedido
+Error: Limite de intentos excedido
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:44:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:37:39.854Z] [INFO] http://localhost:3002
+[2026-01-09T00:37:39.876Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:37:53.316Z] [INFO] http://localhost:3002
+[2026-01-09T00:37:53.346Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:37:58.804Z] [INFO] http://localhost:3002
+[2026-01-09T00:37:58.834Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:38:18.556Z] [INFO] http://localhost:3002
+[2026-01-09T00:38:18.700Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:38:25.234Z] [INFO] http://localhost:3002
+[2026-01-09T00:38:25.255Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:38:27.826Z] [INFO] http://localhost:3002
+[2026-01-09T00:38:27.850Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:38:33.956Z] [INFO] http://localhost:3002
+[2026-01-09T00:38:33.975Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:38:40.460Z] [INFO] http://localhost:3002
+[2026-01-09T00:38:40.482Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:38:45.620Z] [INFO] http://localhost:3002
+[2026-01-09T00:38:45.641Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:39:01.409Z] [INFO] http://localhost:3002
+[2026-01-09T00:39:01.432Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:39:11.208Z] [INFO] http://localhost:3002
+[2026-01-09T00:39:11.232Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:39:14.068Z] [INFO] http://localhost:3002
+[2026-01-09T00:39:14.094Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:39:17.584Z] [INFO] http://localhost:3002
+[2026-01-09T00:39:17.610Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:39:53.814Z] [INFO] {}
+[2026-01-09T00:39:53.828Z] [ERROR] Error en validaLogin: clave_usuario is not defined
+ReferenceError: clave_usuario is not defined
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:27:44)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:40:04.158Z] [INFO] http://localhost:3002
+[2026-01-09T00:40:04.180Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:40:05.605Z] [INFO] http://localhost:3002
+[2026-01-09T00:40:05.629Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:40:07.162Z] [INFO] {}
+[2026-01-09T00:40:07.176Z] [ERROR] Error en validaLogin: clave_usuario is not defined
+ReferenceError: clave_usuario is not defined
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:27:44)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:40:08.690Z] [INFO] {}
+[2026-01-09T00:40:08.694Z] [ERROR] Error en validaLogin: clave_usuario is not defined
+ReferenceError: clave_usuario is not defined
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:27:44)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:40:20.224Z] [INFO] http://localhost:3002
+[2026-01-09T00:40:20.245Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:40:28.262Z] [INFO] {}
+[2026-01-09T00:40:28.275Z] [ERROR] Error en validaLogin: clave_usuario is not defined
+ReferenceError: clave_usuario is not defined
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:27:44)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:40:33.059Z] [INFO] {}
+[2026-01-09T00:40:33.063Z] [ERROR] Error en validaLogin: clave_usuario is not defined
+ReferenceError: clave_usuario is not defined
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:27:44)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:40:41.899Z] [INFO] http://localhost:3002
+[2026-01-09T00:40:41.925Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:40:43.816Z] [INFO] {}
+[2026-01-09T00:40:43.964Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 0bfe935e70c321c7ca3afc75ce0d0ca2f98b5422e008bb31c00c6d7f1f1c0ad6
+[2026-01-09T00:40:43.972Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:40:43.974Z] [ERROR] Error en validaLogin: Limite de intentos excedido
+Error: Limite de intentos excedido
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:46:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:40:45.611Z] [INFO] {}
+[2026-01-09T00:40:45.619Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 0bfe935e70c321c7ca3afc75ce0d0ca2f98b5422e008bb31c00c6d7f1f1c0ad6
+[2026-01-09T00:40:45.622Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:40:45.623Z] [ERROR] Error en validaLogin: Limite de intentos excedido
+Error: Limite de intentos excedido
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:46:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:40:49.268Z] [INFO] {}
+[2026-01-09T00:40:49.274Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 0bfe935e70c321c7ca3afc75ce0d0ca2f98b5422e008bb31c00c6d7f1f1c0ad6
+[2026-01-09T00:40:49.279Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:40:49.280Z] [ERROR] Error en validaLogin: Limite de intentos excedido
+Error: Limite de intentos excedido
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:46:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:40:49.750Z] [INFO] {}
+[2026-01-09T00:40:49.758Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 0bfe935e70c321c7ca3afc75ce0d0ca2f98b5422e008bb31c00c6d7f1f1c0ad6
+[2026-01-09T00:40:49.763Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:40:49.765Z] [ERROR] Error en validaLogin: Limite de intentos excedido
+Error: Limite de intentos excedido
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:46:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:40:50.139Z] [INFO] {}
+[2026-01-09T00:40:50.149Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 0bfe935e70c321c7ca3afc75ce0d0ca2f98b5422e008bb31c00c6d7f1f1c0ad6
+[2026-01-09T00:40:50.152Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:40:50.153Z] [ERROR] Error en validaLogin: Limite de intentos excedido
+Error: Limite de intentos excedido
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:46:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:40:58.557Z] [INFO] {}
+[2026-01-09T00:40:58.568Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 0bfe935e70c321c7ca3afc75ce0d0ca2f98b5422e008bb31c00c6d7f1f1c0ad6
+[2026-01-09T00:40:58.575Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:40:58.578Z] [ERROR] Error en validaLogin: Limite de intentos excedido
+Error: Limite de intentos excedido
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:46:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:40:59.170Z] [INFO] {}
+[2026-01-09T00:40:59.178Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 0bfe935e70c321c7ca3afc75ce0d0ca2f98b5422e008bb31c00c6d7f1f1c0ad6
+[2026-01-09T00:40:59.185Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:40:59.187Z] [ERROR] Error en validaLogin: Limite de intentos excedido
+Error: Limite de intentos excedido
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:46:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:41:32.764Z] [INFO] {}
+[2026-01-09T00:41:32.968Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 0bfe935e70c321c7ca3afc75ce0d0ca2f98b5422e008bb31c00c6d7f1f1c0ad6
+[2026-01-09T00:41:32.974Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:41:32.975Z] [ERROR] Error en validaLogin: Limite de intentos excedido
+Error: Limite de intentos excedido
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:46:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:41:52.819Z] [INFO] {}
+[2026-01-09T00:41:52.831Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 0bfe935e70c321c7ca3afc75ce0d0ca2f98b5422e008bb31c00c6d7f1f1c0ad6
+[2026-01-09T00:41:52.845Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:41:52.846Z] [ERROR] Error en validaLogin: Limite de intentos excedido
+Error: Limite de intentos excedido
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:46:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:42:17.910Z] [INFO] http://localhost:3002
+[2026-01-09T00:42:17.929Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:42:35.401Z] [INFO] http://localhost:3002
+[2026-01-09T00:42:35.426Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:42:38.077Z] [INFO] {}
+[2026-01-09T00:42:38.135Z] [INFO] response intentos:  {
+  "recordsets": [
+    [
+      {
+        "intentos": 0
+      }
+    ]
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    1
+  ]
+}
+[2026-01-09T00:42:38.137Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 0bfe935e70c321c7ca3afc75ce0d0ca2f98b5422e008bb31c00c6d7f1f1c0ad6
+[2026-01-09T00:42:38.144Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:42:38.145Z] [ERROR] Error en validaLogin: Limite de intentos excedido
+Error: Limite de intentos excedido
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:47:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:43:22.287Z] [INFO] http://localhost:3002
+[2026-01-09T00:43:22.310Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:43:23.247Z] [INFO] {}
+[2026-01-09T00:43:23.417Z] [INFO] response intentos:  {
+  "recordsets": [
+    [
+      {
+        "intentos": 0
+      }
+    ]
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    1
+  ]
+}
+[2026-01-09T00:43:23.420Z] [INFO] intentos:  100
+[2026-01-09T00:43:23.422Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 0bfe935e70c321c7ca3afc75ce0d0ca2f98b5422e008bb31c00c6d7f1f1c0ad6
+[2026-01-09T00:43:23.431Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:43:23.432Z] [ERROR] Error en validaLogin: Limite de intentos excedido
+Error: Limite de intentos excedido
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:48:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:43:33.005Z] [INFO] http://localhost:3002
+[2026-01-09T00:43:33.028Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:43:35.817Z] [INFO] {}
+[2026-01-09T00:43:35.857Z] [INFO] response intentos:  {
+  "recordsets": [
+    [
+      {
+        "intentos": 0
+      }
+    ]
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    1
+  ]
+}
+[2026-01-09T00:43:35.858Z] [INFO] intentos:  0
+[2026-01-09T00:43:35.859Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 0bfe935e70c321c7ca3afc75ce0d0ca2f98b5422e008bb31c00c6d7f1f1c0ad6
+[2026-01-09T00:43:35.864Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:43:35.870Z] [ERROR] Error en validaLogin: Credenciales incorrectas
+Error: Credenciales incorrectas
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:52:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:43:42.233Z] [INFO] {}
+[2026-01-09T00:43:42.247Z] [INFO] response intentos:  {
+  "recordsets": [
+    [
+      {
+        "intentos": 1
+      }
+    ]
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    1
+  ]
+}
+[2026-01-09T00:43:42.248Z] [INFO] intentos:  1
+[2026-01-09T00:43:42.248Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 0bfe935e70c321c7ca3afc75ce0d0ca2f98b5422e008bb31c00c6d7f1f1c0ad6
+[2026-01-09T00:43:42.254Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:43:42.260Z] [ERROR] Error en validaLogin: Credenciales incorrectas
+Error: Credenciales incorrectas
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:52:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:44:14.835Z] [INFO] {}
+[2026-01-09T00:44:14.961Z] [INFO] response intentos:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:44:14.962Z] [INFO] intentos:  
+[2026-01-09T00:44:14.963Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Adminj AND contrasena = 0bfe935e70c321c7ca3afc75ce0d0ca2f98b5422e008bb31c00c6d7f1f1c0ad6
+[2026-01-09T00:44:14.968Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:44:14.977Z] [ERROR] Error en validaLogin: Credenciales incorrectas
+Error: Credenciales incorrectas
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:52:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:45:12.343Z] [INFO] {}
+[2026-01-09T00:45:12.376Z] [INFO] response intentos:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:45:12.377Z] [INFO] intentos:  
+[2026-01-09T00:45:12.378Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Adminj AND contrasena = 0bfe935e70c321c7ca3afc75ce0d0ca2f98b5422e008bb31c00c6d7f1f1c0ad6
+[2026-01-09T00:45:12.384Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:45:12.389Z] [ERROR] Error en validaLogin: Credenciales incorrectas
+Error: Credenciales incorrectas
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:52:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:45:14.373Z] [INFO] {}
+[2026-01-09T00:45:14.377Z] [INFO] response intentos:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:45:14.377Z] [INFO] intentos:  
+[2026-01-09T00:45:14.378Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Adminj AND contrasena = 0bfe935e70c321c7ca3afc75ce0d0ca2f98b5422e008bb31c00c6d7f1f1c0ad6
+[2026-01-09T00:45:14.381Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:45:14.384Z] [ERROR] Error en validaLogin: Credenciales incorrectas
+Error: Credenciales incorrectas
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:52:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:45:17.582Z] [INFO] {}
+[2026-01-09T00:45:17.586Z] [INFO] response intentos:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:45:17.586Z] [INFO] intentos:  
+[2026-01-09T00:45:17.587Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Adminj AND contrasena = 0bfe935e70c321c7ca3afc75ce0d0ca2f98b5422e008bb31c00c6d7f1f1c0ad6
+[2026-01-09T00:45:17.590Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:45:17.593Z] [ERROR] Error en validaLogin: Credenciales incorrectas
+Error: Credenciales incorrectas
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:52:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:45:18.089Z] [INFO] {}
+[2026-01-09T00:45:18.094Z] [INFO] response intentos:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:45:18.095Z] [INFO] intentos:  
+[2026-01-09T00:45:18.095Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Adminj AND contrasena = 0bfe935e70c321c7ca3afc75ce0d0ca2f98b5422e008bb31c00c6d7f1f1c0ad6
+[2026-01-09T00:45:18.099Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:45:18.104Z] [ERROR] Error en validaLogin: Credenciales incorrectas
+Error: Credenciales incorrectas
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:52:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:45:19.409Z] [INFO] {}
+[2026-01-09T00:45:19.413Z] [INFO] response intentos:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:45:19.413Z] [INFO] intentos:  
+[2026-01-09T00:45:19.414Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Adminj AND contrasena = 0bfe935e70c321c7ca3afc75ce0d0ca2f98b5422e008bb31c00c6d7f1f1c0ad6
+[2026-01-09T00:45:19.417Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:45:19.419Z] [ERROR] Error en validaLogin: Credenciales incorrectas
+Error: Credenciales incorrectas
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:52:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:45:38.454Z] [INFO] {}
+[2026-01-09T00:45:38.464Z] [INFO] response intentos:  {
+  "recordsets": [
+    [
+      {
+        "intentos": 2
+      }
+    ]
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    1
+  ]
+}
+[2026-01-09T00:45:38.465Z] [INFO] intentos:  2
+[2026-01-09T00:45:38.465Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 0bfe935e70c321c7ca3afc75ce0d0ca2f98b5422e008bb31c00c6d7f1f1c0ad6
+[2026-01-09T00:45:38.471Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:45:38.478Z] [ERROR] Error en validaLogin: Credenciales incorrectas
+Error: Credenciales incorrectas
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:52:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:45:50.766Z] [INFO] {}
+[2026-01-09T00:45:50.773Z] [INFO] response intentos:  {
+  "recordsets": [
+    [
+      {
+        "intentos": 3
+      }
+    ]
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    1
+  ]
+}
+[2026-01-09T00:45:50.775Z] [INFO] intentos:  3
+[2026-01-09T00:45:50.776Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 0bfe935e70c321c7ca3afc75ce0d0ca2f98b5422e008bb31c00c6d7f1f1c0ad6
+[2026-01-09T00:45:50.779Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:45:50.785Z] [ERROR] Error en validaLogin: Credenciales incorrectas
+Error: Credenciales incorrectas
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:52:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:45:51.811Z] [INFO] {}
+[2026-01-09T00:45:51.814Z] [INFO] response intentos:  {
+  "recordsets": [
+    [
+      {
+        "intentos": 4
+      }
+    ]
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    1
+  ]
+}
+[2026-01-09T00:45:51.815Z] [INFO] intentos:  4
+[2026-01-09T00:45:51.816Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 0bfe935e70c321c7ca3afc75ce0d0ca2f98b5422e008bb31c00c6d7f1f1c0ad6
+[2026-01-09T00:45:51.819Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:45:51.822Z] [ERROR] Error en validaLogin: Credenciales incorrectas
+Error: Credenciales incorrectas
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:52:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:45:52.584Z] [INFO] {}
+[2026-01-09T00:45:52.689Z] [INFO] response intentos:  {
+  "recordsets": [
+    [
+      {
+        "intentos": 5
+      }
+    ]
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    1
+  ]
+}
+[2026-01-09T00:45:52.690Z] [INFO] intentos:  5
+[2026-01-09T00:45:52.690Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 0bfe935e70c321c7ca3afc75ce0d0ca2f98b5422e008bb31c00c6d7f1f1c0ad6
+[2026-01-09T00:45:52.693Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:45:52.699Z] [ERROR] Error en validaLogin: Credenciales incorrectas
+Error: Credenciales incorrectas
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:52:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:45:53.964Z] [INFO] {}
+[2026-01-09T00:45:53.976Z] [INFO] response intentos:  {
+  "recordsets": [
+    [
+      {
+        "intentos": 6
+      }
+    ]
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    1
+  ]
+}
+[2026-01-09T00:45:53.977Z] [INFO] intentos:  6
+[2026-01-09T00:45:53.977Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 0bfe935e70c321c7ca3afc75ce0d0ca2f98b5422e008bb31c00c6d7f1f1c0ad6
+[2026-01-09T00:45:53.984Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:45:53.986Z] [ERROR] Error en validaLogin: Limite de intentos excedido
+Error: Limite de intentos excedido
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:48:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:45:54.880Z] [INFO] {}
+[2026-01-09T00:45:54.899Z] [INFO] response intentos:  {
+  "recordsets": [
+    [
+      {
+        "intentos": 6
+      }
+    ]
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    1
+  ]
+}
+[2026-01-09T00:45:54.900Z] [INFO] intentos:  6
+[2026-01-09T00:45:54.901Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 0bfe935e70c321c7ca3afc75ce0d0ca2f98b5422e008bb31c00c6d7f1f1c0ad6
+[2026-01-09T00:45:55.236Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:45:55.237Z] [ERROR] Error en validaLogin: Limite de intentos excedido
+Error: Limite de intentos excedido
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:48:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:45:56.177Z] [INFO] {}
+[2026-01-09T00:45:56.197Z] [INFO] response intentos:  {
+  "recordsets": [
+    [
+      {
+        "intentos": 6
+      }
+    ]
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    1
+  ]
+}
+[2026-01-09T00:45:56.198Z] [INFO] intentos:  6
+[2026-01-09T00:45:56.199Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 0bfe935e70c321c7ca3afc75ce0d0ca2f98b5422e008bb31c00c6d7f1f1c0ad6
+[2026-01-09T00:45:56.204Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:45:56.205Z] [ERROR] Error en validaLogin: Limite de intentos excedido
+Error: Limite de intentos excedido
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:48:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:45:56.709Z] [INFO] {}
+[2026-01-09T00:45:56.720Z] [INFO] response intentos:  {
+  "recordsets": [
+    [
+      {
+        "intentos": 6
+      }
+    ]
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    1
+  ]
+}
+[2026-01-09T00:45:56.721Z] [INFO] intentos:  6
+[2026-01-09T00:45:56.722Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 0bfe935e70c321c7ca3afc75ce0d0ca2f98b5422e008bb31c00c6d7f1f1c0ad6
+[2026-01-09T00:45:56.727Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:45:56.728Z] [ERROR] Error en validaLogin: Limite de intentos excedido
+Error: Limite de intentos excedido
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:48:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:45:57.177Z] [INFO] {}
+[2026-01-09T00:45:57.196Z] [INFO] response intentos:  {
+  "recordsets": [
+    [
+      {
+        "intentos": 6
+      }
+    ]
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    1
+  ]
+}
+[2026-01-09T00:45:57.197Z] [INFO] intentos:  6
+[2026-01-09T00:45:57.197Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 0bfe935e70c321c7ca3afc75ce0d0ca2f98b5422e008bb31c00c6d7f1f1c0ad6
+[2026-01-09T00:45:57.201Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:45:57.202Z] [ERROR] Error en validaLogin: Limite de intentos excedido
+Error: Limite de intentos excedido
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:48:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:45:57.624Z] [INFO] {}
+[2026-01-09T00:45:57.629Z] [INFO] response intentos:  {
+  "recordsets": [
+    [
+      {
+        "intentos": 6
+      }
+    ]
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    1
+  ]
+}
+[2026-01-09T00:45:57.629Z] [INFO] intentos:  6
+[2026-01-09T00:45:57.630Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 0bfe935e70c321c7ca3afc75ce0d0ca2f98b5422e008bb31c00c6d7f1f1c0ad6
+[2026-01-09T00:45:57.634Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:45:57.635Z] [ERROR] Error en validaLogin: Limite de intentos excedido
+Error: Limite de intentos excedido
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:48:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:45:58.137Z] [INFO] {}
+[2026-01-09T00:45:58.140Z] [INFO] response intentos:  {
+  "recordsets": [
+    [
+      {
+        "intentos": 6
+      }
+    ]
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    1
+  ]
+}
+[2026-01-09T00:45:58.141Z] [INFO] intentos:  6
+[2026-01-09T00:45:58.141Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 0bfe935e70c321c7ca3afc75ce0d0ca2f98b5422e008bb31c00c6d7f1f1c0ad6
+[2026-01-09T00:45:58.144Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:45:58.145Z] [ERROR] Error en validaLogin: Limite de intentos excedido
+Error: Limite de intentos excedido
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:48:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:45:58.631Z] [INFO] {}
+[2026-01-09T00:45:58.637Z] [INFO] response intentos:  {
+  "recordsets": [
+    [
+      {
+        "intentos": 6
+      }
+    ]
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    1
+  ]
+}
+[2026-01-09T00:45:58.639Z] [INFO] intentos:  6
+[2026-01-09T00:45:58.639Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 0bfe935e70c321c7ca3afc75ce0d0ca2f98b5422e008bb31c00c6d7f1f1c0ad6
+[2026-01-09T00:45:58.643Z] [INFO] RESULT QUERY:  {
+  "recordsets": [
+    []
+  ],
+  "recordset": "[Circular]",
+  "output": {},
+  "rowsAffected": [
+    0
+  ]
+}
+[2026-01-09T00:45:58.644Z] [ERROR] Error en validaLogin: Limite de intentos excedido
+Error: Limite de intentos excedido
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:48:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-09T00:46:16.374Z] [INFO] http://localhost:3002
+[2026-01-09T00:46:16.399Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:46:20.703Z] [INFO] http://localhost:3002
+[2026-01-09T00:46:20.736Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:46:25.694Z] [INFO] http://localhost:3002
+[2026-01-09T00:46:25.717Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:46:27.845Z] [INFO] http://localhost:3002
+[2026-01-09T00:46:27.870Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:48:23.141Z] [INFO] http://localhost:3002
+[2026-01-09T00:48:23.196Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:48:57.850Z] [INFO] http://localhost:3002
+[2026-01-09T00:48:57.879Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:49:05.005Z] [INFO] http://localhost:3002
+[2026-01-09T00:49:05.034Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:49:16.285Z] [INFO] http://localhost:3002
+[2026-01-09T00:49:16.316Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:49:21.367Z] [INFO] http://localhost:3002
+[2026-01-09T00:49:21.394Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:49:23.642Z] [INFO] http://localhost:3002
+[2026-01-09T00:49:23.666Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:49:27.179Z] [INFO] http://localhost:3002
+[2026-01-09T00:49:27.206Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:50:05.137Z] [INFO] http://localhost:3002
+[2026-01-09T00:50:05.164Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:50:15.022Z] [INFO] http://localhost:3002
+[2026-01-09T00:50:15.071Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:50:51.566Z] [INFO] http://localhost:3002
+[2026-01-09T00:50:51.594Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:50:57.550Z] [INFO] http://localhost:3002
+[2026-01-09T00:50:57.574Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-09T00:51:24.693Z] [INFO] http://localhost:3002
+[2026-01-09T00:51:24.821Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-12T22:02:22.614Z] [INFO] http://localhost:3002
+[2026-01-12T22:02:22.948Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-12T22:03:40.050Z] [INFO] {}
+[2026-01-12T22:03:40.057Z] [INFO] {}
+[2026-01-12T22:03:40.240Z] [INFO] {}
+[2026-01-12T22:03:40.382Z] [INFO] query deletePropuestasSinAutorizacion: 
+      DELETE FROM propuestas WHERE cve_control in(M1025082025176,M1025082025173,M1026082025167,M927082025167,MAN027082025903,M1270820252,M127082025176,MAN127082025905,M527082025173,M827082025167,M1227082025167,M1026082025169,M327082025169,M427082025169,M227082025169,M527082025169,M127082025169,M1626082025169)
+    
+[2026-01-12T22:03:41.202Z] [INFO] Propuestas sin autorizacion eliminadas:  0
+[2026-01-12T22:04:00.792Z] [INFO] {}
+[2026-01-12T22:04:01.011Z] [INFO] {}
+[2026-01-12T22:04:01.186Z] [INFO] Must declare the scalar variable "@p1596".
+RequestError: Must declare the scalar variable "@p1596".
+    at handleError (D:\Globalset2\Git\Globalset\api_radio_movil\node_modules\mssql\lib\tedious\request.js:384:15)
+    at Connection.emit (node:events:518:28)
+    at Connection.emit (D:\Globalset2\Git\Globalset\api_radio_movil\node_modules\tedious\lib\connection.js:970:18)
+    at RequestTokenHandler.onErrorMessage (D:\Globalset2\Git\Globalset\api_radio_movil\node_modules\tedious\lib\token\handler.js:284:21)
+    at Readable.<anonymous> (D:\Globalset2\Git\Globalset\api_radio_movil\node_modules\tedious\lib\token\token-stream-parser.js:19:33)
+    at Readable.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushObjectMode (node:internal/streams/readable:536:3)
+    at Readable.push (node:internal/streams/readable:391:5)
+    at nextAsync (node:internal/streams/from:194:22)
+[2026-01-12T22:04:02.552Z] [INFO] cambios propuestas:  0
+[2026-01-12T22:04:40.016Z] [INFO] {}
+[2026-01-12T22:04:40.017Z] [INFO] {}
+[2026-01-12T22:04:40.134Z] [INFO] {}
+[2026-01-12T22:04:40.137Z] [INFO] query deletePropuestasSinAutorizacion: 
+      DELETE FROM propuestas WHERE cve_control in(M1025082025176,M1025082025173,M1026082025167,M927082025167,MAN027082025903,M1270820252,M127082025176,MAN127082025905,M527082025173,M827082025167,M1227082025167,M1026082025169,M327082025169,M427082025169,M227082025169,M527082025169,M127082025169,M1626082025169)
+    
+[2026-01-12T22:04:40.149Z] [INFO] Propuestas sin autorizacion eliminadas:  0
+[2026-01-12T22:05:00.587Z] [INFO] {}
+[2026-01-12T22:05:00.674Z] [INFO] Must declare the scalar variable "@p1596".
+RequestError: Must declare the scalar variable "@p1596".
+    at handleError (D:\Globalset2\Git\Globalset\api_radio_movil\node_modules\mssql\lib\tedious\request.js:384:15)
+    at Connection.emit (node:events:518:28)
+    at Connection.emit (D:\Globalset2\Git\Globalset\api_radio_movil\node_modules\tedious\lib\connection.js:970:18)
+    at RequestTokenHandler.onErrorMessage (D:\Globalset2\Git\Globalset\api_radio_movil\node_modules\tedious\lib\token\handler.js:284:21)
+    at Readable.<anonymous> (D:\Globalset2\Git\Globalset\api_radio_movil\node_modules\tedious\lib\token\token-stream-parser.js:19:33)
+    at Readable.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushObjectMode (node:internal/streams/readable:536:3)
+    at Readable.push (node:internal/streams/readable:391:5)
+    at nextAsync (node:internal/streams/from:194:22)
+[2026-01-12T22:05:00.827Z] [INFO] {}
+[2026-01-12T22:05:02.111Z] [INFO] cambios propuestas:  0
+[2026-01-12T22:05:40.016Z] [INFO] {}
+[2026-01-12T22:05:40.018Z] [INFO] {}
+[2026-01-12T22:05:40.136Z] [INFO] {}
+[2026-01-12T22:05:40.138Z] [INFO] query deletePropuestasSinAutorizacion: 
+      DELETE FROM propuestas WHERE cve_control in(M1025082025176,M1025082025173,M1026082025167,M927082025167,MAN027082025903,M1270820252,M127082025176,MAN127082025905,M527082025173,M827082025167,M1227082025167,M1026082025169,M327082025169,M427082025169,M227082025169,M527082025169,M127082025169,M1626082025169)
+    
+[2026-01-12T22:05:40.157Z] [INFO] Propuestas sin autorizacion eliminadas:  0
+[2026-01-12T22:09:50.935Z] [INFO] http://localhost:3002
+[2026-01-12T22:09:50.997Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-12T22:10:03.886Z] [INFO] http://localhost:3002
+[2026-01-12T22:10:03.909Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-12T22:11:02.701Z] [INFO] {}
+[2026-01-12T22:11:03.682Z] [INFO] cambios usuarios:  [
+  10
+]
+[2026-01-12T22:11:05.757Z] [INFO] {}
+[2026-01-12T22:11:07.177Z] [INFO] cambios propuestas:  0
+[2026-01-12T22:11:40.024Z] [INFO] {}
+[2026-01-12T22:11:40.028Z] [ERROR] Error en getPropuestasModificadasMovil: printQuery is not defined
+ReferenceError: printQuery is not defined
+    at getUsuariosModificadosMovil (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersSet.js:76:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-12T22:11:40.034Z] [INFO] {}
+[2026-01-12T22:11:40.151Z] [INFO] {}
+[2026-01-12T22:11:40.155Z] [INFO] query deletePropuestasSinAutorizacion: 
+      DELETE FROM propuestas WHERE cve_control in(M1025082025176,M1025082025173,M1026082025167,M927082025167,MAN027082025903,M1270820252,M127082025176,MAN127082025905,M527082025173,M827082025167,M1227082025167,M1026082025169,M327082025169,M427082025169,M227082025169,M527082025169,M127082025169,M1626082025169)
+    
+[2026-01-12T22:11:40.178Z] [INFO] Propuestas sin autorizacion eliminadas:  0
+[2026-01-12T22:12:00.662Z] [INFO] {}
+[2026-01-12T22:12:01.132Z] [INFO] cambios usuarios:  [
+  0
+]
+[2026-01-12T22:12:01.518Z] [INFO] {}
+[2026-01-12T22:12:02.471Z] [INFO] cambios propuestas:  0
+[2026-01-12T22:12:40.027Z] [INFO] {}
+[2026-01-12T22:12:40.028Z] [ERROR] Error en getPropuestasModificadasMovil: printQuery is not defined
+ReferenceError: printQuery is not defined
+    at getUsuariosModificadosMovil (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersSet.js:76:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-12T22:12:40.030Z] [INFO] {}
+[2026-01-12T22:12:40.142Z] [INFO] {}
+[2026-01-12T22:12:40.145Z] [INFO] query deletePropuestasSinAutorizacion: 
+      DELETE FROM propuestas WHERE cve_control in(M1025082025176,M1025082025173,M1026082025167,M927082025167,MAN027082025903,M1270820252,M127082025176,MAN127082025905,M527082025173,M827082025167,M1227082025167,M1026082025169,M327082025169,M427082025169,M227082025169,M527082025169,M127082025169,M1626082025169)
+    
+[2026-01-12T22:12:40.170Z] [INFO] Propuestas sin autorizacion eliminadas:  0
+[2026-01-12T22:13:00.594Z] [INFO] {}
+[2026-01-12T22:13:00.989Z] [INFO] cambios usuarios:  [
+  0
+]
+[2026-01-12T22:13:06.614Z] [INFO] {}
+[2026-01-12T22:13:07.485Z] [INFO] cambios propuestas:  0
+[2026-01-12T22:13:40.019Z] [INFO] {}
+[2026-01-12T22:13:40.020Z] [ERROR] Error en getPropuestasModificadasMovil: printQuery is not defined
+ReferenceError: printQuery is not defined
+    at getUsuariosModificadosMovil (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersSet.js:76:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-12T22:13:40.021Z] [INFO] {}
+[2026-01-12T22:13:40.126Z] [INFO] {}
+[2026-01-12T22:13:40.128Z] [INFO] query deletePropuestasSinAutorizacion: 
+      DELETE FROM propuestas WHERE cve_control in(M1025082025176,M1025082025173,M1026082025167,M927082025167,MAN027082025903,M1270820252,M127082025176,MAN127082025905,M527082025173,M827082025167,M1227082025167,M1026082025169,M327082025169,M427082025169,M227082025169,M527082025169,M127082025169,M1626082025169)
+    
+[2026-01-12T22:13:40.139Z] [INFO] Propuestas sin autorizacion eliminadas:  0
+[2026-01-12T22:14:00.136Z] [INFO] {}
+[2026-01-12T22:14:00.207Z] [INFO] {}
+[2026-01-12T22:14:00.640Z] [INFO] cambios usuarios:  [
+  0
+]
+[2026-01-12T22:14:01.211Z] [INFO] cambios propuestas:  0
+[2026-01-12T22:14:09.870Z] [INFO] http://localhost:3002
+[2026-01-12T22:14:09.895Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-12T22:14:13.198Z] [INFO] http://localhost:3002
+[2026-01-12T22:14:13.224Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-12T22:14:40.030Z] [INFO] {}
+[2026-01-12T22:14:40.033Z] [INFO] getUsuariosModificadosMovil 
+      SELECT 
+      id_usuario,intentos
+      FROM usuarios
+      WHERE status = 1
+    
+[2026-01-12T22:14:40.036Z] [INFO] {}
+[2026-01-12T22:14:40.275Z] [INFO] {}
+[2026-01-12T22:14:40.288Z] [INFO] query deletePropuestasSinAutorizacion: 
+      DELETE FROM propuestas WHERE cve_control in(M1025082025176,M1025082025173,M1026082025167,M927082025167,MAN027082025903,M1270820252,M127082025176,MAN127082025905,M527082025173,M827082025167,M1227082025167,M1026082025169,M327082025169,M427082025169,M227082025169,M527082025169,M127082025169,M1626082025169)
+    
+[2026-01-12T22:14:40.316Z] [INFO] Propuestas sin autorizacion eliminadas:  0
+[2026-01-12T22:15:00.947Z] [INFO] {}
+[2026-01-12T22:15:01.209Z] [INFO] {}
+[2026-01-12T22:15:01.480Z] [INFO] cambios usuarios:  [
+  0
+]
+[2026-01-12T22:15:02.185Z] [INFO] cambios propuestas:  0
+[2026-01-12T22:15:40.016Z] [INFO] {}
+[2026-01-12T22:15:40.018Z] [INFO] {}
+[2026-01-12T22:15:40.019Z] [INFO] getUsuariosModificadosMovil 
+      SELECT 
+      id_usuario,intentos
+      FROM usuarios
+      WHERE status = 1
+    
+[2026-01-12T22:15:40.158Z] [INFO] {}
+[2026-01-12T22:15:40.159Z] [INFO] query deletePropuestasSinAutorizacion: 
+      DELETE FROM propuestas WHERE cve_control in(M1025082025176,M1025082025173,M1026082025167,M927082025167,MAN027082025903,M1270820252,M127082025176,MAN127082025905,M527082025173,M827082025167,M1227082025167,M1026082025169,M327082025169,M427082025169,M227082025169,M527082025169,M127082025169,M1626082025169)
+    
+[2026-01-12T22:15:40.166Z] [INFO] Propuestas sin autorizacion eliminadas:  0
+[2026-01-12T22:16:00.527Z] [INFO] {}
+[2026-01-12T22:16:00.670Z] [INFO] {}
+[2026-01-12T22:16:01.011Z] [INFO] cambios usuarios:  [
+  0
+]
+[2026-01-12T22:16:01.650Z] [INFO] cambios propuestas:  0
+[2026-01-12T22:16:25.303Z] [INFO] {}
+[2026-01-12T22:16:25.428Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 7b6dee5ee558a90d3edfd7552586a872de0ea924107e291e7f8515d4aab8a978
+[2026-01-12T22:16:25.453Z] [ERROR] Error en validaLogin: Credenciales incorrectas
+Error: Credenciales incorrectas
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:51:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-12T22:16:40.027Z] [INFO] {}
+[2026-01-12T22:16:40.029Z] [INFO] {}
+[2026-01-12T22:16:40.030Z] [INFO] getUsuariosModificadosMovil 
+      SELECT 
+      id_usuario,intentos
+      FROM usuarios
+      WHERE status = 1
+    
+[2026-01-12T22:16:40.180Z] [INFO] {}
+[2026-01-12T22:16:40.181Z] [INFO] query deletePropuestasSinAutorizacion: 
+      DELETE FROM propuestas WHERE cve_control in(M1025082025176,M1025082025173,M1026082025167,M927082025167,MAN027082025903,M1270820252,M127082025176,MAN127082025905,M527082025173,M827082025167,M1227082025167,M1026082025169,M327082025169,M427082025169,M227082025169,M527082025169,M127082025169,M1626082025169)
+    
+[2026-01-12T22:16:40.191Z] [INFO] Propuestas sin autorizacion eliminadas:  0
+[2026-01-12T22:17:00.804Z] [INFO] {}
+[2026-01-12T22:17:00.880Z] [INFO] {}
+[2026-01-12T22:17:01.310Z] [INFO] cambios usuarios:  [
+  1
+]
+[2026-01-12T22:17:02.116Z] [INFO] cambios propuestas:  0
+[2026-01-12T22:18:42.493Z] [INFO] {}
+[2026-01-12T22:18:42.507Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 7b6dee5ee558a90d3edfd7552586a872de0ea924107e291e7f8515d4aab8a978
+[2026-01-12T22:18:42.537Z] [ERROR] Error en validaLogin: Credenciales incorrectas
+Error: Credenciales incorrectas
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:51:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-12T22:19:02.074Z] [INFO] {}
+[2026-01-12T22:19:02.777Z] [INFO] cambios usuarios:  [
+  0
+]
+[2026-01-12T22:19:05.159Z] [INFO] {}
+[2026-01-12T22:19:06.409Z] [INFO] cambios propuestas:  0
+[2026-01-12T22:19:40.024Z] [INFO] {}
+[2026-01-12T22:19:40.025Z] [INFO] getUsuariosModificadosMovil 
+      SELECT 
+      id_usuario,intentos
+      FROM usuarios
+      WHERE status = 1
+    
+[2026-01-12T22:19:40.026Z] [INFO] {}
+[2026-01-12T22:19:41.503Z] [INFO] {}
+[2026-01-12T22:19:41.506Z] [INFO] query deletePropuestasSinAutorizacion: 
+      DELETE FROM propuestas WHERE cve_control in(M1025082025176,M1025082025173,M1026082025167,M927082025167,MAN027082025903,M1270820252,M127082025176,MAN127082025905,M527082025173,M827082025167,M1227082025167,M1026082025169,M327082025169,M427082025169,M227082025169,M527082025169,M127082025169,M1626082025169)
+    
+[2026-01-12T22:19:41.517Z] [INFO] Propuestas sin autorizacion eliminadas:  0
+[2026-01-12T22:20:00.528Z] [INFO] {}
+[2026-01-12T22:20:01.402Z] [INFO] cambios usuarios:  [
+  0
+]
+[2026-01-12T22:20:01.602Z] [INFO] {}
+[2026-01-12T22:20:02.764Z] [INFO] cambios propuestas:  0
+[2026-01-12T22:20:40.021Z] [INFO] {}
+[2026-01-12T22:20:40.023Z] [INFO] {}
+[2026-01-12T22:20:40.023Z] [INFO] getUsuariosModificadosMovil 
+      SELECT 
+      id_usuario,intentos
+      FROM usuarios
+      WHERE status = 1
+    
+[2026-01-12T22:20:40.447Z] [INFO] {}
+[2026-01-12T22:20:40.449Z] [INFO] query deletePropuestasSinAutorizacion: 
+      DELETE FROM propuestas WHERE cve_control in(M1025082025176,M1025082025173,M1026082025167,M927082025167,MAN027082025903,M1270820252,M127082025176,MAN127082025905,M527082025173,M827082025167,M1227082025167,M1026082025169,M327082025169,M427082025169,M227082025169,M527082025169,M127082025169,M1626082025169)
+    
+[2026-01-12T22:20:40.458Z] [INFO] Propuestas sin autorizacion eliminadas:  0
+[2026-01-12T22:21:00.555Z] [INFO] {}
+[2026-01-12T22:21:01.017Z] [INFO] cambios usuarios:  [
+  0
+]
+[2026-01-12T22:21:01.483Z] [INFO] {}
+[2026-01-12T22:21:02.491Z] [INFO] cambios propuestas:  0
+[2026-01-12T22:21:40.014Z] [INFO] {}
+[2026-01-12T22:21:40.016Z] [INFO] getUsuariosModificadosMovil 
+      SELECT 
+      id_usuario,intentos
+      FROM usuarios
+      WHERE status = 1
+    
+[2026-01-12T22:21:40.018Z] [INFO] {}
+[2026-01-12T22:21:40.163Z] [INFO] {}
+[2026-01-12T22:21:40.165Z] [INFO] query deletePropuestasSinAutorizacion: 
+      DELETE FROM propuestas WHERE cve_control in(M1025082025176,M1025082025173,M1026082025167,M927082025167,MAN027082025903,M1270820252,M127082025176,MAN127082025905,M527082025173,M827082025167,M1227082025167,M1026082025169,M327082025169,M427082025169,M227082025169,M527082025169,M127082025169,M1626082025169)
+    
+[2026-01-12T22:21:40.174Z] [INFO] Propuestas sin autorizacion eliminadas:  0
+[2026-01-12T22:22:00.478Z] [INFO] {}
+[2026-01-12T22:22:01.223Z] [INFO] cambios usuarios:  [
+  1
+]
+[2026-01-12T22:22:01.378Z] [INFO] {}
+[2026-01-12T22:22:02.450Z] [INFO] cambios propuestas:  0
+[2026-01-12T22:22:17.027Z] [INFO] {}
+[2026-01-12T22:22:17.138Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 7b6dee5ee558a90d3edfd7552586a872de0ea924107e291e7f8515d4aab8a978
+[2026-01-12T22:22:17.215Z] [ERROR] Error en validaLogin: Credenciales incorrectas
+Error: Credenciales incorrectas
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:51:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-12T22:22:18.504Z] [INFO] {}
+[2026-01-12T22:22:18.512Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 7b6dee5ee558a90d3edfd7552586a872de0ea924107e291e7f8515d4aab8a978
+[2026-01-12T22:22:18.524Z] [ERROR] Error en validaLogin: Credenciales incorrectas
+Error: Credenciales incorrectas
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:51:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-12T22:22:19.717Z] [INFO] {}
+[2026-01-12T22:22:19.723Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 7b6dee5ee558a90d3edfd7552586a872de0ea924107e291e7f8515d4aab8a978
+[2026-01-12T22:22:19.738Z] [ERROR] Error en validaLogin: Credenciales incorrectas
+Error: Credenciales incorrectas
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:51:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-12T22:22:20.885Z] [INFO] {}
+[2026-01-12T22:22:20.894Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 7b6dee5ee558a90d3edfd7552586a872de0ea924107e291e7f8515d4aab8a978
+[2026-01-12T22:22:20.936Z] [ERROR] Error en validaLogin: Credenciales incorrectas
+Error: Credenciales incorrectas
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:51:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-12T22:22:22.184Z] [INFO] {}
+[2026-01-12T22:22:22.190Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 7b6dee5ee558a90d3edfd7552586a872de0ea924107e291e7f8515d4aab8a978
+[2026-01-12T22:22:22.198Z] [ERROR] Error en validaLogin: Limite de intentos excedido
+Error: Limite de intentos excedido
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:47:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-12T22:22:23.549Z] [INFO] {}
+[2026-01-12T22:22:23.557Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 7b6dee5ee558a90d3edfd7552586a872de0ea924107e291e7f8515d4aab8a978
+[2026-01-12T22:22:23.567Z] [ERROR] Error en validaLogin: Limite de intentos excedido
+Error: Limite de intentos excedido
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:47:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-12T22:22:40.018Z] [INFO] {}
+[2026-01-12T22:22:40.019Z] [INFO] getUsuariosModificadosMovil 
+      SELECT 
+      id_usuario,intentos
+      FROM usuarios
+      WHERE status = 1
+    
+[2026-01-12T22:22:40.020Z] [INFO] {}
+[2026-01-12T22:22:40.187Z] [INFO] {}
+[2026-01-12T22:22:40.189Z] [INFO] query deletePropuestasSinAutorizacion: 
+      DELETE FROM propuestas WHERE cve_control in(M1025082025176,M1025082025173,M1026082025167,M927082025167,MAN027082025903,M1270820252,M127082025176,MAN127082025905,M527082025173,M827082025167,M1227082025167,M1026082025169,M327082025169,M427082025169,M227082025169,M527082025169,M127082025169,M1626082025169)
+    
+[2026-01-12T22:22:40.200Z] [INFO] Propuestas sin autorizacion eliminadas:  0
+[2026-01-12T22:23:00.329Z] [INFO] {}
+[2026-01-12T22:23:00.936Z] [INFO] cambios usuarios:  [
+  1
+]
+[2026-01-12T22:23:01.255Z] [INFO] {}
+[2026-01-12T22:23:02.412Z] [INFO] cambios propuestas:  0
+[2026-01-12T22:23:40.024Z] [INFO] {}
+[2026-01-12T22:23:40.025Z] [INFO] getUsuariosModificadosMovil 
+      SELECT 
+      id_usuario,intentos
+      FROM usuarios
+      WHERE status = 1
+    
+[2026-01-12T22:23:40.026Z] [INFO] {}
+[2026-01-12T22:23:40.165Z] [INFO] {}
+[2026-01-12T22:23:40.167Z] [INFO] query deletePropuestasSinAutorizacion: 
+      DELETE FROM propuestas WHERE cve_control in(M1025082025176,M1025082025173,M1026082025167,M927082025167,MAN027082025903,M1270820252,M127082025176,MAN127082025905,M527082025173,M827082025167,M1227082025167,M1026082025169,M327082025169,M427082025169,M227082025169,M527082025169,M127082025169,M1626082025169)
+    
+[2026-01-12T22:23:40.178Z] [INFO] Propuestas sin autorizacion eliminadas:  0
+[2026-01-12T22:24:00.545Z] [INFO] {}
+[2026-01-12T22:24:01.570Z] [INFO] cambios usuarios:  [
+  1
+]
+[2026-01-12T22:24:02.584Z] [INFO] {}
+[2026-01-12T22:24:03.832Z] [INFO] cambios propuestas:  0
+[2026-01-12T22:24:40.019Z] [INFO] {}
+[2026-01-12T22:24:40.019Z] [INFO] getUsuariosModificadosMovil 
+      SELECT 
+      id_usuario,intentos
+      FROM usuarios
+      WHERE status = 1
+    
+[2026-01-12T22:24:40.020Z] [INFO] {}
+[2026-01-12T22:24:40.138Z] [INFO] {}
+[2026-01-12T22:24:40.140Z] [INFO] query deletePropuestasSinAutorizacion: 
+      DELETE FROM propuestas WHERE cve_control in(M1025082025176,M1025082025173,M1026082025167,M927082025167,MAN027082025903,M1270820252,M127082025176,MAN127082025905,M527082025173,M827082025167,M1227082025167,M1026082025169,M327082025169,M427082025169,M227082025169,M527082025169,M127082025169,M1626082025169)
+    
+[2026-01-12T22:24:40.149Z] [INFO] Propuestas sin autorizacion eliminadas:  0
+[2026-01-12T22:25:00.143Z] [INFO] {}
+[2026-01-12T22:25:00.246Z] [INFO] {}
+[2026-01-12T22:25:00.657Z] [INFO] cambios usuarios:  [
+  1
+]
+[2026-01-12T22:25:01.550Z] [INFO] cambios propuestas:  0
+[2026-01-12T22:25:36.781Z] [INFO] {}
+[2026-01-12T22:25:36.800Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 7b6dee5ee558a90d3edfd7552586a872de0ea924107e291e7f8515d4aab8a978
+[2026-01-12T22:25:36.817Z] [ERROR] Error en validaLogin: Credenciales incorrectas
+Error: Credenciales incorrectas
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:51:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-12T22:25:40.030Z] [INFO] {}
+[2026-01-12T22:25:40.032Z] [INFO] {}
+[2026-01-12T22:25:40.033Z] [INFO] getUsuariosModificadosMovil 
+      SELECT 
+      id_usuario,intentos
+      FROM usuarios
+      WHERE status = 1
+    
+[2026-01-12T22:25:40.247Z] [INFO] {}
+[2026-01-12T22:25:40.249Z] [INFO] query deletePropuestasSinAutorizacion: 
+      DELETE FROM propuestas WHERE cve_control in(M1025082025176,M1025082025173,M1026082025167,M927082025167,MAN027082025903,M1270820252,M127082025176,MAN127082025905,M527082025173,M827082025167,M1227082025167,M1026082025169,M327082025169,M427082025169,M227082025169,M527082025169,M127082025169,M1626082025169)
+    
+[2026-01-12T22:25:40.255Z] [INFO] Propuestas sin autorizacion eliminadas:  0
+[2026-01-12T22:26:00.318Z] [INFO] {}
+[2026-01-12T22:26:00.710Z] [INFO] {}
+[2026-01-12T22:26:00.912Z] [INFO] cambios usuarios:  [
+  0
+]
+[2026-01-12T22:26:01.674Z] [INFO] cambios propuestas:  0
+[2026-01-12T22:26:40.022Z] [INFO] {}
+[2026-01-12T22:26:40.023Z] [INFO] getUsuariosModificadosMovil 
+      SELECT 
+      id_usuario,intentos
+      FROM usuarios
+      WHERE status = 1
+    
+[2026-01-12T22:26:40.023Z] [INFO] {}
+[2026-01-12T22:26:40.173Z] [INFO] {}
+[2026-01-12T22:26:40.176Z] [INFO] query deletePropuestasSinAutorizacion: 
+      DELETE FROM propuestas WHERE cve_control in(M1025082025176,M1025082025173,M1026082025167,M927082025167,MAN027082025903,M1270820252,M127082025176,MAN127082025905,M527082025173,M827082025167,M1227082025167,M1026082025169,M327082025169,M427082025169,M227082025169,M527082025169,M127082025169,M1626082025169)
+    
+[2026-01-12T22:26:40.186Z] [INFO] Propuestas sin autorizacion eliminadas:  0
+[2026-01-12T22:27:00.165Z] [INFO] {}
+[2026-01-12T22:27:00.264Z] [INFO] {}
+[2026-01-12T22:27:00.755Z] [INFO] cambios usuarios:  [
+  1
+]
+[2026-01-12T22:27:01.791Z] [INFO] cambios propuestas:  0
+[2026-01-12T22:27:40.027Z] [INFO] {}
+[2026-01-12T22:27:40.028Z] [INFO] {}
+[2026-01-12T22:27:40.029Z] [INFO] getUsuariosModificadosMovil 
+      SELECT 
+      id_usuario,intentos
+      FROM usuarios
+      WHERE status = 1
+    
+[2026-01-12T22:27:40.168Z] [INFO] {}
+[2026-01-12T22:27:40.169Z] [INFO] query deletePropuestasSinAutorizacion: 
+      DELETE FROM propuestas WHERE cve_control in(M1025082025176,M1025082025173,M1026082025167,M927082025167,MAN027082025903,M1270820252,M127082025176,MAN127082025905,M527082025173,M827082025167,M1227082025167,M1026082025169,M327082025169,M427082025169,M227082025169,M527082025169,M127082025169,M1626082025169)
+    
+[2026-01-12T22:27:40.178Z] [INFO] Propuestas sin autorizacion eliminadas:  0
+[2026-01-12T22:27:45.738Z] [INFO] {}
+[2026-01-12T22:27:45.745Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 7b6dee5ee558a90d3edfd7552586a872de0ea924107e291e7f8515d4aab8a978
+[2026-01-12T22:27:45.757Z] [ERROR] Error en validaLogin: Credenciales incorrectas
+Error: Credenciales incorrectas
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:51:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-12T22:27:46.924Z] [INFO] {}
+[2026-01-12T22:27:46.931Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 7b6dee5ee558a90d3edfd7552586a872de0ea924107e291e7f8515d4aab8a978
+[2026-01-12T22:27:46.942Z] [ERROR] Error en validaLogin: Credenciales incorrectas
+Error: Credenciales incorrectas
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:51:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-12T22:27:49.832Z] [INFO] {}
+[2026-01-12T22:27:49.839Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 7b6dee5ee558a90d3edfd7552586a872de0ea924107e291e7f8515d4aab8a978
+[2026-01-12T22:27:49.853Z] [ERROR] Error en validaLogin: Credenciales incorrectas
+Error: Credenciales incorrectas
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:51:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-12T22:27:50.878Z] [INFO] {}
+[2026-01-12T22:27:50.887Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 7b6dee5ee558a90d3edfd7552586a872de0ea924107e291e7f8515d4aab8a978
+[2026-01-12T22:27:50.899Z] [ERROR] Error en validaLogin: Credenciales incorrectas
+Error: Credenciales incorrectas
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:51:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-12T22:27:51.902Z] [INFO] {}
+[2026-01-12T22:27:51.910Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 7b6dee5ee558a90d3edfd7552586a872de0ea924107e291e7f8515d4aab8a978
+[2026-01-12T22:27:51.930Z] [ERROR] Error en validaLogin: Credenciales incorrectas
+Error: Credenciales incorrectas
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:51:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-12T22:27:53.121Z] [INFO] {}
+[2026-01-12T22:27:53.129Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 7b6dee5ee558a90d3edfd7552586a872de0ea924107e291e7f8515d4aab8a978
+[2026-01-12T22:27:53.135Z] [ERROR] Error en validaLogin: Limite de intentos excedido
+Error: Limite de intentos excedido
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:47:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-12T22:27:54.043Z] [INFO] {}
+[2026-01-12T22:27:54.051Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 7b6dee5ee558a90d3edfd7552586a872de0ea924107e291e7f8515d4aab8a978
+[2026-01-12T22:27:54.058Z] [ERROR] Error en validaLogin: Limite de intentos excedido
+Error: Limite de intentos excedido
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:47:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-12T22:28:00.146Z] [INFO] {}
+[2026-01-12T22:28:00.250Z] [INFO] {}
+[2026-01-12T22:28:00.703Z] [INFO] cambios usuarios:  [
+  0
+]
+[2026-01-12T22:28:01.739Z] [INFO] cambios propuestas:  0
+[2026-01-12T22:28:40.372Z] [INFO] http://localhost:3002
+[2026-01-12T22:28:40.408Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-12T22:28:40.537Z] [INFO] {}
+[2026-01-12T22:28:40.542Z] [INFO] {}
+[2026-01-12T22:28:40.543Z] [INFO] getUsuariosModificadosMovil 
+      SELECT 
+      id_usuario,intentos
+      FROM usuarios
+      WHERE status = 1
+    
+[2026-01-12T22:28:40.675Z] [INFO] {}
+[2026-01-12T22:28:40.728Z] [INFO] query deletePropuestasSinAutorizacion: 
+      DELETE FROM propuestas WHERE cve_control in(M1025082025176,M1025082025173,M1026082025167,M927082025167,MAN027082025903,M1270820252,M127082025176,MAN127082025905,M527082025173,M827082025167,M1227082025167,M1026082025169,M327082025169,M427082025169,M227082025169,M527082025169,M127082025169,M1626082025169)
+    
+[2026-01-12T22:28:40.790Z] [INFO] Propuestas sin autorizacion eliminadas:  0
+[2026-01-12T22:28:47.244Z] [INFO] http://localhost:3002
+[2026-01-12T22:28:47.275Z] [INFO] ✅ Conectado a SQL Server
+[2026-01-12T22:29:00.313Z] [INFO] {}
+[2026-01-12T22:29:00.362Z] [INFO] {}
+[2026-01-12T22:29:01.355Z] [INFO] cambios usuarios:  [
+  0
+]
+[2026-01-12T22:29:02.365Z] [INFO] cambios propuestas:  0
+[2026-01-12T22:29:40.025Z] [INFO] {}
+[2026-01-12T22:29:40.027Z] [INFO] {}
+[2026-01-12T22:29:40.029Z] [INFO] getUsuariosModificadosMovil 
+      SELECT 
+      id_usuario,intentos
+      FROM usuarios
+      WHERE status = 1
+    
+[2026-01-12T22:29:40.187Z] [INFO] {}
+[2026-01-12T22:29:40.190Z] [INFO] query deletePropuestasSinAutorizacion: 
+      DELETE FROM propuestas WHERE cve_control in(M1025082025176,M1025082025173,M1026082025167,M927082025167,MAN027082025903,M1270820252,M127082025176,MAN127082025905,M527082025173,M827082025167,M1227082025167,M1026082025169,M327082025169,M427082025169,M227082025169,M527082025169,M127082025169,M1626082025169)
+    
+[2026-01-12T22:29:40.204Z] [INFO] Propuestas sin autorizacion eliminadas:  0
+[2026-01-12T22:30:00.441Z] [INFO] {}
+[2026-01-12T22:30:00.496Z] [INFO] {}
+[2026-01-12T22:30:01.050Z] [INFO] cambios usuarios:  [
+  1
+]
+[2026-01-12T22:30:01.596Z] [INFO] cambios propuestas:  0
+[2026-01-12T22:30:16.236Z] [INFO] {}
+[2026-01-12T22:30:16.266Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 7b6dee5ee558a90d3edfd7552586a872de0ea924107e291e7f8515d4aab8a978
+[2026-01-12T22:30:16.279Z] [ERROR] Error en validaLogin: Credenciales incorrectas
+Error: Credenciales incorrectas
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:51:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-12T22:30:17.901Z] [INFO] {}
+[2026-01-12T22:30:17.906Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 7b6dee5ee558a90d3edfd7552586a872de0ea924107e291e7f8515d4aab8a978
+[2026-01-12T22:30:17.915Z] [ERROR] Error en validaLogin: Credenciales incorrectas
+Error: Credenciales incorrectas
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:51:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-12T22:30:19.057Z] [INFO] {}
+[2026-01-12T22:30:19.063Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 7b6dee5ee558a90d3edfd7552586a872de0ea924107e291e7f8515d4aab8a978
+[2026-01-12T22:30:19.071Z] [ERROR] Error en validaLogin: Credenciales incorrectas
+Error: Credenciales incorrectas
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:51:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-12T22:30:20.154Z] [INFO] {}
+[2026-01-12T22:30:20.158Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 7b6dee5ee558a90d3edfd7552586a872de0ea924107e291e7f8515d4aab8a978
+[2026-01-12T22:30:20.164Z] [ERROR] Error en validaLogin: Credenciales incorrectas
+Error: Credenciales incorrectas
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:51:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-12T22:30:21.447Z] [INFO] {}
+[2026-01-12T22:30:21.452Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 7b6dee5ee558a90d3edfd7552586a872de0ea924107e291e7f8515d4aab8a978
+[2026-01-12T22:30:21.460Z] [ERROR] Error en validaLogin: Credenciales incorrectas
+Error: Credenciales incorrectas
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:51:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-12T22:30:23.402Z] [INFO] {}
+[2026-01-12T22:30:23.408Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 7b6dee5ee558a90d3edfd7552586a872de0ea924107e291e7f8515d4aab8a978
+[2026-01-12T22:30:23.414Z] [ERROR] Error en validaLogin: Limite de intentos excedido
+Error: Limite de intentos excedido
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:47:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-12T22:30:24.670Z] [INFO] {}
+[2026-01-12T22:30:24.675Z] [INFO] query validaLogin: SELECT CASE WHEN fecha_vencimiento > GETDATE() THEN 1 ELSE 0 END as vigente,* FROM usuarios WHERE clave_usuario = Admin AND contrasena = 7b6dee5ee558a90d3edfd7552586a872de0ea924107e291e7f8515d4aab8a978
+[2026-01-12T22:30:24.678Z] [ERROR] Error en validaLogin: Limite de intentos excedido
+Error: Limite de intentos excedido
+    at generateError (file:///D:/Globalset2/Git/Globalset/api_radio_movil/utils/errorsUtil.js:9:18)
+    at validaLogin (file:///D:/Globalset2/Git/Globalset/api_radio_movil/controllers/controllerUsersMovil.js:47:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2026-01-12T22:30:40.020Z] [INFO] {}
+[2026-01-12T22:30:40.023Z] [INFO] {}
+[2026-01-12T22:30:40.025Z] [INFO] getUsuariosModificadosMovil 
+      SELECT 
+      id_usuario,intentos
+      FROM usuarios
+      WHERE status = 1
+    
+[2026-01-12T22:30:40.337Z] [INFO] {}
+[2026-01-12T22:30:40.339Z] [INFO] query deletePropuestasSinAutorizacion: 
+      DELETE FROM propuestas WHERE cve_control in(M1025082025176,M1025082025173,M1026082025167,M927082025167,MAN027082025903,M1270820252,M127082025176,MAN127082025905,M527082025173,M827082025167,M1227082025167,M1026082025169,M327082025169,M427082025169,M227082025169,M527082025169,M127082025169,M1626082025169)
+    
+[2026-01-12T22:30:40.348Z] [INFO] Propuestas sin autorizacion eliminadas:  0
+[2026-01-12T22:31:00.193Z] [INFO] {}
+[2026-01-12T22:31:00.310Z] [INFO] {}
+[2026-01-12T22:31:00.746Z] [INFO] cambios usuarios:  [
+  0
+]
+[2026-01-12T22:31:01.336Z] [INFO] cambios propuestas:  0
+[2026-01-12T22:31:40.017Z] [INFO] {}
+[2026-01-12T22:31:40.019Z] [INFO] {}
+[2026-01-12T22:31:40.021Z] [INFO] getUsuariosModificadosMovil 
+      SELECT 
+      id_usuario,intentos
+      FROM usuarios
+      WHERE status = 1
+    
+[2026-01-12T22:31:40.577Z] [INFO] {}
+[2026-01-12T22:31:40.579Z] [INFO] query deletePropuestasSinAutorizacion: 
+      DELETE FROM propuestas WHERE cve_control in(M1025082025176,M1025082025173,M1026082025167,M927082025167,MAN027082025903,M1270820252,M127082025176,MAN127082025905,M527082025173,M827082025167,M1227082025167,M1026082025169,M327082025169,M427082025169,M227082025169,M527082025169,M127082025169,M1626082025169)
+    
+[2026-01-12T22:31:40.590Z] [INFO] Propuestas sin autorizacion eliminadas:  0
+[2026-01-12T22:32:00.265Z] [INFO] {}
+[2026-01-12T22:32:00.599Z] [INFO] {}
+[2026-01-12T22:32:00.775Z] [INFO] cambios usuarios:  [
+  1
+]
+[2026-01-12T22:32:01.696Z] [INFO] cambios propuestas:  0
+[2026-01-12T22:32:40.015Z] [INFO] {}
+[2026-01-12T22:32:40.016Z] [INFO] getUsuariosModificadosMovil 
+      SELECT 
+      id_usuario,intentos
+      FROM usuarios
+      WHERE status = 1
+    
+[2026-01-12T22:32:40.020Z] [INFO] {}
+[2026-01-12T22:32:40.153Z] [INFO] {}
+[2026-01-12T22:32:40.154Z] [INFO] query deletePropuestasSinAutorizacion: 
+      DELETE FROM propuestas WHERE cve_control in(M1025082025176,M1025082025173,M1026082025167,M927082025167,MAN027082025903,M1270820252,M127082025176,MAN127082025905,M527082025173,M827082025167,M1227082025167,M1026082025169,M327082025169,M427082025169,M227082025169,M527082025169,M127082025169,M1626082025169)
+    
+[2026-01-12T22:32:40.243Z] [INFO] Propuestas sin autorizacion eliminadas:  0
+[2026-01-12T22:33:00.891Z] [INFO] {}
+[2026-01-12T22:33:01.317Z] [INFO] cambios usuarios:  [
+  0
+]
+[2026-01-12T22:33:03.607Z] [INFO] {}
+[2026-01-12T22:33:04.553Z] [INFO] cambios propuestas:  0
+[2026-01-12T22:33:40.027Z] [INFO] {}
+[2026-01-12T22:33:40.028Z] [INFO] {}
+[2026-01-12T22:33:40.029Z] [INFO] getUsuariosModificadosMovil 
+      SELECT 
+      id_usuario,intentos
+      FROM usuarios
+      WHERE status = 1
+    
+[2026-01-12T22:33:40.203Z] [INFO] {}
+[2026-01-12T22:33:40.204Z] [INFO] query deletePropuestasSinAutorizacion: 
+      DELETE FROM propuestas WHERE cve_control in(M1025082025176,M1025082025173,M1026082025167,M927082025167,MAN027082025903,M1270820252,M127082025176,MAN127082025905,M527082025173,M827082025167,M1227082025167,M1026082025169,M327082025169,M427082025169,M227082025169,M527082025169,M127082025169,M1626082025169)
+    
+[2026-01-12T22:33:40.212Z] [INFO] Propuestas sin autorizacion eliminadas:  0
+[2026-01-12T22:34:00.785Z] [INFO] {}
+[2026-01-12T22:34:01.224Z] [INFO] cambios usuarios:  [
+  0
+]
+[2026-01-12T22:34:02.737Z] [INFO] {}
+[2026-01-12T22:34:03.639Z] [INFO] cambios propuestas:  0
+[2026-01-12T22:34:40.017Z] [INFO] {}
+[2026-01-12T22:34:40.019Z] [INFO] getUsuariosModificadosMovil 
+      SELECT 
+      id_usuario,intentos
+      FROM usuarios
+      WHERE status = 1
+    
+[2026-01-12T22:34:40.020Z] [INFO] {}
+[2026-01-12T22:34:40.170Z] [INFO] {}
+[2026-01-12T22:34:40.172Z] [INFO] query deletePropuestasSinAutorizacion: 
+      DELETE FROM propuestas WHERE cve_control in(M1025082025176,M1025082025173,M1026082025167,M927082025167,MAN027082025903,M1270820252,M127082025176,MAN127082025905,M527082025173,M827082025167,M1227082025167,M1026082025169,M327082025169,M427082025169,M227082025169,M527082025169,M127082025169,M1626082025169)
+    
+[2026-01-12T22:34:40.194Z] [INFO] Propuestas sin autorizacion eliminadas:  0
+[2026-01-12T22:35:01.427Z] [INFO] {}
+[2026-01-12T22:35:01.992Z] [INFO] cambios usuarios:  [
+  0
+]
+[2026-01-12T22:35:04.109Z] [INFO] {}
+[2026-01-12T22:35:05.394Z] [INFO] cambios propuestas:  0
+[2026-01-12T22:35:40.029Z] [INFO] {}
+[2026-01-12T22:35:40.030Z] [INFO] getUsuariosModificadosMovil 
+      SELECT 
+      id_usuario,intentos
+      FROM usuarios
+      WHERE status = 1
+    
+[2026-01-12T22:35:40.032Z] [INFO] {}
+[2026-01-12T22:35:40.202Z] [INFO] {}
+[2026-01-12T22:35:40.205Z] [INFO] query deletePropuestasSinAutorizacion: 
+      DELETE FROM propuestas WHERE cve_control in(M1025082025176,M1025082025173,M1026082025167,M927082025167,MAN027082025903,M1270820252,M127082025176,MAN127082025905,M527082025173,M827082025167,M1227082025167,M1026082025169,M327082025169,M427082025169,M227082025169,M527082025169,M127082025169,M1626082025169)
+    
+[2026-01-12T22:35:40.213Z] [INFO] Propuestas sin autorizacion eliminadas:  0
+[2026-01-12T22:36:00.708Z] [INFO] {}
+[2026-01-12T22:36:01.394Z] [INFO] cambios usuarios:  [
+  0
+]
+[2026-01-12T22:36:03.680Z] [INFO] {}
+[2026-01-12T22:36:05.067Z] [INFO] cambios propuestas:  0
+[2026-01-12T22:36:40.017Z] [INFO] {}
+[2026-01-12T22:36:40.018Z] [INFO] getUsuariosModificadosMovil 
+      SELECT 
+      id_usuario,intentos
+      FROM usuarios
+      WHERE status = 1
+    
+[2026-01-12T22:36:40.018Z] [INFO] {}
+[2026-01-12T22:36:40.160Z] [INFO] {}
+[2026-01-12T22:36:40.161Z] [INFO] query deletePropuestasSinAutorizacion: 
+      DELETE FROM propuestas WHERE cve_control in(M1025082025176,M1025082025173,M1026082025167,M927082025167,MAN027082025903,M1270820252,M127082025176,MAN127082025905,M527082025173,M827082025167,M1227082025167,M1026082025169,M327082025169,M427082025169,M227082025169,M527082025169,M127082025169,M1626082025169)
+    
+[2026-01-12T22:36:40.169Z] [INFO] Propuestas sin autorizacion eliminadas:  0
+[2026-01-12T22:37:00.163Z] [INFO] {}
+[2026-01-12T22:37:00.212Z] [INFO] {}
+[2026-01-12T22:37:00.764Z] [INFO] cambios usuarios:  [
+  0
+]
+[2026-01-12T22:37:01.227Z] [INFO] cambios propuestas:  0

@@ -196,13 +196,6 @@ const resetPropuestasMovil = async function () {
 
 
 
-
-
-
-
-
-
-
 //TODO ver si se llega a usar
 export const operacionesSet = async (req, res) => {
   try {

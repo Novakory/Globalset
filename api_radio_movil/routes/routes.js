@@ -1,6 +1,6 @@
 import express from 'express';
 
-import { updateUsers } from '../controllers/controllerUsersSet.js';
+import { updateUsers, getUsuariosModificadosMovil } from '../controllers/controllerUsersSet.js';
 import { validaLogin } from '../controllers/controllerUsersMovil.js';
 
 import {
@@ -11,10 +11,11 @@ import {
   rechazarPropuestas
 } from '../controllers/controllerPorpuestasMovil.js';
 
-import { updatePropuestas, 
-  deletePropuestasPagadas, 
+import {
+  updatePropuestas,
+  deletePropuestasPagadas,
   deletePropuestasSinAutorizacion,
-  getPropuestasModificadasMovil 
+  getPropuestasModificadasMovil
 } from '../controllers/controllerPorpuestasSet.js';
 
 //TODO por agregar middlewares
@@ -43,6 +44,7 @@ router.post('/login', (req, res, next) => {
 //SET-------------------------------------------------
 //TODO ver si desde set tambien que sea necesario generar el jwt para mandarlo en la peticion
 router.get('/propuestas-modificadas', getPropuestasModificadasMovil);
+router.get('/users-modificados', getUsuariosModificadosMovil);
 
 router.post('/propuestas', updatePropuestas);
 router.delete('/propuestas', deletePropuestasPagadas);
