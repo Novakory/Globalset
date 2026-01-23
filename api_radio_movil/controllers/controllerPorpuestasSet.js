@@ -2,7 +2,7 @@
 import { generateError } from '../utils/errorsUtil.js';
 import { pool } from '../bd.js';
 import { query, response } from 'express';
-import { queryWithParams } from '../utils/dbUtil.js';
+import { queryWithParams,showBodySize } from '../utils/dbUtil.js';
 import { formatDB } from '../utils/dateUtil.js';
 import { wsClients } from '../utils/wsServer.js'
 import { wsSendAlert } from '../utils/wsService.js'
@@ -90,7 +90,115 @@ export const updatePropuestas = async (req, res) => {//ok
     return res.status(400).json({ SUCCESS: false, MESSAGE: "Error al insertar las propuestas" })
   }
 }
+export const insertUpdateDetallePropuestas = async (req, res) => {//ok
+  try {
+    showBodySize(req)
 
+    const { propuestas } = req.body;
+    const connection = await pool;
+
+    const COLUMNS = 16;
+    //PROCESARA DE A 140 PROPUESTAS POR EJECUCION PARA EVITAR REVASAR LOS MAXIMOS PARAMETROS PERMITIDOS POR SQL SERVE
+    const MAX_BATCH = Math.floor(MAX_PARAMS / COLUMNS);
+
+    if (propuestas == null || propuestas.length == 0) return res.status(201).json({ SUCCESS: false, MESSAGE: "Nada para actualizar en insertUpdateDetallePropuestas" })
+
+    const queryCreateTmpTable = `
+        DELETE FROM tmp_detalle_propuestas
+      `;
+    await connection.query(queryCreateTmpTable);
+
+    let countRowsAffected = 0;
+    async function procesarBatch(batch) {
+      const values = batch.map(() => '(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)').join(',\n');
+      const params = batch.flatMap(propuesta => [//todos los subarrays los deja en uno solo
+        propuesta.no_folio_det,propuesta.cve_control, propuesta.razon_social,
+        propuesta.importe, propuesta.id_divisa, propuesta.desc_forma_pago, propuesta.concepto, 
+        propuesta.fec_propuesta, propuesta.fec_vencimiento, propuesta.fec_documento,
+        propuesta.id_banco, propuesta.desc_banco, propuesta.id_chequera,
+        propuesta.id_banco_benef, propuesta.desc_banco_benef, propuesta.id_chequera_benef
+      ]);
+
+      const query = `
+        INSERT INTO tmp_detalle_propuestas VALUES${values}
+      `;
+      
+      const response = await queryWithParams(connection, query, params);
+      countRowsAffected += parseInt(response.rowsAffected[0]) || 0;
+    }
+    for (let i = 0; i < propuestas.length; i += MAX_BATCH) {
+      const batch = propuestas.slice(i, i + MAX_BATCH);
+      await procesarBatch(batch);
+    }
+
+    //UPDATE
+    const queryUpdateDetallePropuestas = `
+      UPDATE p
+      SET
+        p.cve_control = tmp.cve_control,
+        p.razon_social = tmp.razon_social,
+        p.importe = tmp.importe,
+        p.id_divisa = tmp.id_divisa,
+        p.desc_forma_pago = tmp.desc_forma_pago,
+        p.concepto = tmp.concepto,
+        p.fec_propuesta = tmp.fec_propuesta,
+        p.fec_vencimiento = tmp.fec_vencimiento,
+        p.fec_documento = tmp.fec_documento,
+        p.id_banco = tmp.id_banco,
+        p.desc_banco = tmp.desc_banco,
+        p.id_chequera = tmp.id_chequera,
+        p.id_banco_benef = tmp.id_banco_benef,
+        p.desc_banco_benef = tmp.desc_banco_benef,
+        p.id_chequera_benef = tmp.id_chequera_benef
+      FROM detalle_propuestas p
+      JOIN tmp_detalle_propuestas tmp
+        ON tmp.no_folio_det = p.no_folio_det
+    `;
+    const responseTmp = await connection.query(queryUpdateDetallePropuestas);
+    console.log("Registros actualizados: ", responseTmp.rowsAffected[0]);
+
+
+    const queryInsertDetallePropuestas = `
+      INSERT INTO detalle_propuestas (
+        no_folio_det,cve_control, razon_social,
+        importe, id_divisa, desc_forma_pago, concepto, fec_propuesta,
+        fec_vencimiento, fec_documento, id_banco, desc_banco, id_chequera,
+        id_banco_benef, desc_banco_benef, id_chequera_benef
+      )
+      SELECT
+        tmp.no_folio_det,tmp.cve_control, tmp.razon_social,
+        tmp.importe, tmp.id_divisa, tmp.desc_forma_pago, 
+        tmp.concepto, tmp.fec_propuesta, tmp.fec_vencimiento, 
+        tmp.fec_documento, tmp.id_banco, tmp.desc_banco, tmp.id_chequera,
+        tmp.id_banco_benef, tmp.desc_banco_benef, tmp.id_chequera_benef
+      FROM tmp_detalle_propuestas tmp
+      LEFT JOIN detalle_propuestas p
+        ON p.no_folio_det = tmp.no_folio_det
+      WHERE p.no_folio_det IS NULL;
+    `;
+    const responseInsertDetallePropuestas = await connection.query(queryInsertDetallePropuestas);
+    console.log("Registros insertados: ", responseInsertDetallePropuestas.rowsAffected[0]);
+
+
+    const queryDeleteDetallePropuestas = `
+      DELETE p
+      FROM detalle_propuestas p
+      LEFT JOIN tmp_detalle_propuestas tmp
+        ON tmp.no_folio_det = p.no_folio_det
+      WHERE tmp.no_folio_det IS NULL;
+    `;
+    const responseDeleteDetallePropuestas = await connection.query(queryDeleteDetallePropuestas);
+    console.log("Registros eliminados: ", responseDeleteDetallePropuestas.rowsAffected[0]);
+
+
+    
+
+    res.json({ SUCCESS: true, MESSAGE: "" });
+  } catch (error) {
+    console.log(error);
+    return res.status(400).json({ SUCCESS: false, MESSAGE: "Error al insertar el detalle de propuestas" })
+  }
+}
 
 
 
@@ -107,14 +215,19 @@ export const deletePropuestasPagadas = async (req, res) => {//ELIMINA LAS PROPUE
       DELETE FROM propuestas WHERE cve_control in(${stgClavesControlHolders})
     `;
 
+    const queryDeleteDetallePropuestas = `
+      DELETE FROM detalle_propuestas WHERE cve_control in(${stgClavesControlHolders})
+    `;
+
     transaction.begin();
     const response = await queryWithParams(connection, query, listClavesControl, "deletePropuestasPagadas");
+    await queryWithParams(connection, queryDeleteDetallePropuestas, listClavesControl);
     transaction.commit();
 
     // console.log(response)
     const rowsAffected = parseInt(response.rowsAffected[0]) || 0;
     console.log("Propuestas pagadas eliminadas: ", rowsAffected)
-    if(rowsAffected>0){
+    if (rowsAffected > 0) {
       wsSendAlert(wsClients, rowsAffected);
     }
     res.json({ SUCCESS: true, MESSAGE: "", AFFECTED_ROWS: rowsAffected });
@@ -138,15 +251,19 @@ export const deletePropuestasSinAutorizacion = async (req, res) => {
     const query = `
       DELETE FROM propuestas WHERE cve_control in(${stgClavesControlHolders})
     `;
+    const queryDeleteDetallePropuestas = `
+      DELETE FROM detalle_propuestas WHERE cve_control in(${stgClavesControlHolders})
+    `;
 
     transaction.begin();
     const response = await queryWithParams(connection, query, listClavesControl, "deletePropuestasSinAutorizacion");
+    await queryWithParams(connection, queryDeleteDetallePropuestas, listClavesControl);
     transaction.commit();
 
     // console.log(response)
     const rowsAffected = parseInt(response.rowsAffected[0]) || 0;
     console.log("Propuestas sin autorizacion eliminadas: ", rowsAffected)
-    if(rowsAffected>0){
+    if (rowsAffected > 0) {
       wsSendAlert(wsClients, rowsAffected);
     }
     res.json({ SUCCESS: true, MESSAGE: "", AFFECTED_ROWS: rowsAffected });

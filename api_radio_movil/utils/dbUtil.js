@@ -25,10 +25,10 @@ export function printQuery(method, baseQuery, params = null) {
   // console.log("params: ",params)
   if (Array.isArray(params)) {
     params.forEach(param => {
-      baseQuery = baseQuery.replace("?", param)
+      baseQuery = baseQuery.replace("?", `'${param}'`)
     });
   } else if (params != null) {
-    baseQuery = baseQuery.replace("?", params)
+    baseQuery = baseQuery.replace("?", `'${params}'`)
   }
   // console.log(baseQuery);
   console.log(`query ${method}: ${baseQuery}`);
@@ -80,5 +80,17 @@ export function encriptador(password) {
   } catch (error) {
     console.error("Error al encriptar:", error);
     return null;
+  }
+}
+
+export function showBodySize(req) {
+  try {
+    const sizeInBytes = Buffer.byteLength(JSON.stringify(req.body), 'utf8');
+    const sizeInKB = (sizeInBytes / 1024).toFixed(2);
+    const sizeInMB = (sizeInBytes / (1024 * 1024)).toFixed(2);
+
+    console.log(`Body size: ${sizeInBytes} bytes (${sizeInKB} KB / ${sizeInMB} MB)`);
+  } catch (error) {
+    console.error("Error al calcular el tamaño del body:", error);
   }
 }

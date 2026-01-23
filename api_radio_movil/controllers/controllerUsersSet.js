@@ -29,7 +29,7 @@ export const updateUsers = async (req, res) => {//ok
         OR ISNULL(source.facultad_total,'') <> ISNULL(target.facultad_total,'')
         OR ISNULL(source.facultad_rechazar,'') <> ISNULL(target.facultad_rechazar,'')
         OR ISNULL(source.monto_maximo_pagar,'') <> ISNULL(target.monto_maximo_pagar,'')
-        OR ISNULL(source.fecha_vencimiento,'') <> ISNULL(CONVERT(VARCHAR,target.fecha_vencimiento,103),'')
+        OR ISNULL(TRY_CONVERT(date, source.fecha_vencimiento,103),DATEFROMPARTS(2000,1,1)) <> ISNULL(target.fecha_vencimiento,DATEFROMPARTS(2000,1,1))
         OR ISNULL(source.estatus,'') <> ISNULL(target.estatus,'')
         OR ISNULL(source.intentos,0) <> ISNULL(target.intentos,0)
       ) THEN UPDATE SET
@@ -40,12 +40,12 @@ export const updateUsers = async (req, res) => {//ok
           facultad_total = CASE WHEN ISNULL(source.facultad_total,'') <> ISNULL(target.facultad_total,'') THEN source.facultad_total ELSE target.facultad_total END,
           facultad_rechazar = CASE WHEN ISNULL(source.facultad_rechazar,'') <> ISNULL(target.facultad_rechazar,'') THEN source.facultad_rechazar ELSE target.facultad_rechazar END,
           monto_maximo_pagar = CASE WHEN ISNULL(source.monto_maximo_pagar,'') <> ISNULL(target.monto_maximo_pagar,'') THEN source.monto_maximo_pagar ELSE target.monto_maximo_pagar END,
-          fecha_vencimiento = CASE WHEN ISNULL(source.fecha_vencimiento,'') <> ISNULL(CONVERT(VARCHAR,target.fecha_vencimiento,103),'') THEN TRY_CONVERT(DATE, source.fecha_vencimiento, 103) ELSE target.fecha_vencimiento END,
+          fecha_vencimiento = CASE WHEN ISNULL(TRY_CONVERT(date, source.fecha_vencimiento,103),DATEFROMPARTS(2000,1,1)) <> ISNULL(target.fecha_vencimiento,DATEFROMPARTS(2000,1,1)) THEN TRY_CONVERT(date, source.fecha_vencimiento,103) ELSE target.fecha_vencimiento END,
           estatus = CASE WHEN ISNULL(source.estatus,'') <> ISNULL(target.estatus,'') THEN source.estatus ELSE target.estatus END,
           intentos = CASE WHEN ISNULL(source.intentos,0) <> ISNULL(target.intentos,0) THEN source.intentos ELSE target.intentos END
       WHEN NOT MATCHED THEN
         INSERT (id_usuario, nombre, apellido_materno, apellido_paterno, clave_usuario, contrasena, empresas, facultad_acceso,facultad_mancomunada,facultad_total,facultad_rechazar, monto_maximo_pagar,fecha_vencimiento,estatus,intentos)
-        VALUES (source.id_usuario, source.nombre, source.apellido_materno, source.apellido_paterno, source.clave_usuario, source.contrasena, source.empresas, source.facultad_acceso, source.facultad_mancomunada, source.facultad_total, source.facultad_rechazar, source.monto_maximo_pagar,source.fecha_vencimiento,source.estatus,source.intentos);
+        VALUES (source.id_usuario, source.nombre, source.apellido_materno, source.apellido_paterno, source.clave_usuario, source.contrasena, source.empresas, source.facultad_acceso, source.facultad_mancomunada, source.facultad_total, source.facultad_rechazar, source.monto_maximo_pagar,TRY_CONVERT(date, source.fecha_vencimiento,103),source.estatus,source.intentos);
     `;
 
     const params = users.flatMap(user => [//todos los subarrays los deja en uno solo

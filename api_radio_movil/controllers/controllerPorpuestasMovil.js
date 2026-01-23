@@ -88,6 +88,31 @@ export const getPropuestasPendientesByUser = async (req, res) => {//ok
   }
 }
 
+export const getDetallePropuestaByClaveControl = async (req, res) => {//ok
+  try {
+    const connection = await pool;
+    const { clave_control } = req.params;
+
+    const query = `
+      SELECT 
+      *
+      FROM detalle_propuestas
+      WHERE 
+      cve_control = @clave_control
+    `
+    console.log("query getDetallePropuestaByClaveControl: ", query)
+    const result = await connection.request()
+      .input("clave_control", sql.TYPES.VarChar, clave_control)
+      .query(query)
+
+    res.json(result.recordset);
+
+  } catch (error) {
+    console.error("Error en getDetallePropuestaByClaveControl:", error);
+    return res.status(500).json({ SUCCESS: false, MESSAGE: "Error en el servidor" });
+  }
+}
+
 //TODO validar multiples propuestas
 //TODO validar multiples propuestas con una con error para ver el funcionamiento del rollback
 //ACTUALIZA CON PROPUESTAS DE LA APP MOVIL

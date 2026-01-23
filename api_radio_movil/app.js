@@ -24,8 +24,8 @@ const corsOption = {
 }
 
 app.use(cors(corsOption))
-app.use(express.urlencoded({ extended: true })); // Para manejar datos URL-encoded
-app.use(express.json());//para poder resibir datos de tipo JSON en las peticiones
+app.use(express.urlencoded({ limit: '15mb', extended: true })); // Para manejar datos URL-encoded
+app.use(express.json({ limit: '15mb' }));//para poder resibir datos de tipo JSON en las peticiones
 app.use('/api-v1', routes);
 
 const server = createServer(app);

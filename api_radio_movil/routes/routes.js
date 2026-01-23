@@ -7,12 +7,14 @@ import {
   getPropuestasByUser,
   autorizarPropuestas,
   getPropuestasPendientesByUser,
+  getDetallePropuestaByClaveControl,
   desautorizarPropuestas,
   rechazarPropuestas
 } from '../controllers/controllerPorpuestasMovil.js';
 
 import {
   updatePropuestas,
+  insertUpdateDetallePropuestas,
   deletePropuestasPagadas,
   deletePropuestasSinAutorizacion,
   getPropuestasModificadasMovil
@@ -47,12 +49,14 @@ router.get('/propuestas-modificadas', getPropuestasModificadasMovil);
 router.get('/users-modificados', getUsuariosModificadosMovil);
 
 router.post('/propuestas', updatePropuestas);
+router.post('/detalle-propuestas', insertUpdateDetallePropuestas);
 router.delete('/propuestas', deletePropuestasPagadas);
 router.delete('/propuestas-sin-autorizacion', deletePropuestasSinAutorizacion);
 // router.get('/propuestas', getPropuestas);
 
 //MOVIL-----------------------------------------------
 router.get('/propuestas/user/:clave_usuario', authMiddleware, getPropuestasByUser);
+router.get('/detalle-propuestas/clave_control/:clave_control', authMiddleware, getDetallePropuestaByClaveControl);
 router.get('/propuestas-pendientes/user/:clave_usuario', authMiddleware, getPropuestasPendientesByUser);
 router.post('/autorizar-propuestas', authMiddleware, autorizarPropuestas);
 router.post('/desautorizar-propuestas', authMiddleware, desautorizarPropuestas);
