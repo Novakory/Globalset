@@ -1,6 +1,7 @@
 package com.example.globalapp.retrofit
 
 import android.util.Log
+import com.example.globalapp.models.controllers.DetallesPropuesta
 import com.example.globalapp.models.retrofit.AutorizarPropuestasRequest
 import com.example.globalapp.models.retrofit.AutorizarPropuestasResponse
 import com.example.globalapp.models.retrofit.GenericResponse
@@ -53,6 +54,17 @@ class LoginRepository @Inject constructor(private val loginClient: LoginClient){
             val errorResponse = response.errorBody()?.string()
             Log.e("api:response", "Error al obtener propuestas: $errorResponse")
             return emptyList<PropuestasResponse>();
+        }
+    }
+
+    suspend fun getDetallePropuesta(token: String,claveControl:String):List<DetallesPropuesta>?{
+        val response = loginClient.getDetallePropuesta(token,claveControl)
+        //Log.i("login:response",response.toString())
+        if(response.isSuccessful)  return response.body()
+        else {
+            val errorResponse = response.errorBody()?.string()
+            Log.e("api:response", "Error al obtener el detalle de la propuesta: $errorResponse")
+            return emptyList<DetallesPropuesta>();
         }
     }
 

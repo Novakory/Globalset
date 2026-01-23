@@ -574,13 +574,14 @@ private fun Body(
                             onClick = {
 //                                val opcional = null;
                                 viewModelDetallePropuesta.updateListDetalle(emptyList())
-                                val webSocketRequest = WebSocketRequest(
-                                    claveUsuario = viewModelLogin.user,
-                                    claveControl = propuesta.cve_control,
-                                    type = Constants.WS_TYPE_GET_DETALLE_BY_MOVIL,
-                                    message = "Manda alerta al servidor de la api para traer el detalle de la propuesta"
-                                )
-                                webSocketClient2?.sendMessage(webSocketRequest)
+//                                val webSocketRequest = WebSocketRequest(
+//                                    claveUsuario = viewModelLogin.user,
+//                                    claveControl = propuesta.cve_control,
+//                                    type = Constants.WS_TYPE_GET_DETALLE_BY_MOVIL,
+//                                    message = "Manda alerta al servidor de la api para traer el detalle de la propuesta"
+//                                )
+
+//                                webSocketClient2?.sendMessage(webSocketRequest)
 
                                 navController.navigate(AppScreens.Detail.route + "/" + propuesta.cve_control)
 //                            navController.navigate(AppScreens.Detail.route + "/${params}/?${opcional}")

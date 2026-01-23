@@ -8,6 +8,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.globalapp.models.HeaderData
+import com.example.globalapp.models.controllers.DetallesPropuesta
 import com.example.globalapp.models.controllers.ProgressBarModel
 import com.example.globalapp.models.retrofit.AutorizarPropuestasRequest
 import com.example.globalapp.models.retrofit.AutorizarPropuestasResponse
@@ -454,6 +455,7 @@ class ControllerPropuestas @Inject constructor(private val repository: LoginRepo
         }
     }
 
+
     //PETICIONES API --------------------------------------------------------------------------------
     private suspend fun getPropuestas(token:String,claveUsuario: String): List<PropuestasResponse>?{
         return if(switchPropuestasPendientes){
@@ -474,6 +476,7 @@ class ControllerPropuestas @Inject constructor(private val repository: LoginRepo
         }
         return response
     }
+
     private suspend fun autorizarPropuestasApi(token:String, autorizarPropuestasRequest: AutorizarPropuestasRequest): AutorizarPropuestasResponse? {
         val response = withContext(Dispatchers.IO) {
             repository.autorizarPropuestas(token,autorizarPropuestasRequest)

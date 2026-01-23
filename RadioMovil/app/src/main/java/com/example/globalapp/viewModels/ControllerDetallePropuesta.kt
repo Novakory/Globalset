@@ -94,14 +94,14 @@ class ControllerDetallePropuesta @Inject constructor(private val repository: Log
     }
     private fun initHeaders(){
         _headers.value = listOf(
-            HeaderDataDetalle("Clave control",130,Constants.D_CVE_CONTROL, visible = false){it.cve_control?:""},
-            HeaderDataDetalle("Empresa",60, Constants.D_NO_EMPRESA){it.no_empresa.toString()?:""},
-            HeaderDataDetalle("Desc empresa",100, Constants.D_DESC_EMPRESA){it.desc_empresa?:""},
-            HeaderDataDetalle("Id benef",60, Constants.D_EQUIVALE_PERSONA){it.equivale_persona?:""},
+//            HeaderDataDetalle("Clave control",130,Constants.D_CVE_CONTROL, visible = false){it.cve_control?:""},
+//            HeaderDataDetalle("Empresa",60, Constants.D_NO_EMPRESA){it.no_empresa.toString()?:""},
+//            HeaderDataDetalle("Desc empresa",100, Constants.D_DESC_EMPRESA){it.desc_empresa?:""},
+//            HeaderDataDetalle("Id benef",60, Constants.D_EQUIVALE_PERSONA){it.equivale_persona?:""},
             HeaderDataDetalle("Beneficiario",100, Constants.D_RAZON_SOCIAL){it.razon_social?:""},
-            HeaderDataDetalle("Factura",60, Constants.D_NO_FACTURA){it.no_factura?:""},
-            HeaderDataDetalle("Documento",80, Constants.D_NO_DOCTO){it.no_docto?:""},
-            HeaderDataDetalle("Partida",50, Constants.D_INVOICE_TYPE){it.invoice_type?:""},
+//            HeaderDataDetalle("Factura",60, Constants.D_NO_FACTURA){it.no_factura?:""},
+//            HeaderDataDetalle("Documento",80, Constants.D_NO_DOCTO){it.no_docto?:""},
+//            HeaderDataDetalle("Partida",50, Constants.D_INVOICE_TYPE){it.invoice_type?:""},
             HeaderDataDetalle("Importe",100,Constants.D_IMPORTE){ formatNumber(it.importe)},
             HeaderDataDetalle("Divisa",40, Constants.D_ID_DIVISA){ it.id_divisa?:""},
             HeaderDataDetalle("Forma pago",70, Constants.D_DESC_FORMA_PAGO){ it.desc_forma_pago?:""},
@@ -115,9 +115,9 @@ class ControllerDetallePropuesta @Inject constructor(private val repository: Log
             HeaderDataDetalle("Banco benef",50, Constants.D_ID_BANCO_BENEF){it.id_banco_benef.toString()?:""},
             HeaderDataDetalle("Desc Banco benef",100, Constants.D_DESC_BANCO_BENEF){it.desc_banco_benef?:""},
             HeaderDataDetalle("Chequera benef",105, Constants.D_ID_CHEQUERA_BENEF){it.id_chequera_benef?:""},
-            HeaderDataDetalle("Clabe",115, Constants.D_CLABE){it.clabe?:""},
-            HeaderDataDetalle("RFC",105, Constants.D_RFC){it.rfc?:""},
-            HeaderDataDetalle("Referencia cliente",105, Constants.D_REFERENCIA_CTA){it.referencia_cta?:""},
+//            HeaderDataDetalle("Clabe",115, Constants.D_CLABE){it.clabe?:""},
+//            HeaderDataDetalle("RFC",105, Constants.D_RFC){it.rfc?:""},
+//            HeaderDataDetalle("Referencia cliente",105, Constants.D_REFERENCIA_CTA){it.referencia_cta?:""},
 
 //            HeaderDataDetalle("Clave control",110,Constants.D_CVE_CONTROL){it.cve_control},
 //            HeaderDataDetalle("Empresa",60, Constants.D_NO_EMPRESA){it.no_empresa.toString()},
@@ -169,8 +169,8 @@ class ControllerDetallePropuesta @Inject constructor(private val repository: Log
                         IMPORTE -> propuesta.importe
                         ID_DIVISA -> propuesta.id_divisa
                         CONCEPTO -> propuesta.concepto
-                        NO_EMPRESA -> propuesta.no_empresa
-                        DESC_EMPRESA -> propuesta.desc_empresa
+//                        NO_EMPRESA -> propuesta.no_empresa
+//                        DESC_EMPRESA -> propuesta.desc_empresa
                         ID_BANCO -> propuesta.id_banco
                         DESC_BANCO -> propuesta.desc_banco
                         ID_CHEQUERA -> propuesta.id_chequera
@@ -189,8 +189,8 @@ class ControllerDetallePropuesta @Inject constructor(private val repository: Log
                         IMPORTE -> propuesta.importe
                         ID_DIVISA -> propuesta.id_divisa
                         CONCEPTO -> propuesta.concepto
-                        NO_EMPRESA -> propuesta.no_empresa
-                        DESC_EMPRESA -> propuesta.desc_empresa
+//                        NO_EMPRESA -> propuesta.no_empresa
+//                        DESC_EMPRESA -> propuesta.desc_empresa
                         ID_BANCO -> propuesta.id_banco
                         DESC_BANCO -> propuesta.desc_banco
                         ID_CHEQUERA -> propuesta.id_chequera
@@ -213,8 +213,8 @@ class ControllerDetallePropuesta @Inject constructor(private val repository: Log
                     IMPORTE -> propuesta.importe.toString().startsWith(search,true)
                     ID_DIVISA -> propuesta.id_divisa.toString().startsWith(search,true)
                     CONCEPTO -> propuesta.concepto?.startsWith(search,true) == true
-                    NO_EMPRESA -> propuesta.no_empresa.toString().startsWith(search,true)
-                    NO_EMPRESA -> propuesta.desc_empresa?.startsWith(search,true) == true
+//                    NO_EMPRESA -> propuesta.no_empresa.toString().startsWith(search,true)
+//                    NO_EMPRESA -> propuesta.desc_empresa?.startsWith(search,true) == true
                     ID_BANCO -> propuesta.id_banco.toString().startsWith(search,true)
                     ID_BANCO -> propuesta.desc_banco?.startsWith(search,true) == true
                     ID_CHEQUERA -> propuesta.id_chequera?.startsWith(search,true) == true
@@ -237,6 +237,37 @@ class ControllerDetallePropuesta @Inject constructor(private val repository: Log
     public  fun loadDetallePropuestas(webSocketDetalleResponse: WebSocketDetalleResponse){
 
     }
+
+    //HANDLERS
+    suspend fun handlerGetDetallePropuesta(claveControl:String,token: String?) {
+        try {
+            updateListDetalle(emptyList())
+            val token = "Bearer ${token}"
+            _listaOriginal.value = emptyList()
+            _lista.value = emptyList()
+
+            _listaOriginal.value = getDetallePropuestaApi(token,claveControl) ?: emptyList()
+            _lista.value = _listaOriginal.value
+            filterSearch()
+
+            if (lista != null) {
+                updateProgressbarPropuestasState(true, "")
+            } else {
+                updateProgressbarPropuestasState(false, "No se pudo conectar al servidor")
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+            updateProgressbarPropuestasState(false,e.message.toString())
+        } finally {
+            updateProgressbarPropuestasState(false, "")
+        }
+    }
+
+
+    private suspend fun getDetallePropuestaApi(token:String,claveControl: String): List<DetallesPropuesta>?{
+        return repository.getDetallePropuesta(token,claveControl)
+    }
+    //END HANDLERS
 
 
 

@@ -2,9 +2,16 @@ package com.example.globalapp.util
 
 class Constants {
     companion object{
-        const val BASE_URL = "http://192.168.1.165:3002/";
+//        PROD
+//        const val IP = "webset-autorizadormovil.grupoformula.com.mx"
+//        const val BASE_URL = "https://${IP}/";
+//        const val SUBBASE_URL = "api-v1/";
+//        const val BASE_URL_WS = "ws://${IP}";
+
+        const val IP = "192.168.1.89"
+        const val BASE_URL = "http://${IP}:3002/";
         const val SUBBASE_URL = "api-v1/";
-        const val BASE_URL_WS = "ws://192.168.1.165:3002";
+        const val BASE_URL_WS = "ws://${IP}:3002";
 
         //WEBSOCKET__
         const val WS_SEND_ALERT_BY_API = 1;

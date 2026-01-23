@@ -99,6 +99,7 @@ fun ContainerDetailView(navController: NavController,controllerDetallePropuesta:
         try{
             controllerDetallePropuesta.updateProgressbarPropuestasState(isLoading = true,"Cargando detalle")
 
+            controllerDetallePropuesta.handlerGetDetallePropuesta(cveControl,viewModelLogin.loginResponse.TOKEN)
             while(true){
                 if(listData.isNotEmpty()) {
                     Log.i("DetailView",listData.toString())

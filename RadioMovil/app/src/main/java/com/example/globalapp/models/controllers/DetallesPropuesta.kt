@@ -29,14 +29,15 @@ package com.example.globalapp.models.controllers
 //    val referencia_cta:String = ""
 //)
  data class DetallesPropuesta(
+    val no_folio_det:Int = 0,
     val cve_control:String = "",
-    val no_empresa:Int?,
-    val desc_empresa:String? = "",
-    val equivale_persona:String? = "",//id benef
+//    val no_empresa:Int?,
+//    val desc_empresa:String? = "",
+//    val equivale_persona:String? = "",//id benef
     val razon_social:String? = "",//beneficiario
-    val no_factura:String? = "",
-    val no_docto:String? = "",
-    val invoice_type:String? = "",//partida
+//    val no_factura:String? = "",
+//    val no_docto:String? = "",
+//    val invoice_type:String? = "",//partida
     val importe:Double,
     val id_divisa:String? = "",
     val desc_forma_pago:String? = "",
@@ -49,8 +50,8 @@ package com.example.globalapp.models.controllers
     val id_chequera:String? = "",//chequera pago
     val id_banco_benef:Int?,
     val desc_banco_benef:String? = "",
-    val id_chequera_benef: String? = "",
-    val clabe:String? = "",
-    val rfc:String? = "",
-    val referencia_cta:String? = ""
+    val id_chequera_benef: String? = ""
+//    val clabe:String? = "",
+//    val rfc:String? = "",
+//    val referencia_cta:String? = ""
 )

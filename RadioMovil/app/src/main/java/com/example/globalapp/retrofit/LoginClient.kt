@@ -1,5 +1,6 @@
 package com.example.globalapp.retrofit
 
+import com.example.globalapp.models.controllers.DetallesPropuesta
 import com.example.globalapp.models.retrofit.AutorizarPropuestasRequest
 import com.example.globalapp.models.retrofit.AutorizarPropuestasResponse
 import com.example.globalapp.models.retrofit.GenericResponse
@@ -7,12 +8,14 @@ import com.example.globalapp.models.retrofit.LoginRequest
 import com.example.globalapp.models.retrofit.LoginResponse
 import com.example.globalapp.models.retrofit.PropuestasResponse
 import com.example.globalapp.models.retrofit.RechazarPropuestasRequest
+import com.example.globalapp.models.retrofit.WebSocketDetalleResponse
 import com.example.globalapp.util.Constants
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Headers
+import retrofit2.http.PATCH
 import retrofit2.http.POST
 import retrofit2.http.Path
 
@@ -35,6 +38,9 @@ interface LoginClient {
     @GET("${Constants.SUBBASE_URL}propuestas-pendientes/user/{clave_usuario}")
     suspend fun getPropuestasPendientesByUser(@Header("Authorization") token: String,@Path("clave_usuario") claveUsuario:String): Response<List<PropuestasResponse>>
 
+    @Headers("Content-Type: application/json")
+    @GET("${Constants.SUBBASE_URL}detalle-propuestas/clave_control/:clave_control")
+    suspend fun getDetallePropuesta(@Header("Authorization") token: String,@Path("clave_control") claveControl:String): Response<List<DetallesPropuesta>>
 
     @Headers("Content-Type: application/json")
     @POST("${Constants.SUBBASE_URL}autorizar-propuestas")
