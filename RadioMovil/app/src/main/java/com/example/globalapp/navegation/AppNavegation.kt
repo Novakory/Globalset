@@ -23,9 +23,10 @@ fun AppNavegation(viewModelLogin: ControllerLogin,viewModelPropuestas: Controlle
         composable(route=AppScreens.Main.route){
             MainNav(navController,viewModelPropuestas,viewModelLogin,viewModelDetallesPropuesta)
         }
-        composable(AppScreens.Detail.route+"/{claveControl}",
+        composable(AppScreens.Detail.route+"/{claveControl}/{empresa}",
             arguments = listOf(
-                navArgument("claveControl"){type=NavType.StringType}
+                navArgument("claveControl"){type=NavType.StringType},
+                navArgument("empresa"){type=NavType.StringType}
 //                navArgument("params"){type=NavType.StringArrayType}
             )
         ){
@@ -33,7 +34,8 @@ fun AppNavegation(viewModelLogin: ControllerLogin,viewModelPropuestas: Controlle
 //            val params = it.arguments?.getStringArrayList("params") ?: null;
 //            val params = it.arguments.getString("params");
             val claveControl = it.arguments?.getString("claveControl");
-            DetailNav(navController,viewModelDetallesPropuesta,claveControl!!,viewModelLogin)
+            val empresa = it.arguments?.getString("empresa");
+            DetailNav(navController,viewModelDetallesPropuesta,claveControl!!,empresa!!,viewModelLogin)
 //            DetailNav(navController,params,paramsOpcional)
         }
     }

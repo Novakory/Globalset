@@ -1,7 +1,12 @@
 package com.example.globalapp.views
 
+import android.Manifest
+import android.net.Uri
+import android.os.Build
 import android.util.Log
 import android.widget.Toast
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -49,6 +54,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -56,6 +62,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -73,25 +80,46 @@ import com.example.globalapp.components.GProgressBar
 import com.example.globalapp.components.GSwitch
 import com.example.globalapp.components.SimpleTextField
 import com.example.globalapp.navegation.AppScreens
+import com.example.globalapp.util.PermissionUtils
+import com.example.globalapp.util.PermissionUtils.canShowNotifications
+import com.example.globalapp.util.detailToHtml
 import com.example.globalapp.util.formatNumber
+import com.example.globalapp.util.generatePdfFromHtml
+import com.example.globalapp.util.showNotification
 import com.example.globalapp.viewModels.ControllerDetallePropuesta
 import com.example.globalapp.views.login.controllers.ControllerLogin
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 //fun DetailNav(navController: NavController,params:ArrayList<String>?){//? es para especificar que puede venir null
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 //fun DetailNav(navController: NavController,params:String?,opcional:Int?) {//? es para especificar que puede venir null
-fun DetailNav(navController: NavController,controllerDetallePropuesta: ControllerDetallePropuesta,claveControl:String,viewModelLogin: ControllerLogin) {//? es para especificar que puede venir null
-    ContainerDetailView(navController,controllerDetallePropuesta,claveControl,viewModelLogin)
+fun DetailNav(navController: NavController,controllerDetallePropuesta: ControllerDetallePropuesta,claveControl:String,empresa:String,viewModelLogin: ControllerLogin) {//? es para especificar que puede venir null
+    ContainerDetailView(navController,controllerDetallePropuesta,claveControl,empresa,viewModelLogin)
 
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ContainerDetailView(navController: NavController,controllerDetallePropuesta: ControllerDetallePropuesta,cveControl:String,viewModelLogin: ControllerLogin){
+fun ContainerDetailView(navController: NavController,controllerDetallePropuesta: ControllerDetallePropuesta,cveControl:String,empresa:String,viewModelLogin: ControllerLogin){
     var border = Modifier.border(1.dp,Color.Gray)
+    val context = LocalContext.current
+    var coroutineScope = rememberCoroutineScope()
+    var lastPdfUri by remember { mutableStateOf<Uri?>(null) }
+    val notificationPermissionLauncher =
+        rememberLauncherForActivityResult(
+            ActivityResultContracts.RequestPermission()
+        ) { isGranted ->
+            if (isGranted) {
+                lastPdfUri?.let { uri ->
+                    showNotification(context, uri)
+                }
+            }
+        }
 //    var showDialog by remember { mutableStateOf(false) }
     val listData by controllerDetallePropuesta.lista.collectAsState()
 
@@ -159,9 +187,60 @@ fun ContainerDetailView(navController: NavController,controllerDetallePropuesta:
                 }
             )
         },
+        floatingActionButton = {
+            Column(modifier = Modifier
+            ) {
+                Box(
+                    modifier = Modifier
+                        //.border(BorderStroke(1.dp, Color.Blue))
+                        //.padding(end = 8.dp)//.width()
+                        .offset(x = -15.dp)
+                ) {
+                    FloatingActionButton(
+                        onClick = {
+                            val html = detailToHtml(listData.toMutableList(), cveControl,empresa)
+                            val uri = generatePdfFromHtml(context, html)
+                            uri?.let {
+                                lastPdfUri = it
+
+                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                                    if (canShowNotifications(context)) {
+                                        showNotification(context, it)
+                                    } else {
+                                        notificationPermissionLauncher.launch(
+                                            Manifest.permission.POST_NOTIFICATIONS
+                                        )
+                                    }
+                                } else {
+                                    showNotification(context, it)
+                                }
+                            }
+                        },
+//                            containerColor = Color.LightGray,
+                        containerColor = colorResource(R.color.set_primary3),
+                        elevation = FloatingActionButtonDefaults.bottomAppBarFabElevation()
+                    ) {
+                        Icon(
+                            painterResource(id = R.drawable.baseline_download_24),
+                            "Localized description",
+                            modifier = Modifier
+                                .size(46.dp)
+                                .padding(bottom = 10.dp)
+                        )
+                        Text(
+                            text = "Descargar",
+                            fontSize = 10.sp,
+                            modifier = Modifier.padding(top = 33.dp)
+                        )
+
+                    }
+
+                }
+
+            }
+
+        },
     ) { innerPadding ->
-
-
         Column(
             modifier = Modifier
                 .padding(innerPadding)
@@ -190,6 +269,24 @@ fun ContainerDetailView(navController: NavController,controllerDetallePropuesta:
                 , horizontalArrangement = Arrangement.SpaceBetween){
                 Text(
                     cveControl,
+                    textAlign = TextAlign.Center,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 18.sp,
+                    color = Color.Gray,
+                    modifier = Modifier.align(Alignment.CenterVertically)
+                )
+                HorizontalDivider(
+                    modifier = Modifier.weight(1f)
+                        .align(Alignment.CenterVertically)
+                )
+            }
+            Row(Modifier.fillMaxWidth()
+                .padding(horizontal = 8.dp)
+                .padding(top = 4.dp)
+//                .then(border)
+                , horizontalArrangement = Arrangement.SpaceBetween){
+                Text(
+                    empresa,
                     textAlign = TextAlign.Center,
                     fontWeight = FontWeight.Bold,
                     fontSize = 18.sp,

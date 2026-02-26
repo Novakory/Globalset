@@ -94,4 +94,8 @@ dependencies {
 
     //WEBSOCKET
     implementation("com.squareup.okhttp3:okhttp:4.11.0")
+
+    //PDF
+    implementation("com.itextpdf:itext7-core:7.2.3")
+    implementation("com.itextpdf:html2pdf:4.0.4")
 }

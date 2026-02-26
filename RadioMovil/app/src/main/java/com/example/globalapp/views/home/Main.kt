@@ -583,7 +583,7 @@ private fun Body(
 
 //                                webSocketClient2?.sendMessage(webSocketRequest)
 
-                                navController.navigate(AppScreens.Detail.route + "/" + propuesta.cve_control)
+                                navController.navigate(AppScreens.Detail.route + "/" + propuesta.cve_control + "/" + propuesta.desc_empresa)
 //                            navController.navigate(AppScreens.Detail.route + "/${params}/?${opcional}")
                             }, modifier = border
                                 .width(50.dp)

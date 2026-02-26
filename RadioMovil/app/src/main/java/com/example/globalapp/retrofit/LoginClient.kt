@@ -39,7 +39,7 @@ interface LoginClient {
     suspend fun getPropuestasPendientesByUser(@Header("Authorization") token: String,@Path("clave_usuario") claveUsuario:String): Response<List<PropuestasResponse>>
 
     @Headers("Content-Type: application/json")
-    @GET("${Constants.SUBBASE_URL}detalle-propuestas/clave_control/:clave_control")
+    @GET("${Constants.SUBBASE_URL}detalle-propuestas/clave_control/{clave_control}")
     suspend fun getDetallePropuesta(@Header("Authorization") token: String,@Path("clave_control") claveControl:String): Response<List<DetallesPropuesta>>
 
     @Headers("Content-Type: application/json")
