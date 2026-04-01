@@ -5,7 +5,7 @@ import sql from 'mssql'
 import { query, response } from 'express';
 import { printQuery, encriptador } from '../utils/dbUtil.js';
 import { formatDB } from '../utils/dateUtil.js';
-import "../utils/logger.js";
+// import "../utils/logger.js";
 
 const sameColumnsSelected = `
       p.cve_control,
@@ -30,6 +30,8 @@ const sameColumnsSelected = `
 `
 export const getPropuestasByUser = async (req, res) => {//ok
   try {
+    console.log("IN getPropuestasByUser")
+
     const connection = await pool;
     const { clave_usuario } = req.params;
 
@@ -58,6 +60,7 @@ export const getPropuestasByUser = async (req, res) => {//ok
 
 export const getPropuestasPendientesByUser = async (req, res) => {//ok
   try {
+    console.log("IN getPropuestasPendientesByUser")
     const connection = await pool;
 
     const { clave_usuario } = req.params;
@@ -75,7 +78,7 @@ export const getPropuestasPendientesByUser = async (req, res) => {//ok
         OR (CASE WHEN p.nivel_autorizacion = 2 AND p.usuario_dos IS NULL THEN 1 ELSE 0 END) = 1
       )
     `;
-    // console.log("query getPropuestasPendientesByUser: ", query)
+    console.log("query getPropuestasPendientesByUser: ", query)
     const result = await connection.request()
       .input("clave_usuario", sql.TYPES.VarChar, clave_usuario)
       .query(query)
@@ -204,7 +207,7 @@ export const autorizarPropuestas = async (req, res) => {//ok
           query = `UPDATE propuestas SET status = 1, motivo_rechazo = null, usuario_dos = @id_usuario, usuario_tres = @id_usuario  WHERE cve_control = @cve_control`;
         } else if (propuesta.nivel_autorizacion === 3 && propuesta.usuario_tres === null) {
           query = `UPDATE propuestas SET status = 1, motivo_rechazo = null, usuario_tres = @id_usuario  WHERE cve_control = @cve_control`;
-        }else
+        } else
           throw generateError(201, `La propuesta con clave de control ${propuesta.cve_control} ya tiene su número maximo de autorizaciones (${propuesta.nivel_autorizacion})`);
 
         console.log("query autorizarPropuestas: ", query)
@@ -391,87 +394,6 @@ export const rechazarPropuestas = async (req, res) => {//ok
   }
 }
 
-
-
-
-export const autorizarPropuestas2 = async (req, res) => {
-  const connection = await pool.getConnection(); //la conexion se usa para poder trabajar con transacciones
-  try {
-    const { propuestas, id_usuario } = req.body;
-
-    // Obtenemos las claves de control
-    const clavesControl = propuestas.map(propuesta => propuesta.cve_control);
-
-
-    // Validar si alguna propuesta no tiene `usuario_uno`
-    const [validacion1] = await connection.query(
-      `SELECT cve_control FROM propuestas 
-       WHERE cve_control IN (?) AND usuario_uno IS NULL`,
-      [clavesControl]
-    );
-    if (validacion1.length > 0) {
-      return res.status(400).json({
-        SUCCESS: false,
-        MESSAGE: `La propuesta ${validacion1[0].cve_control} no tiene la primera autorización`,
-      });
-    }
-
-    // Validar si alguna propuesta ha cambiado
-    const cambios = propuestas.map(propuesta => [
-      propuesta.cve_control,
-      propuesta.importe,
-      propuesta.id_chequera,
-      propuesta.nivel_autorizacion,
-      propuesta.usuario_uno,
-      propuesta.usuario_dos,
-      propuesta.usuario_tres,
-    ]);
-
-    const [validacion2] = await connection.query(
-      `SELECT cve_control FROM propuestas 
-       WHERE (cve_control, importe, id_chequera, nivel_autorizacion, usuario_uno, usuario_dos, usuario_tres) 
-       NOT IN (?)`,
-      [cambios]
-    );
-
-    if (validacion2.length > 0) {
-      return res.status(400).json({
-        SUCCESS: false,
-        MESSAGE: `La propuesta ${validacion2[0].cve_control} ha cambiado en alguno de sus campos, favor de revisarla nuevamente`,
-      });
-    }
-
-    // Preparar actualizaciones
-    const updates = propuestas.map(propuesta => {
-      const usuarioCampo = propuesta.usuario_dos === null ? 'usuario_dos' : 'usuario_tres';
-      return {
-        query: `UPDATE propuestas SET status = 1, ${usuarioCampo} = ? WHERE cve_control = ?`,
-        params: [id_usuario, propuesta.cve_control],
-      };
-    });
-
-    // Ejecutar todas las actualizaciones
-    // Iniciar transacción
-    await connection.beginTransaction();
-
-    for (const update of updates) {
-      await connection.query(update.query, update.params);
-    }
-
-    // Confirmar transacción
-    await connection.commit();
-
-    res.json({ SUCCESS: true, MESSAGE: "" });
-
-  } catch (error) {
-    await connection.rollback();
-    console.error("Error en autorizarPropuestas2:", error);
-    return res.status(500).json({ SUCCESS: false, MESSAGE: "Error en el servidor" });
-  } finally {
-    connection.release();
-  }
-}
-
 async function getEmpresasAsignadas(connection, clave_usuario) {
   const queryEmpresas = `
     SELECT empresas
@@ -498,4 +420,27 @@ async function getEmpresasAsignadas(connection, clave_usuario) {
   }
 
   return empresasUsuario;
+}
+
+
+//ELIMINA PROPUESTAS QUE SU FECHA SEA MENOR A UNA SEMANA
+export const eliminaPropuestasAntiguas = async () => {
+  const connection = await pool;
+  const transaction = new sql.Transaction(connection);
+  try {
+    transaction.begin();
+
+    const responseDeletePropuestas = await connection.query(`DELETE propuestas WHERE fec_propuesta < DATEADD(DAY,-7,CURRENT_TIMESTAMP)`);
+    console.log("propuestas eliminadas: "+responseDeletePropuestas.rowsAffected[0])
+
+    const responseDeleteDetallePropuestas = await connection.query(`DELETE detalle_propuestas WHERE fec_propuesta < DATEADD(DAY,-7,CURRENT_TIMESTAMP)`);
+    console.log("detalle propuestas eliminadas: "+responseDeleteDetallePropuestas.rowsAffected[0])
+
+    transaction.commit();
+    return true;
+  } catch (error) {
+    await transaction.rollback();
+    console.error("Error en eliminaPropuestasAntiguas:", error);
+    return false;
+  }
 }
